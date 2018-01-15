@@ -65,6 +65,7 @@ class DefaultController extends Controller
 
     public function servicioAction($servicio, $_locale, Request $request)
     {
+
     	$message = new Message();
     	$form = $this->createForm(new MessageType(), $message);
 
