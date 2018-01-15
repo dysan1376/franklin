@@ -1,0 +1,195 @@
+{% extends 'PortadaBundle:Default:index.html.twig' %}
+
+{% block title %}
+<!-- Title -->
+<title>Dr. Franklin Alvear | Vaginoplastia</title>
+{% endblock %}
+
+{% block opengraph %}
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="Vaginoplastia">
+<meta itemprop="description" content="El ensanchamiento vaginal se produce normalmente por el paso natural de los años, y por motivos como un parto, relaciones sexuales o la propia flacidez corporal causada por la distensión de los ligamentos que la sujetan.">
+<meta itemprop="image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/vaginoplastia-service01.jpg">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dr_franklear">
+<meta name="twitter:title" content="Vaginoplastia">
+<meta name="twitter:description" content="El ensanchamiento vaginal se produce normalmente por el paso natural de los años, y por motivos como un parto, relaciones sexuales o la propia flacidez corporal causada por la distensión de los ligamentos que la sujetan.">
+<meta name="twitter:creator" content="@dr_franklear">
+<!-- Twitter summary card with large image must be at least 280x150px -->
+<meta name="twitter:image:src" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/vaginoplastia-service01.jpg">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="Vaginoplastia" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="{{ app.request.uri }}" />
+<meta property="og:image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/vaginoplastia-service01.jpg" />
+<meta property="og:description" content="El ensanchamiento vaginal se produce normalmente por el paso natural de los años, y por motivos como un parto, relaciones sexuales o la propia flacidez corporal causada por la distensión de los ligamentos que la sujetan." />
+<meta property="og:site_name" content="franlkinalvear" />
+<meta property="fb:app_id" content="1522670851135903" />
+{% endblock %}
+
+{% block snippets %}
+<!-- rich snippets -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "name": "Vaginoplastia",
+        "image": [
+            "https://franklinalvear.com/bundles/portada/img/photos/doctor/vaginoplastia-service01.jpg",
+            "https://franklinalvear.com/bundles/portada/img/photos/doctor/vaginoplastia-service02.jpg"
+        ],
+        "description": "El ensanchamiento vaginal se produce normalmente por el paso natural de los años, y por motivos como un parto, relaciones sexuales o la propia flacidez corporal causada por la distensión de los ligamentos que la sujetan.",
+        "brand": [{
+            "@type": "Thing",
+            "name": "Franklin Alvear",
+            "description": "Franklin Alvear Cirujano Plástico y Estético",
+            "url": "https://franklinalvear.com",
+            "image": "https://franklinalvear.com/bundles/portada/img/franklin_icon.png"
+        }],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "158"
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": "500.00",
+            "priceValidUntil": "2018-06-30",
+            "availability": "https://franklinalvear.com/vaginoplastia",
+            "seller": {
+                "@type": "Organization",
+                "name": "Franklin Alvear",
+                "url": "https://franklinalvear.com",
+                "logo": "https://franklinalvear.com/bundles/portada/img/franklin_icon.png",
+                "email": "franklin@hospi.me"
+            }
+        }
+    }
+</script>
+{% endblock %}
+
+{% block bodyclass %}
+<body class="navigation-panel page-scrolling">
+{% endblock %}
+
+{% block navigation %}
+<!-- Navigation -->
+<nav id="navigation" class="navigation-panel light">
+
+    <div class="navigation-inner">
+        <!-- Navigation Primary -->
+        <ul class="nav nav-primary-panel">
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
+        </ul>
+    </div>
+    
+</nav>
+<!-- Navigation / End -->
+{% endblock %}
+
+{% block content %}
+<!-- Content -->
+<div id="content" data-scheme="light">
+    
+    <!-- Section - Image -->
+    <section class="section section-case-study-header text-center light" data-scheme="light">
+        <!-- BG Image -->
+        <div class="bg-image-container overlay-bottom light">
+            <img src="{{ asset('bundles/portada/img/photos/doctor/project-cover.jpg') }}" alt="Franklin Alvear cirujano plástico">
+        </div>
+    </section>
+
+    <!-- Section - Description -->
+    <section class="section light" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container-slim">
+                <h1 class=" display-4 mb-0">Vaginoplastia</h1>
+                <p class="lead text-muted">Estrechamiento vaginal</p>
+                <p class="lead">El ensanchamiento vaginal se produce normalmente por el paso natural de los años, y por motivos como un parto, relaciones sexuales o la propia flacidez corporal causada por la distensión de los ligamentos que la sujetan.</p>
+            </div>
+            <!-- Image -->
+            <div class="container pt-5 pb-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <figure>
+                            <img src="{{ asset('bundles/portada/img/photos/doctor/vaginoplastia-service01.jpg') }}" class="figure-img rounded" alt="Vaginoplastia antes">
+                        </figure>
+                    </div>
+                    <div class="col-md-6">
+                        <figure>
+                            <img src="{{ asset('bundles/portada/img/photos/doctor/vaginoplastia-service02.jpg') }}" class="figure-img rounded" alt="Vaginoplastia después">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <!-- Text -->
+            <div class="container-slim">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="mb-sm-0">Gracias al estrechamiento del canal vaginal, también conocido como vaginoplastia, se logra una mejora estético-funcional de la zona íntima para recuperar la sensibilidad perdida, aumentar la satisfacción durante el acto sexual y devolver la seguridad en un importante aspecto de su vida. </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-sm-0">La vaginoplastia o estrechamiento vaginal recupera el tono del músculo de la vagina y mejora el control sobre la misma. Reduce el diámetro interno y también el externo de la vagina, fortaleciendo toda la zona perineal.  </p>
+                    </div>
+                </div>
+                <hr class="hr-lg">
+                <p>El estrechamiento vaginal resulta ser una operación con resultados definitivos. Tiene una rápida recuperación y con ella se obtienen numerosos beneficios. Mejora las relaciones sexuales, no interfiere en partos posteriores, ayuda a recuperar la autoestima de la paciente. </p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Pricing -->
+    <section id="pricing" class="section" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-header-indicator"></span>
+                    <div class="section-header-content"><span class="typing">Precios</span></div>
+                </div>
+                <div class="row no-gutters">
+                    <!-- Pricing Table -->
+                    <div class="pricing-table featured col-md-6 mx-auto">
+                        <div class="pricing-table-header">
+                            <h5 class="title">Vaginoplastia</h5>
+                            <span class="caption text-muted">Estrechamiento vaginal</span>
+                        </div>
+                        <div class="pricing-table-price">
+                            <span class="price"><span>$</span>500 - <span>$</span>800</span>
+                        </div>
+                        <ul class="pricing-table-list">
+                            <li>Honorarios del cirujano</li>
+                            <li>Honorarios de los ayudantes</li>
+                            <li>Honorarios del anestesiólogo</li>
+                        </ul>
+                        <div class="pricing-table-price">
+                            <span class="caption text-muted">
+                            *El precio no incluye el costo del centro quirúrgico y hospedaje los cuales pueden variar de $800 a $1200 dependendiendo de la clínica de elección.</span>
+                        </div>
+                        <div class="pricing-table-submit" data-local-scroll>
+                            <a href="{{ path('portada_homepage') }}#schedule" class="btn btn-primary-animated btn-block">{{"portada.agendar_cita"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+<!-- Content / End -->
+{% endblock %}

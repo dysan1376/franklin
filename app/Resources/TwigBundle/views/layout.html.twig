@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error | hospi.me</title>
+    <style>
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+
+    .bg {
+        /* The image used */
+        background-image: url("{{asset('img/mail/unsubscribe.jpg')}}");
+
+        /* Full height */
+        height: 100%; 
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .description {
+        color: #fcfcfc;
+        padding-top: 20px;
+        padding-left: 20px;
+        font-family: Arial;
+        font-size: 25px;
+    }
+    .response {
+    	color: #bdbdbd;
+        font-family: Arial;
+        font-size: 15px;
+    }
+    .button {
+    	background-color: #a4331b; /* Green */
+	    border: none;
+	    color: white;
+	    padding: 15px 32px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+	    border-radius: 4px;
+    }
+    </style>
+</head>
+<body>
+
+<div class="bg">
+    <div class="description">
+    	{% block body %}{% endblock %}
+    </div>
+</div>
+
+
+</body>
+</html>

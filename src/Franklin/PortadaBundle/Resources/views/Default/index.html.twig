@@ -1,0 +1,876 @@
+{% extends '::main.html.twig' %}
+
+{% block navigation %}
+<!-- Navigation -->
+<nav id="navigation" class="navigation-panel light">
+
+    <div class="navigation-inner">
+        <!-- Navigation Primary -->
+        <ul class="nav nav-primary-panel">
+            <li class="nav-item"><a href="#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
+            <li class="nav-item"><a href="#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
+            <li class="nav-item"><a href="#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
+            <li class="nav-item"><a href="#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
+            <li class="nav-item"><a href="#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
+        </ul>
+    </div>
+    
+</nav>
+<!-- Navigation / End -->
+{% endblock %}
+
+{% block content %}
+<!-- Content -->
+<div id="content">
+
+    <!-- Section - Start -->
+    <section id="start" class="section section-home-parallax fullheight dark bg-dark mouse-parallax" data-scheme="dark" data-local-scroll>
+
+        <!-- BG Video -->
+        <div class="bg-video" data-property="{videoURL:'https://youtu.be/I3Zbj4rJhko', showControls: false, containment:'self',mute:true,autoPlay:true,loop:true,opacity:.6}"></div>
+        <!-- BG Image -->
+        <div class="bg-image-container bg-video-placeholder"><img src="{{ asset('bundles/portada/img/photos/doctor/franklin.jpg') }}" alt="Franklin Alvear Cirujano Plástico"></div>
+
+        <!-- Section Content -->
+        <div class="section-content pos-v-center">
+            <div class="container" data-local-scroll>
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <img style="display:none;" src="{{ asset('bundles/portada/img/svg/sign.svg') }}" width="360" alt="Firma Franklin Alvear" class="mb-5 animated" data-animation="fadeIn">
+                        <h1 class="display-3 mb-1">Franklin Alvear</h1>
+                        <h2 class="text-muted mb-5">{{"portada.cirujano_plastico_estetico"|trans}} </h2>
+                        <a href="#schedule" class="btn btn-primary btn-lg"><i class="fa fa-calendar i-before"></i>{{"portada.agendar_cita"|trans}}</a>
+                        <a href="#services" class="btn btn-link btn-lg">{{"portada.cirugias_procedimientos"|trans}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Resume -->
+    <section id="resume" class="section" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container-slim">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <img src="{{ asset('bundles/portada/img/photos/doctor/avatar-sm.jpg') }}" alt="Franklin Alvear Avatar" class="section-header-image">
+                    <div class="section-header-content"><span class="typing">{{"portada.hoja_vida"|trans}} </span></div>
+                </div>
+                <!-- Resume - About -->
+                <div class="resume-box" data-local-scroll>
+                    <p class="lead text-lg">{{"portada.introduccion"|trans}}</p>
+                    <p class="lead">
+                        {{"portada.intro_detalle_one"|trans}}<br><br>
+                        {{"portada.intro_detalle_two"|trans}}<br>
+                    <br>
+                    {{"portada.necesita_ayuda"|trans}}
+                    </p> 
+                    <a href="#schedule" class="btn btn-primary"><i class="fa fa-calendar i-before"></i>{{"portada.agendar_cita"|trans}}</a>
+                </div>
+                <!-- Resume - Education & Jobs -->
+                <div class="resume-box image-edge text-center">
+                    <h5 class="mb-5">{{"portada.trabajos_educacion"|trans}}</h5>
+                    <div class="row">
+                        <div class="col-md-10 push-md-1">
+                            <!-- Image -->
+                            <div class="image left">
+                                <img src="{{ asset('bundles/portada/img/items/glasses2.png') }}" alt="Cirugía Plástica Quito" class="animated" data-animation="fadeInLeft">
+                            </div>
+                            <!-- Image -->
+                            <div class="image right">
+                                <img src="{{ asset('bundles/portada/img/items/fonendoscopio.png') }}" alt="Cirugía Estética Quito" class="animated" data-animation="fadeInRight"> 
+                            </div>
+                            <!-- Timeline -->
+                            <div class="timeline">
+                                <!-- Timeline Event -->
+                                <div class="timeline-event">
+                                    <div class="timeline-event-point"></div>
+                                    <div class="timeline-event-date">2012</div>
+                                    <div class="timeline-event-content">
+                                        <h5 class="timeline-event-title">{{"portada.medico_general"|trans}}</h5>
+                                        <span class="timeline-event-caption text-muted">Escuela Superior Politécnica del Chimborazo - Riobamba</span>
+                                    </div>
+                                </div>
+                                <!-- Timeline Event -->
+                                <div class="timeline-event">
+                                    <div class="timeline-event-point"></div>
+                                    <div class="timeline-event-date">2012</div>
+                                    <div class="timeline-event-content">
+                                        <h5 class="timeline-event-title">Médico Residente Cirugía General</h5>
+                                        <span class="timeline-event-caption text-muted">Hospital Abel Guilbert Pontón - Hospital Móvil 01 Guayaquil</span>
+                                    </div>
+                                </div>
+                                <!-- Timeline Event -->
+                                <div class="timeline-event">
+                                    <div class="timeline-event-point"></div>
+                                    <div class="timeline-event-date">2013</div>
+                                    <div class="timeline-event-content">
+                                        <h5 class="timeline-event-title">Médico Residente Emergencias</h5>
+                                        <span class="timeline-event-caption text-muted">UTIM - Quito</span>
+                                    </div>
+                                </div>
+                                <!-- Timeline Event -->
+                                <div class="timeline-event">
+                                    <div class="timeline-event-point"></div>
+                                    <div class="timeline-event-date">2013</div>
+                                    <div class="timeline-event-content">
+                                        <h5 class="timeline-event-title">Médico Ocupacional</h5>
+                                        <span class="timeline-event-caption text-muted">Hilsea Investments - Quito</span>
+                                    </div>
+                                </div>
+                                <!-- Timeline Event -->
+                                <div class="timeline-event">
+                                    <div class="timeline-event-point"></div>
+                                    <div class="timeline-event-date">2014</div>
+                                    <div class="timeline-event-content">
+                                        <!--img src="{{ asset('bundles/portada/img/logotypes/envato.svg') }}" width="90" class="mb-4" alt=""-->
+                                        <h5 class="timeline-event-title">Médico Residente Ginecología</h5>
+                                        <span class="timeline-event-caption text-muted">Clínica de la Mujer - Quito</span>
+                                    </div>
+                                </div>
+                                <!-- Timeline Event -->
+                                <div class="timeline-event">
+                                    <div class="timeline-event-point"></div>
+                                    <div class="timeline-event-date">2015</div>
+                                    <div class="timeline-event-content">
+                                        <h5 class="timeline-event-title">Fundador del Hospital Digital hospi.me</h5>
+                                        <span class="timeline-event-caption text-muted">hospi.me © 2015 - 2018</span>
+                                    </div>
+                                </div>
+                                <!-- Timeline Event -->
+                                <div class="timeline-event">
+                                    <div class="timeline-event-point"></div>
+                                    <div class="timeline-event-date">2016 </div>
+                                    <div class="timeline-event-content">
+                                        <h5 class="timeline-event-title">Postgrado Cirugía Plástica y Estética</h5>
+                                        <span class="timeline-event-caption text-muted">Universidade Redentor - Rio de Janeiro</span>
+                                    </div>
+                                </div>
+                                <!-- Timeline Event -->
+                                <div class="timeline-event">
+                                    <div class="timeline-event-point"></div>
+                                    <div class="timeline-event-date">2016</div>
+                                    <div class="timeline-event-content">
+                                        <!--img src="{{ asset('bundles/portada/img/logotypes/envato.svg') }}" width="90" class="mb-4" alt=""-->
+                                        <h5 class="timeline-event-title">Diplomado Seguridad del Paciente</h5>
+                                        <span class="timeline-event-caption text-muted">Politécnico Superior de Colombia - Medellín</span>
+                                    </div>
+                                </div>
+                                <!-- Timeline Event -->
+                                <div class="timeline-event">
+                                    <div class="timeline-event-point"></div>
+                                    <div class="timeline-event-date">2017</div>
+                                    <div class="timeline-event-content">
+                                        <h5 class="timeline-event-title">Miembro activo</h5>
+                                        <span class="timeline-event-caption text-muted">Sociedad Brasilera de Medicina y Cirugía Plástica y Estética - Rio de Janeiro</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resume - Languages -->
+                <div class="resume-box image-edge row">
+                    <div class="col-md-7 push-md-5">
+                        <!-- Image -->
+                        <div class="image left">
+                            <img src="{{ asset('bundles/portada/img/items/languages.png') }}" alt="Franklin Alvear idiomas" class="animated" data-animation="fadeInLeft">
+                        </div>
+                        <h5 class="mb-5">{{"portada.idiomas"|trans}}</h5>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- Chart -->
+                                <div class="single-chart">
+                                    <div class="chart" data-bar-color="#1E8DEE" data-track-color="#EEEEEE" data-percent="100">
+                                        <div class="chart-content">
+                                            <span class="value"><span>5</span>/5</span>
+                                            <h6 class="title">{{"portada.espanol"|trans}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <!-- Chart -->
+                                <div class="single-chart">
+                                    <div class="chart" data-bar-color="#1E8DEE" data-track-color="#EEEEEE" data-percent="100">
+                                        <div class="chart-content">
+                                            <span class="value"><span>5</span>/5</span>
+                                            <h6 class="title">{{"portada.english"|trans}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <!-- Chart -->
+                                <div class="single-chart">
+                                    <div class="chart" data-bar-color="#1E8DEE" data-track-color="#EEEEEE" data-percent="100">
+                                        <div class="chart-content">
+                                            <span class="value"><span>5</span>/5</span>
+                                            <h6 class="title">{{"portada.portugues"|trans}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <!-- Chart -->
+                                <div class="single-chart">
+                                    <div class="chart" data-bar-color="#1E8DEE" data-track-color="#EEEEEE" data-percent="80">
+                                        <div class="chart-content">
+                                            <span class="value"><span>4</span>/5</span>
+                                            <h6 class="title">{{"portada.italiano"|trans}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resume - Hobbies & Interests -->
+                <div class="resume-box image-edge text-center">
+                    <h5 class="mb-5">{{"portada.hobbies_intereses"|trans}}</h5>
+                    <!-- Image -->
+                    <div class="image right">
+                        <img src="{{ asset('bundles/portada/img/items/syringe.png') }}" alt="Franklin Alvear intereses" class="animated" data-animation="fadeInRight">
+                    </div>
+                    <!-- Hobby -->
+                    <div class="hobby">
+                        <div class="hobby-image">
+                            <div class="bg-image-container"><img src="{{ asset('bundles/portada/img/photos/hobby01.jpg') }}" alt="Franklin Alvear hospi.me"></div>
+                        </div>
+                        <div class="hobby-image-hover">
+                            <div class="bg-image-container"><img src="{{ asset('bundles/portada/img/photos/hobby01-hover.jpg') }}" alt="Franklin Alvear hospi.me"></div>
+                        </div>
+                        <div class="hobby-body">
+                            <div class="hobby-content">
+                                <h4 class="hobby-title">hospi.me</h4>
+                                <span class="hobby-caption">{{"portada.hospital_digital"|trans}}</span>
+                            </div>
+                            <a href="https://hospi.me" target="_blank"><button class="hobby-btn btn btn-info btn-sm"><i class="fa fa-user-md"></i>{{"portada.revisa_hospime"|trans}}</button></a>
+                        </div>
+                    </div>
+                    <!-- Hobby -->
+                    <div class="hobby">
+                        <div class="hobby-image">
+                            <div class="bg-image-container"><img src="{{ asset('bundles/portada/img/photos/hobby02.jpg') }}" alt="Franklin Alvear Spotify"></div>
+                        </div>
+                        <div class="hobby-image-hover">
+                            <div class="bg-image-container"><img src="{{ asset('bundles/portada/img/photos/hobby02-hover.jpg') }}" alt="Franklin Alvear Spotify"></div>
+                        </div>
+                        <div class="hobby-body">
+                            <div class="hobby-content">
+                                <h4 class="hobby-title">{{"portada.musica"|trans}}</h4>
+                                <span class="hobby-caption">{{"portada.tipos_musica"|trans}}</span>
+                            </div>
+                            <a href="https://open.spotify.com/user/12139324558" target="_blank"><button class="hobby-btn btn btn-secondary btn-sm"><i class="fa fa-spotify"></i>{{"portada.revisa_spotify"|trans}}</button></a>
+                        </div>
+                    </div>
+                    <!-- Hobby -->
+                    <div class="hobby">
+                        <div class="hobby-image">
+                            <div class="bg-image-container"><img src="{{ asset('bundles/portada/img/photos/hobby03.jpg') }}" alt="Franklin Alvear Instagram"></div>
+                        </div>
+                        <div class="hobby-image-hover">
+                            <div class="bg-image-container"><img src="{{ asset('bundles/portada/img/photos/hobby03-hover.jpg') }}" alt="Franklin Alvear Instagram"></div>
+                        </div>
+                        <div class="hobby-body">
+                            <div class="hobby-content">
+                                <h4 class="hobby-title">{{"portada.pintura"|trans}}</h4>
+                                <span class="hobby-caption">{{"portada.tipos_pintura"|trans}}</span>
+                            </div>
+                            <a href="https://www.instagram.com/franklin_alvear" target="_blank"><button class="hobby-btn btn btn-instagram btn-sm"><i class="fa fa-instagram"></i>{{"portada.revisa_instagram"|trans}}</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Services -->
+    <section id="services" class="section bg-light" data-scheme="light">
+        
+        <!-- BG Image -->
+        <div class="bg-image-container zooming"><img src="{{ asset('bundles/portada/img/photos/doctor/home01.jpg') }}" alt="Franklin Alvear Cirugías y Procedimientos"></div>
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <img src="{{ asset('bundles/portada/img/photos/doctor/avatar-sm.jpg') }}" alt="Franklin Alvear Avatar" class="section-header-image">
+                    <div class="section-header-content"><span class="typing">{{"portada.como_puedo_ayudar"|trans}}</span></div>
+                </div>
+
+                <div class="resume-box image-edge text-center">
+                    <h5 class="mb-5">{{"portada.no_quirurgicos"|trans}}</h5>
+                </div>
+
+                <div class="card-deck" data-local-scroll>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/botox.jpg') }}" alt="Botox" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.botox"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.botox_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'botox'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/ac_hialuronico.jpg') }}" alt="Acido Hialuronico" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.ac_hialuronico"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.ac_hialuronico_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'acido-hialuronico'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/hilos.jpg') }}" alt="Hilos de sustentacion" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.hilos"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.hilos_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'hilos-de-sustentacion-facial'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div class="resume-box image-edge text-center">
+                    <h5 class="mb-5">{{"portada.cirugia_rostro"|trans}}</h5>
+                </div>
+                
+                <div class="card-deck" data-local-scroll>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/facelift.jpg') }}" alt="Lifting facial" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.lifting_facial"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.lifting_facial_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'lifting-facial'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/endoscopico.jpg') }}" alt="Lifting facial endoscopico" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.endoscopico"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.endoscopico_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'lifting-facial-endoscopico'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/blefaroplastia.jpg') }}" alt="Blefaroplastia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.blefaroplastia"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.blefaroplastia_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'blefaroplastia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-deck" data-local-scroll>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/rinoplastia.jpg') }}" alt="Rinoplastia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.rinoplastia"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.rinoplastia_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'rinoplastia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/cervical.jpg') }}" alt="Cervicoplastia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.cervical"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.cervical_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'cervicoplastia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/mentoplastia.jpg') }}" alt="Mentoplastia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.mentoplastia"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.mentoplastia_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'mentoplastia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-deck" data-local-scroll>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/bichectomia.jpg') }}" alt="Bichectomia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.bichectomia"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.bichectomia_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'bichectomia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/otoplastia.jpg') }}" alt="Otoplastia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.otoplastia"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.otoplastia_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'otoplastia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/frontoplastia.jpg') }}" alt="Frontoplastia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.frontoplastia"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.frontoplastia_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'frontoplastia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div class="resume-box image-edge text-center">
+                    <h5 class="mb-5">{{"portada.cirugia_busto"|trans}}</h5>
+                </div>
+
+                <div class="card-deck" data-local-scroll>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/implantes.jpg') }}" alt="Implantes mamarios" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.implantes"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.implantes_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'implantes-mamarios'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/mastopexia.jpg') }}" alt="Mastopexia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.mastopexia"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.mastopexia_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'mastopexia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/reductora.jpg') }}" alt="Reduccion mamaria" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.reductora"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.reductora_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'mamoplastia-reductora'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div class="resume-box image-edge text-center">
+                    <h5 class="mb-5">{{"portada.corporal"|trans}}</h5>
+                </div>
+
+                <div class="card-deck" data-local-scroll>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/lipo.jpg') }}" alt="Liposuccion" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.lipo"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.lipo_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'liposuccion-lipoescultura'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/abdominoplastia.jpg') }}" alt="Abdominoplastia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.abdominoplastia"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.abdominoplastia_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'abdominoplastia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/braquial.jpg') }}" alt="Braquioplastia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.braquial"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.braquial_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'braquioplastia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-deck" data-local-scroll>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/gluteo.jpg') }}" alt="Implante gluteo" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.gluteo"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.gluteo_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'implante-gluteo'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/trasero.jpg') }}" alt="Trasero brasilero" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.trasero"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.trasero_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'trasero-brasilero'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/pantorrilla.jpg') }}" alt="Implante de pantorrilla" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.pantorrilla"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.pantorrilla_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'implante-pantorrillas'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div class="resume-box image-edge text-center">
+                    <h5 class="mb-5">{{"portada.intima"|trans}}</h5>
+                </div>
+
+                <div class="card-deck" data-local-scroll>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/ninfoplastia.jpg') }}" alt="Labiaplastia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.ninfoplastia"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.ninfoplastia_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'ninfoplastia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/pubis.jpg') }}" alt="Liposuccion de pubis" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.pubis"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.pubis_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'liposuccion-del-monte-de-venus'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/estrechamiento.jpg') }}" alt="Vaginoplastia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.estrechamiento"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.estrechamiento_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'vaginoplastia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div class="resume-box image-edge text-center">
+                    <h5 class="mb-5">{{"portada.masculina"|trans}}</h5>
+                </div>
+
+                <div class="card-deck" data-local-scroll>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/capilar.jpg') }}" alt="Transplante capilar" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.capilar"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.capilar_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'microinjerto-capilar'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/barba.jpg') }}" alt="Transplante de barba" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.barba"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.barba_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'microinjerto-barba'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/ginecomastia.jpg') }}" alt="Ginecomastia" class="card-img-top animated" data-animation="fadeIn">
+                        <div class="card-block">
+                            <h5 class="card-title">{{"portada.ginecomastia"|trans}}</h5>
+                            <p class="card-text text-sm text-muted">{{"portada.ginecomastia_descripcion"|trans}}</p>
+                            <a href="{{ path('portada_servicio', {'servicio': 'ginecomastia'}) }}" class="btn btn-outline-primary">{{"portada.leer_mas"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Schedule -->
+    <section id="schedule" class="section" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container image-edge image-edge-close">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <img src="{{ asset('bundles/portada/img/photos/doctor/avatar-sm.jpg') }}" alt="Franklin Alvear avatar" class="section-header-image">
+                    <div class="section-header-content"><span class="typing">{{"portada.mi_agenda_semanal"|trans}}</span></div>
+                </div>
+                <!-- Schedule -->
+                <div class="schedule-container">
+                    <a style="color:inherit;" href="https://hospi.me/calendario/cita/user/1" target="_blank"><div class="schedule">
+                        <h5 class="schedule-header">{{"portada.lunes"|trans}}</h5>
+                        
+                        <div class="schedule-item">
+                            <span class="time">15:00 - 18:00</span>
+                            <span class="title">Clínica Integral</span>
+                            <span class="caption">{{"portada.controles"|trans}}<br>{{"portada.consultas"|trans}}</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">18:00 - 19:00</span>
+                            <span class="title">Clínica Integral</span>
+                            <span class="caption">{{"portada.ambulatorio"|trans}}</span>
+                        </div>
+                    </div></a>
+                    <a style="color:inherit;" href="https://hospi.me/calendario/cita/user/1" target="_blank"><div class="schedule">
+                        <h5 class="schedule-header">{{"portada.martes"|trans}}</h5>
+                        <div class="schedule-item">
+                            <span class="time">15:00 - 18:00</span>
+                            <span class="title">Clínica de la mujer</span>
+                            <span class="caption">{{"portada.controles"|trans}}<br>{{"portada.consultas"|trans}}</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">18:00 - 19:00</span>
+                            <span class="title">Clínica de la mujer</span>
+                            <span class="caption">{{"portada.ambulatorio"|trans}}</span>
+                        </div>
+                    </div></a>
+                    <a style="color:inherit;" href="https://hospi.me/calendario/cita/user/1" target="_blank"><div class="schedule">
+                        <h5 class="schedule-header">{{"portada.miercoles"|trans}}</h5>
+                        <div class="schedule-item">
+                            <span class="time">15:00 - 18:00</span>
+                            <span class="title">Clínica de la mujer</span>
+                            <span class="caption">{{"portada.controles"|trans}}<br>{{"portada.consultas"|trans}}</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="time">18:00 - 19:00</span>
+                            <span class="title">Clínica de la mujer</span>
+                            <span class="caption">{{"portada.ambulatorio"|trans}}</span>
+                        </div>
+                    </div></a>
+                    <div class="schedule">
+                        <h5 class="schedule-header">{{"portada.jueves"|trans}}</h5>
+                        <div class="schedule-item">
+                            <span class="time">09:00 - 16:00</span>
+                            <span class="title">Clínica Integral</span>
+                            <span class="caption">{{"portada.dia_quirurgico"|trans}}</span>
+                        </div>
+                    </div>
+                    <div class="schedule">
+                        <h5 class="schedule-header">{{"portada.viernes"|trans}}</h5>
+                        <div class="schedule-item">
+                            <span class="time">09:00 - 16:00</span>
+                            <span class="title">Clínica de la mujer</span>
+                            <span class="caption">{{"portada.dia_quirurgico"|trans}}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image -->
+                <div class="image left">
+                    <img src="{{ asset('bundles/portada/img/items/syringe.png') }}" alt="Cirugía Plástica Quito" class="animated" data-animation="fadeInLeft">
+                </div>
+                <!-- Image -->
+                <div class="image right">
+                    <img src="{{ asset('bundles/portada/img/items/docs.png') }}" alt="Cirugía Estética Quito" class="animated" data-animation="fadeInRight"> 
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Case Studies -->
+    <section id="case-studies" class="section" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <img src="{{ asset('bundles/portada/img/photos/doctor/avatar-sm.jpg') }}" alt="Franklin Alvear avatar" class="section-header-image">
+                    <div class="section-header-content"><span class="typing">{{"portada.casos_recientes"|trans}}</span></div>
+                </div>
+            </div>
+            <div class="container-wide image-edge image-edge-close">
+                <!-- Image -->
+                <div class="image left">
+                    <img src="{{ asset('bundles/portada/img/items/docs.png') }}" alt="Cirugía" class="animated" data-animation="fadeInLeft">
+                </div>
+                <!-- Carousel -->
+                <div class="row carousel carousel-items" data-local-scroll data-slick='{
+                    "slidesToShow": 3, 
+                    "slidesToScroll": 1,
+                    "dots": true,
+                    "arrows": true,
+                    "responsive": [
+                        {
+                            "breakpoint": 991,
+                            "settings": {
+                                "slidesToShow": 2
+                            }
+                        },
+                        {
+                            "breakpoint": 575,
+                            "settings": {
+                                "slidesToShow": 1
+                            }
+                        }
+                    ]
+                    }'>
+                    <div class="carousel-item">    
+                        <!-- Image Box -->
+                        <figure class="image-box">
+                            <div class="image">
+                                <a href="case-study-doctor.html" data-toggle="ajax-modal">
+                                    <img src="{{ asset('bundles/portada/img/projects/project01.jpg') }}" alt="Mastopexia">
+                                    <img src="{{ asset('bundles/portada/img/projects/project01-hover.jpg') }}" alt="Mastopexia">
+                                </a>
+                            </div>
+                            <div class="content text-center">
+                                <h5 class="title"><a href="case-study-doctor.html" data-toggle="ajax-modal">{{"portada.caso1"|trans}}</a></h5>
+                                <span class="caption text-muted">{{"portada.caso1_descripcion"|trans}}</span>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="carousel-item">    
+                        <!-- Image Box -->
+                        <figure class="image-box">
+                            <div class="image">
+                                <a href="case-study-doctor.html" data-toggle="ajax-modal">
+                                    <img src="{{ asset('bundles/portada/img/projects/project02.jpg') }}" alt="Abdominoplastia">
+                                    <img src="{{ asset('bundles/portada/img/projects/project02-hover.jpg') }}" alt="Abdominoplastia">
+                                </a>
+                            </div>
+                            <div class="content text-center">
+                                <h5 class="title"><a href="case-study-doctor.html" data-toggle="ajax-modal">{{"portada.caso2"|trans}}</a></h5>
+                                <span class="caption text-muted">{{"portada.caso2_descripcion"|trans}}</span>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="carousel-item">    
+                        <!-- Image Box -->
+                        <figure class="image-box">
+                            <div class="image">
+                                <a href="case-study-doctor.html" data-toggle="ajax-modal">
+                                    <img src="{{ asset('bundles/portada/img/projects/project03.jpg') }}" alt="Rinoplastia">
+                                    <img src="{{ asset('bundles/portada/img/projects/project03-hover.jpg') }}" alt="Rinoplastia">
+                                </a>
+                            </div>
+                            <div class="content text-center">
+                                <h5 class="title"><a href="case-study-doctor.html" data-toggle="ajax-modal">{{"portada.caso3"|trans}}</a></h5>
+                                <span class="caption text-muted">{{"portada.caso3_descripcion"|trans}}</span>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="carousel-item">    
+                        <!-- Image Box -->
+                        <figure class="image-box">
+                            <div class="image">
+                                <a href="case-study-doctor.html" data-toggle="ajax-modal">
+                                    <img src="{{ asset('bundles/portada/img/projects/project04.jpg') }}" alt="Liposuccion">
+                                    <img src="{{ asset('bundles/portada/img/projects/project04-hover.jpg') }}" alt="Liposuccion">
+                                </a>
+                            </div>
+                            <div class="content text-center">
+                                <h5 class="title"><a href="case-study-doctor.html" data-toggle="ajax-modal">{{"portada.caso4"|trans}}</a></h5>
+                                <span class="caption text-muted">{{"portada.caso4_descripcion"|trans}}</span>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="carousel-item">    
+                        <!-- Image Box -->
+                        <figure class="image-box">
+                            <div class="image">
+                                <a href="case-study-doctor.html" data-toggle="ajax-modal">
+                                    <img src="{{ asset('bundles/portada/img/projects/project05.jpg') }}" alt="Implantes mamarios">
+                                    <img src="{{ asset('bundles/portada/img/projects/project05-hover.jpg') }}" alt="Implantes mamarios">
+                                </a>
+                            </div>
+                            <div class="content text-center">
+                                <h5 class="title"><a href="case-study-doctor.html" data-toggle="ajax-modal">{{"portada.caso5"|trans}}</a></h5>
+                                <span class="caption text-muted">{{"portada.caso5_descripcion"|trans}}</span>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Contact -->
+    <section id="contact" class="section section-contact fullheight bg-light" data-scheme="dark">
+
+        <!-- BG Map -->
+        <div id="google-map" class="bg-map bg-map-overlay" data-latitude="-0.16948114" data-longitude="-78.48439446" data-style="apple" data-marker="blue"></div>
+    
+        <!-- Section Content -->
+        <div class="section-content pos-v-center">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <img src="{{ asset('bundles/portada/img/photos/doctor/avatar-sm.jpg') }}" alt="Franklin Alvear avatar" class="section-header-image">
+                    <div class="section-header-content">
+                        <span class="typing">{{"portada.como_encontrarme"|trans}}</span>
+                        <div class="section-header-caption show-after-typing222">   
+                            <div class="module">
+                                <span class="mr-2">{{"portada.mostrar_mapa"|trans}}</span>
+                                <label class="selector">
+                                    <input type="checkbox" class="selector-input" data-toggle="contact-map">
+                                    <span class="selector-indicator"></span>
+                                </label>
+                            </div>
+                            <div class="module">
+                                <span class="mr-2">{{"portada.preguntas"|trans}}</span>
+                                <a href="mailto:franklin@hospi.me" class="btn btn-outline-primary btn-sm">{{"portada.envia_email"|trans}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section Contact -->
+                <div class="row section-contact-content pt-lg-5 pb-lg-5">
+                    <div class="col-md-4">
+                        <h6 class="text-muted mb-2">{{"portada.direccion"|trans}}:</h6>
+                        <address class="lead">
+                            Clínica de la mujer<br>
+                            Amazonas N39-216 y Gaspar de Villaroel<br><br>
+                            Clínica Integral<br>
+                            Pedregal N35-15 y Hernández de Girón<br>
+                        </address>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="text-muted mb-2">{{"portada.email"|trans}}:</h6>
+                        <p class="mb-5"><a href="mailto:franklin@hospi.me" class="lead link-inherit">franklin@hospi.me</a></p>
+                        <h6 class="text-muted mb-2">{{"portada.telefono"|trans}}:</h6>
+                        <a href="tel:+5930990459900" class="lead link-inherit">+593 09 9045 99 00</a>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="text-muted mb-2">{{"portada.redes_sociales"|trans}}:</h6>
+                        <a href="https://www.facebook.com/franklinalvear.cirugiaplastica" target="_blank" class="icon icon-circle icon-hover icon-sm icon-facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/dr_franklear" target="_blank" class="icon icon-circle icon-hover icon-sm icon-twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/franklin-alvear/" target="_blank" class="icon icon-circle icon-hover icon-sm icon-linkedin"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+<!-- Content / End -->
+{% endblock %}

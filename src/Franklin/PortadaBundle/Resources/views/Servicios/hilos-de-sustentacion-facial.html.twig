@@ -1,0 +1,195 @@
+{% extends 'PortadaBundle:Default:index.html.twig' %}
+
+{% block title %}
+<!-- Title -->
+<title>Dr. Franklin Alvear | Hilos de sustentación facial</title>
+{% endblock %}
+
+{% block opengraph %}
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="Hilos de sustentación facial">
+<meta itemprop="description" content="Los hilos de sustentación facial mejoran la definición del ovalo facial sin cirugía. Son biocompatibles y bioabsorvibles, se introducen en la piel mediante una aguja.">
+<meta itemprop="image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/hilos-service01.jpg">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dr_franklear">
+<meta name="twitter:title" content="Hilos de sustentación facial">
+<meta name="twitter:description" content="Los hilos de sustentación facial mejoran la definición del ovalo facial sin cirugía. Son biocompatibles y bioabsorvibles, se introducen en la piel mediante una aguja.">
+<meta name="twitter:creator" content="@dr_franklear">
+<!-- Twitter summary card with large image must be at least 280x150px -->
+<meta name="twitter:image:src" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/hilos-service01.jpg">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="Hilos de sustentación facial" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="{{ app.request.uri }}" />
+<meta property="og:image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/hilos-service01.jpg" />
+<meta property="og:description" content="Los hilos de sustentación facial mejoran la definición del ovalo facial sin cirugía. Son biocompatibles y bioabsorvibles, se introducen en la piel mediante una aguja." />
+<meta property="og:site_name" content="franlkinalvear" />
+<meta property="fb:app_id" content="1522670851135903" />
+{% endblock %}
+
+{% block snippets %}
+<!-- rich snippets -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "name": "Hilos de sustentación facial",
+        "image": [
+            "https://franklinalvear.com/bundles/portada/img/photos/doctor/hilos-service01.jpg",
+            "https://franklinalvear.com/bundles/portada/img/photos/doctor/hilos-service02.jpg"
+        ],
+        "description": "Los hilos de sustentación facial mejoran la definición del ovalo facial sin cirugía. Son biocompatibles y bioabsorvibles, se introducen en la piel mediante una aguja.",
+        "brand": [{
+            "@type": "Thing",
+            "name": "Franklin Alvear",
+            "description": "Franklin Alvear Cirujano Plástico y Estético",
+            "url": "https://franklinalvear.com",
+            "image": "https://franklinalvear.com/bundles/portada/img/franklin_icon.png"
+        }],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.6",
+            "reviewCount": "253"
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": "600.00",
+            "priceValidUntil": "2018-06-30",
+            "availability": "https://franklinalvear.com/hilos-de-sustentacion-facial",
+            "seller": {
+                "@type": "Organization",
+                "name": "Franklin Alvear",
+                "url": "https://franklinalvear.com",
+                "logo": "https://franklinalvear.com/bundles/portada/img/franklin_icon.png",
+                "email": "franklin@hospi.me"
+            }
+        }
+    }
+</script>
+{% endblock %}
+
+{% block bodyclass %}
+<body class="navigation-panel page-scrolling">
+{% endblock %}
+
+{% block navigation %}
+<!-- Navigation -->
+<nav id="navigation" class="navigation-panel light">
+
+    <div class="navigation-inner">
+        <!-- Navigation Primary -->
+        <ul class="nav nav-primary-panel">
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
+        </ul>
+    </div>
+    
+</nav>
+<!-- Navigation / End -->
+{% endblock %}
+
+{% block content %}
+<!-- Content -->
+<div id="content" data-scheme="light">
+    
+    <!-- Section - Image -->
+    <section class="section section-case-study-header text-center light" data-scheme="light">
+        <!-- BG Image -->
+        <div class="bg-image-container overlay-bottom light">
+            <img src="{{ asset('bundles/portada/img/photos/doctor/project-cover.jpg') }}" alt="Franklin Alvear cirujano plástico">
+        </div>
+    </section>
+
+    <!-- Section - Description -->
+    <section class="section light" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container-slim">
+                <h1 class=" display-4 mb-0">Hilos de sustentación facial</h1>
+                <p class="lead text-muted">Lifting facial no quirúrgico</p>
+                <p class="lead">Los hilos de sustentación facial mejoran la definición del ovalo facial sin cirugía. Son biocompatibles y bioabsorvibles, se introducen en la piel mediante una aguja, diseñada especialmente para este fin .Una vez introducidos los hilos traccionan y producen una tensión natural del tejido.  </p>
+            </div>
+            <!-- Image -->
+            <div class="container pt-5 pb-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <figure>
+                            <img src="{{ asset('bundles/portada/img/photos/doctor/hilos-service01.jpg') }}" class="figure-img rounded" alt="Hilos de sustentación antes">
+                        </figure>
+                    </div>
+                    <div class="col-md-6">
+                        <figure>
+                            <img src="{{ asset('bundles/portada/img/photos/doctor/hilos-service02.jpg') }}" class="figure-img rounded" alt="Hilos de sustentación después">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <!-- Text -->
+            <div class="container-slim">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="mb-sm-0">Los hilos de sustentación facial se colocan para conseguir reposicionamiento, frenar la caída y recoger la piel de la cara. El objetivo es reducir los signos de envejecimiento acompañado o no por productos de relleno.</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-sm-0">La implantación de hilos es un tratamiento complementario a otras técnicas como láser, bótox o bioestimulación y no tiene como intención suplantar el lifting quirúrgico, que estará indicado cuando se aprecia flacidez severa. Los resultados son rápidamente visibles y permanecen hasta por 5 años.</p>
+                    </div>
+                </div>
+                <hr class="hr-lg">
+                <p>Antes del tratamiento se determina la posición y dirección de los hilos en las áreas a tratar para lograr la mejor redefinición. El número de hilos que se colocan depende de cada paciente y caso, lo habitual son 2 por lado de cara.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Pricing -->
+    <section id="pricing" class="section" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-header-indicator"></span>
+                    <div class="section-header-content"><span class="typing">Precios</span></div>
+                </div>
+                <div class="row no-gutters">
+                    <!-- Pricing Table -->
+                    <div class="pricing-table featured col-md-6 mx-auto">
+                        <div class="pricing-table-header">
+                            <h5 class="title">Hilos de sustentación facial</h5>
+                            <span class="caption text-muted">Lifting facial no quirúrgico</span>
+                        </div>
+                        <div class="pricing-table-price">
+                            <span class="price"><span>$</span>600 - <span>$</span>800</span>
+                        </div>
+                        <ul class="pricing-table-list">
+                            <li>Honorarios del cirujano</li>
+                            <li>Hilos de sustentación</li>
+                            <li>Materiales e insumos médicos</li>
+                        </ul>
+                        <!-- <div class="pricing-table-price">
+                            <span class="caption text-muted">
+                            *El precio no incluye centro quirúrgico y hospedaje los cuales pueden variar de $1500 a $2000 dependendiendo de la clínica de elección.</span>
+                        </div> -->
+                        <div class="pricing-table-submit" data-local-scroll>
+                            <a href="{{ path('portada_homepage') }}#schedule" class="btn btn-primary-animated btn-block">{{"portada.agendar_cita"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+<!-- Content / End -->
+{% endblock %}

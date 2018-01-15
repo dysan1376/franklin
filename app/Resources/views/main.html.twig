@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+{% block meta %}
+<!-- Meta -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- set the keywords of you site -->
+<meta name="keywords" content="Franklin Alvear Cirujano Plástico, cirugía plástica quito, cirugía estética, cirugía plástica, medicina, medico, doctor">
+<!-- set the descritpion of you site -->
+<meta name="description" content="Dr. Franklin Alvear Cirujano Plástico y Estético Quito">
+<!-- set author of your site -->
+<meta name="author" content="Franklin Alvear">
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="QbcqWnO2SuhXUJcL6V_ShkjSFgEIGReTnv2V30FQ8WA" />
+<!-- hreflang tag -->
+<link rel="alternate" href="https://franklinalvear.com" hreflang="es" />
+<link rel="alternate" href="https://franklinalvear.com/es" hreflang="es" />
+<link rel="alternate" href="https://franklinalvear.com/pt" hreflang="pt" />
+<link rel="alternate" href="https://franklinalvear.com/en" hreflang="en" />
+{% endblock %}
+
+{% block opengraph %}
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="Franklin Alvear Cirujano Plástico">
+<meta itemprop="description" content="Franklin Alvear Cirujano Plástico">
+<meta itemprop="image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/franklin.jpg">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dr_franklear">
+<meta name="twitter:title" content="Franklin Alvear Cirujano Plástico">
+<meta name="twitter:description" content="Franklin Alvear Cirujano Plástico">
+<meta name="twitter:creator" content="@dr_franklear">
+<!-- Twitter summary card with large image must be at least 280x150px -->
+<meta name="twitter:image:src" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/franklin.jpg">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="Franklin Alvear Cirujano Plástico" />
+<meta property="og:type" content="profile" />
+<meta property="og:url" content="{{ app.request.uri }}" />
+<meta property="og:image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/franklin.jpg" />
+<meta property="og:description" content="Franklin Alvear Cirujano Plástico" />
+<meta property="og:site_name" content="franlkinalvear" />
+<meta property="fb:app_id" content="1522670851135903" />
+{% endblock %}
+
+{% block favicons %}
+<!-- Favicons -->
+<link rel="shortcut icon" href="{{ asset('bundles/portada/img/favicon.png') }}">
+<link rel="apple-touch-icon" href="{{ asset('bundles/portada/img/favicon_60x60.png') }}">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('bundles/portada/img/favicon_76x76.png') }}">
+<link rel="apple-touch-icon" sizes="120x120" href="{{ asset('bundles/portada/img/favicon_120x120.png') }}">
+<link rel="apple-touch-icon" sizes="152x152" href="{{ asset('bundles/portada/img/favicon_152x152.png') }}">
+{% endblock %}
+
+{% block title %}
+<!-- Title -->
+<title>Dr. Franklin Alvear | Cirugía Plástica</title>
+{% endblock %}
+
+{% block css %}
+<!-- CSS Plugins -->
+<link rel="stylesheet" href="{{ asset('bundles/portada/plugins/bootstrap/dist/css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('bundles/portada/plugins/animate.css/animate.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('bundles/portada/plugins/slick-carousel/slick/slick.css') }}" />
+
+<!-- CSS Icons -->
+<link rel="stylesheet" href="{{ asset('bundles/portada/css/themify-icons.css') }}" />
+<link rel="stylesheet" href="{{ asset('bundles/portada/plugins/font-awesome/css/font-awesome.min.css') }}" />
+
+<!-- CSS Base -->
+<link id="theme" rel="stylesheet" href="{{ asset('bundles/portada/css/themes/theme-blue.min.css') }}" />
+
+<!-- CSS Toastr -->
+<link rel="stylesheet" href="{{ asset('bundles/portada/css/toastr.min.css') }}">
+{% endblock %}
+
+{% block snippets %}
+<!-- rich snippets -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Person",
+        "name": "Franklin Alvear",
+        "jobTitle": "Cirujano Plástico",
+        "telephone": "(593)0990459900",
+        "url": "http://franklinalvear.com",
+        "email": "franklin@hospi.me",
+        "memberOf": [{
+            "@type": "Thing",
+            "name": "Sociedade Brasileira de Cirurgía Plástica e Estética",
+            "description": "",
+            "url": "http://www.sbmcpe.com.br/",
+            "image": "http://www.sbmcpe.com.br/wp-content/uploads/2016/09/15-anos-sbmcpe-peq.png"
+        }],
+        "brand": [{
+            "@type": "Thing",
+            "name": "hospi.me",
+            "description": "Hospital Digital",
+            "url": "https://hospi.me",
+            "image": "https://hospi.me/thumbnail.png"
+        }],
+        "owns": [{
+            "@type": "Thing",
+            "name": "hospi.me",
+            "description": "Hospital Digital",
+            "url": "https://hospi.me",
+            "image": "https://hospi.me/thumbnail.png"
+        }],
+        "sameAs": [
+            "https://www.facebook.com/franklinalvear.cirugiaplastica",
+            "https://twitter.com/dr_franklear",
+            "https://www.linkedin.com/in/franklin-alvear/",
+            "https://www.instagram.com/franklin_alvear"
+        ]
+    }
+</script>
+{% endblock %}
+
+</head>
+
+
+{% block bodyclass %}
+<body class="navigation-panel page-scrolling light-scheme">
+{% endblock %}
+
+{% block loader %}
+<!-- Loader -->
+<div id="page-loader">
+    <svg class="loader" viewBox="0 0 28 28">
+        <circle cx="14" cy="14" r="12" stroke-width="2"></circle>
+    </svg>
+</div>
+{% endblock %}
+
+{% block navigation %}
+<!-- Navigation -->
+<nav id="navigation" class="navigation-panel light">
+
+    <div class="navigation-inner">
+        <!-- Navigation Primary -->
+        <ul class="nav nav-primary-panel">
+            <li class="nav-item"><a href="#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
+            <li class="nav-item"><a href="#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
+            <li class="nav-item"><a href="#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
+            <li class="nav-item"><a href="#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
+            <li class="nav-item"><a href="#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
+        </ul>
+    </div>
+    
+</nav>
+<!-- Navigation / End -->
+{% endblock %}
+
+<!-- Navigation Toggle -->
+<a id="navigation-toggle" class="nav-toggle"><span></span><span></span><span></span><span></span></a>
+
+{% block content %}
+{% endblock %}
+
+{% block footer %}
+<!-- Footer -->
+<footer id="footer" class="bg-primary dark">
+
+    <div class="footer-content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-5 mb-md-0 text-center text-md-left">
+                    <!--p class="mb-2"><span class="typing">Would you like to get my CV in PDF?</span></p>
+                    <a href="#" class="btn btn-white btn-sm">Download my CV</a-->
+                </div>
+                <div class="spread-icons col-md-6 text-center text-md-right">
+                    <a href="https://www.facebook.com/franklinalvear.cirugiaplastica" target="_blank" class="icon icon-sm icon-muted icon-hover"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/dr_franklear" target="_blank" class="icon icon-sm icon-muted icon-hover"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/franklin-alvear/" target="_blank" class="icon icon-sm icon-muted icon-hover"><i class="fa fa-linkedin"></i></a>
+                    <p class="text-muted mt-3 mb-0">Franklin Alvear © 2018<br></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+<!-- Footer / End -->
+{% endblock %}
+
+{% block message %}
+<!-- Window - Message -->
+<div id="message-window" class="window window-primary">
+    <svg class="window-background" viewBox="0 0 1920 1080" preserveAspectRatio="none"></svg>
+    <div class="window-inner">
+        <section class="section dark">
+            <div class="section-content">
+                <div class="container-slim">
+                    <!-- Section Header -->
+                    <div class="section-header">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/avatar-sm.jpg') }}" alt="" class="section-header-image">
+                        <div class="section-header-content">
+                            <span class="typing">{{"portada.normalmente"|trans}}</span>
+                        </div>
+                    </div>
+                    <!-- Section Content -->
+                    <form class="form-horizontal" action="{{ path ('portada_homepage') }}" method="POST" {{ form_enctype(form) }} data-message-error="Opps... Something went wrong - please try again later"
+                    data-message-success="Thanks! You will recieve a responsve in 24h!" data-validate>
+                        {{ form_errors(form) }}
+                    <!--form class="contact-form"
+                    data-message-error="Opps... Something went wrong - please try again later"
+                    data-message-success="Thanks! You will recieve a responsve in 24h!" data-validate-->
+                        <div class="row mb-4">
+                            <div class="col-md-6 form-group">
+                                <label>{{"portada.nombre"|trans}}:</label>
+                                <!--input name="name" type="text" class="form-control" required-->
+                                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="text-center">{{"portada.email"|trans}}:</label>
+                                 <!--input name="email" type="email" class="form-control" required-->
+                                 {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--textarea name="message" cols="30" rows="6" class="form-control-text" placeholder='{{"portada.escribe_mensaje"|trans}}' required></textarea-->
+                            {{ form_widget(form.message, {'attr': {'class': 'form-control-text', 'cols': '30', 'rows': '6', 'placeholder': 'portada.escribe_mensaje'|trans}}) }}
+                        </div>
+                        <div style="display:none;">
+                            {{ form_rest(form) }}
+                        </div>
+                        <div class="text-center">
+                            <button id="submit" class="btn btn-lg btn-outline-white">{{"portada.envia_mensaje"|trans}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Window Toggle - Message -->
+<button class="window-toggle" data-target="#message-window"><i class="fa fa-comments"></i><i class="fa fa-times"></i></button>
+{% endblock %}
+
+{% block video %}
+<!-- Modal / Video -->
+<div class="modal modal-video fade" id="modalVideo" role="dialog">
+    <button class="close" data-dismiss="modal"></button>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <iframe height="500"></iframe>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block java %}
+<!-- JS Plugins -->
+<script src="{{ asset('bundles/portada/plugins/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/jquery.appear/jquery.appear.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/tether/dist/js/tether.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/jquery.scrollto/jquery.scrollTo.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/jquery.localscroll/jquery.localScroll.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/masonry-layout/dist/masonry.pkgd.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/slick-carousel/slick/slick.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/waypoints/lib/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/jquery-validation/dist/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/typed.js/dist/typed.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/easy-pie-chart/dist/jquery.easypiechart.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/snapsvg/dist/snap.svg-min.js') }}"></script>
+<script src="{{ asset('bundles/portada/plugins/isotope-layout/dist/isotope.pkgd.min.js') }}"></script>
+
+<script src="{{ asset('bundles/portada/plugins/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.min.js') }}"></script>
+
+<!-- JS Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmxuQkO5LEk3JjuweMlTg-fMJnvsAFedg"></script>
+
+<!-- JS Toastr -->
+<script src="{{ asset('bundles/portada/js/toastr.min.js') }}"></script>
+
+<!-- JS Core -->
+<script src="{{ asset('bundles/portada/js/core.js') }}"></script>
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+    $(function(){
+        $('#submit').attr('disabled','disabled');
+        $('#message_table_email').keyup(function(){
+            var email = $(this).val();
+            if (validateEmail(email)) {
+                $('#submit').removeAttr('disabled');
+                console.log('enabled');
+            } else {
+                $('#submit').attr('disabled','disabled');
+                console.log('disabled');
+            }
+        });
+
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            toastr.success('{{ flashMessage }}', { timeOut: 1500 });
+        {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('info') %}
+            toastr.info('{{ flashMessage }}', { timeOut: 2500 });
+        {% endfor %}
+    });
+
+    function validateEmail(sEmail) {
+        var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if (filter.test(sEmail)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    </script>
+{% endblock %}
+
+</body>
+
+</html>

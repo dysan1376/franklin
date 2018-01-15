@@ -1,0 +1,15 @@
+portada_homepage:
+    path:     /{_locale}
+    defaults: { _controller: PortadaBundle:Default:index, _locale: es }
+    requirements:
+        _locale: es|pt|en
+
+portada_servicio:
+    path:     /{servicio}/{_locale}
+    defaults: { _controller: PortadaBundle:Default:servicio, _locale: es }
+    requirements:
+        _locale: es|pt|en
+
+portada_send_message:
+    path:     /send-message/{name}/{email}/{message}
+    defaults: { _controller: PortadaBundle:Default:sendMessage }

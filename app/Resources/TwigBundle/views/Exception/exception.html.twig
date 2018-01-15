@@ -1,0 +1,13 @@
+
+{% block body %}
+<div>{{"siento"|trans}}</div>
+<div class="response">
+{{ status_code }} {{ status_text }}
+</div>
+<br>
+	{% if status_code == 500 %}
+		<a href="{{ path('fos_user_security_logout') }}"><button class="button">{{"desfibrilar"|trans}}</button></a>
+	{% else %}
+		<a href="javascript:history.back()"><button class="button">{{"desfibrilar"|trans}}</button></a>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,195 @@
+{% extends 'PortadaBundle:Default:index.html.twig' %}
+
+{% block title %}
+<!-- Title -->
+<title>Dr. Franklin Alvear | Abdominoplastia</title>
+{% endblock %}
+
+{% block opengraph %}
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="Abdominoplastia">
+<meta itemprop="description" content="La abdominoplastia es un procedimiento quirúrgico cuyo objetivo es la reconstrucción de la pared abdominal.">
+<meta itemprop="image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/abdominoplastia-service01.jpg">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dr_franklear">
+<meta name="twitter:title" content="Abdominoplastia">
+<meta name="twitter:description" content="La abdominoplastia es un procedimiento quirúrgico cuyo objetivo es la reconstrucción de la pared abdominal.">
+<meta name="twitter:creator" content="@dr_franklear">
+<!-- Twitter summary card with large image must be at least 280x150px -->
+<meta name="twitter:image:src" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/abdominoplastia-service01.jpg">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="Abdominoplastia" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="{{ app.request.uri }}" />
+<meta property="og:image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/abdominoplastia-service01.jpg" />
+<meta property="og:description" content="La abdominoplastia es un procedimiento quirúrgico cuyo objetivo es la reconstrucción de la pared abdominal." />
+<meta property="og:site_name" content="franlkinalvear" />
+<meta property="fb:app_id" content="1522670851135903" />
+{% endblock %}
+
+{% block snippets %}
+<!-- rich snippets -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "name": "Abdominoplastia",
+        "image": [
+            "https://franklinalvear.com/bundles/portada/img/photos/doctor/abdominoplastia-service01.jpg",
+            "https://franklinalvear.com/bundles/portada/img/photos/doctor/abdominoplastia-service02.jpg"
+        ],
+        "description": "La abdominoplastia es un procedimiento quirúrgico cuyo objetivo es la reconstrucción de la pared abdominal.",
+        "brand": [{
+            "@type": "Thing",
+            "name": "Franklin Alvear",
+            "description": "Franklin Alvear Cirujano Plástico y Estético",
+            "url": "https://franklinalvear.com",
+            "image": "https://franklinalvear.com/bundles/portada/img/franklin_icon.png"
+        }],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "89"
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": "2500.00",
+            "priceValidUntil": "2018-06-30",
+            "availability": "https://franklinalvear.com/abdominoplastia",
+            "seller": {
+                "@type": "Organization",
+                "name": "Franklin Alvear",
+                "url": "https://franklinalvear.com",
+                "logo": "https://franklinalvear.com/bundles/portada/img/franklin_icon.png",
+                "email": "franklin@hospi.me"
+            }
+        }
+    }
+</script>
+{% endblock %}
+
+{% block bodyclass %}
+<body class="navigation-panel page-scrolling">
+{% endblock %}
+
+{% block navigation %}
+<!-- Navigation -->
+<nav id="navigation" class="navigation-panel light">
+
+    <div class="navigation-inner">
+        <!-- Navigation Primary -->
+        <ul class="nav nav-primary-panel">
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
+        </ul>
+    </div>
+    
+</nav>
+<!-- Navigation / End -->
+{% endblock %}
+
+{% block content %}
+<!-- Content -->
+<div id="content" data-scheme="light">
+    
+    <!-- Section - Image -->
+    <section class="section section-case-study-header text-center light" data-scheme="light">
+        <!-- BG Image -->
+        <div class="bg-image-container overlay-bottom light">
+            <img src="{{ asset('bundles/portada/img/photos/doctor/project-cover.jpg') }}" alt="Franklin Alvear cover">
+        </div>
+    </section>
+
+    <!-- Section - Description -->
+    <section class="section light" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container-slim">
+                <h1 class=" display-4 mb-0">Abdominoplastia</h1>
+                <p class="lead text-muted">Dermolipectomía abdominal</p>
+                <p class="lead">La abdominoplastia es un procedimiento quirúrgico cuyo objetivo es la reconstrucción de la pared abdominal, que consta de eliminación del exceso de piel, del exceso de grasa y la tensión de los músculos de la pared abdominal con el objetivo final de remodelar el abdomen, la cintura y la forma del tronco del cuerpo. </p>
+            </div>
+            <!-- Image -->
+            <div class="container pt-5 pb-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <figure>
+                            <img src="{{ asset('bundles/portada/img/photos/doctor/abdominoplastia-service01.jpg') }}" class="figure-img rounded" alt="Abdominoplastia antes">
+                        </figure>
+                    </div>
+                    <div class="col-md-6">
+                        <figure>
+                            <img src="{{ asset('bundles/portada/img/photos/doctor/abdominoplastia-service02.jpg') }}" class="figure-img rounded" alt="Abdominoplastia despues">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <!-- Text -->
+            <div class="container-slim">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="mb-sm-0">Las personas que padecen de flacidez natural en el estómago o a causa de un embarazo, incluso una pérdida rápida de peso se pueden beneficiar de una abdominoplastia. Este procedimiento tiene como fin recobrar la firmeza en la piel de estas personas, eliminando esa piel caída con grasa que no se ha podido eliminar.</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-sm-0">Los pacientes que se han sometido a importantes regímenes dietarios deben tener cuidado de no presentar desnutrición que conllevaría a complicaciones durante y después de la cirugía.Algunas cicatrices y estrías por debajo del ombligo pueden desaparecer en el segmento de piel y grasa que se elimina.  </p>
+                    </div>
+                </div>
+                <hr class="hr-lg">
+                <p>El promedio de tiempo quirúrgico de una abdominoplastia es de 2 a 4 horas dependiendo de cada caso. Se realiza una incisión a nivel del pubis, por el pliegue abdominal inferior, en este momento los músculos expuestos se tratan con puntos para definir el contorno y devolver el tono a la pared abdominal. Finalmente se procede a suturar la piel, dejando tubos de drenaje para evitar la acumulación de fluidos.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Pricing -->
+    <section id="pricing" class="section" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-header-indicator"></span>
+                    <div class="section-header-content"><span class="typing">Precios</span></div>
+                </div>
+                <div class="row no-gutters">
+                    <!-- Pricing Table -->
+                    <div class="pricing-table featured col-md-6 mx-auto">
+                        <div class="pricing-table-header">
+                            <h5 class="title">Abdominoplastia</h5>
+                            <span class="caption text-muted">Dermolipectomía abdominal</span>
+                        </div>
+                        <div class="pricing-table-price">
+                            <span class="price"><span>$</span>2500 - <span>$</span>3000</span>
+                        </div>
+                        <ul class="pricing-table-list">
+                            <li>Honorarios del cirujano</li>
+                            <li>Honorarios de los ayudantes</li>
+                            <li>Honorarios del anestesiólogo</li>
+                        </ul>
+                        <div class="pricing-table-price">
+                            <span class="caption text-muted">
+                            *El precio no incluye el costo del centro quirúrgico y hospedaje los cuales pueden variar de $1500 a $2000 dependendiendo de la clínica de elección.</span>
+                        </div>
+                        <div class="pricing-table-submit" data-local-scroll>
+                            <a href="{{ path('portada_homepage') }}#schedule" class="btn btn-primary-animated btn-block">{{"portada.agendar_cita"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+<!-- Content / End -->
+{% endblock %}

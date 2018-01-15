@@ -1,0 +1,195 @@
+{% extends 'PortadaBundle:Default:index.html.twig' %}
+
+{% block title %}
+<!-- Title -->
+<title>Dr. Franklin Alvear | Implantes glúteos</title>
+{% endblock %}
+
+{% block opengraph %}
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="Implantes glúteos">
+<meta itemprop="description" content="Es un procedimiento estético mediante el cual se coloca un implante de silicona, la cual será la encargada de dar volumen y forma al glúteo.">
+<meta itemprop="image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/gluetoplastia-service01.jpg">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dr_franklear">
+<meta name="twitter:title" content="Implantes glúteos">
+<meta name="twitter:description" content="Es un procedimiento estético mediante el cual se coloca un implante de silicona, la cual será la encargada de dar volumen y forma al glúteo.">
+<meta name="twitter:creator" content="@dr_franklear">
+<!-- Twitter summary card with large image must be at least 280x150px -->
+<meta name="twitter:image:src" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/gluetoplastia-service01.jpg">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="Implantes glúteos" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="{{ app.request.uri }}" />
+<meta property="og:image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/gluetoplastia-service01.jpg" />
+<meta property="og:description" content="Es un procedimiento estético mediante el cual se coloca un implante de silicona, la cual será la encargada de dar volumen y forma al glúteo." />
+<meta property="og:site_name" content="franlkinalvear" />
+<meta property="fb:app_id" content="1522670851135903" />
+{% endblock %}
+
+{% block snippets %}
+<!-- rich snippets -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "name": "Implantes glúteos",
+        "image": [
+            "https://franklinalvear.com/bundles/portada/img/photos/doctor/gluetoplastia-service01.jpg",
+            "https://franklinalvear.com/bundles/portada/img/photos/doctor/gluteoplastia-service02.jpg"
+        ],
+        "description": "Es un procedimiento estético mediante el cual se coloca un implante de silicona, la cual será la encargada de dar volumen y forma al glúteo.",
+        "brand": [{
+            "@type": "Thing",
+            "name": "Franklin Alvear",
+            "description": "Franklin Alvear Cirujano Plástico y Estético",
+            "url": "https://franklinalvear.com",
+            "image": "https://franklinalvear.com/bundles/portada/img/franklin_icon.png"
+        }],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "183"
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": "1500.00",
+            "priceValidUntil": "2018-06-30",
+            "availability": "https://franklinalvear.com/implante-gluteo",
+            "seller": {
+                "@type": "Organization",
+                "name": "Franklin Alvear",
+                "url": "https://franklinalvear.com",
+                "logo": "https://franklinalvear.com/bundles/portada/img/franklin_icon.png",
+                "email": "franklin@hospi.me"
+            }
+        }
+    }
+</script>
+{% endblock %}
+
+{% block bodyclass %}
+<body class="navigation-panel page-scrolling">
+{% endblock %}
+
+{% block navigation %}
+<!-- Navigation -->
+<nav id="navigation" class="navigation-panel light">
+
+    <div class="navigation-inner">
+        <!-- Navigation Primary -->
+        <ul class="nav nav-primary-panel">
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
+        </ul>
+    </div>
+    
+</nav>
+<!-- Navigation / End -->
+{% endblock %}
+
+{% block content %}
+<!-- Content -->
+<div id="content" data-scheme="light">
+    
+    <!-- Section - Image -->
+    <section class="section section-case-study-header text-center light" data-scheme="light">
+        <!-- BG Image -->
+        <div class="bg-image-container overlay-bottom light">
+            <img src="{{ asset('bundles/portada/img/photos/doctor/project-cover.jpg') }}" alt="Franklin Alvear cirujano plástico">
+        </div>
+    </section>
+
+    <!-- Section - Description -->
+    <section class="section light" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container-slim">
+                <h1 class=" display-4 mb-0">Implantes glúteos</h1>
+                <p class="lead text-muted">Gluteoplastia de aumento</p>
+                <p class="lead">Es un procedimiento estético mediante el cual se coloca un implante de silicona, la cual será la encargada de dar volumen y forma al glúteo. El material debe ser mucho más resistente que el utilizado en alguna prótesis de senos, debido a que esta zona debe realizar varias actividades como caminar o correr. </p>
+            </div>
+            <!-- Image -->
+            <div class="container pt-5 pb-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <figure>
+                            <img src="{{ asset('bundles/portada/img/photos/doctor/gluteoplastia-service01.jpg') }}" class="figure-img rounded" alt="Implantes glúteos antes">
+                        </figure>
+                    </div>
+                    <div class="col-md-6">
+                        <figure>
+                            <img src="{{ asset('bundles/portada/img/photos/doctor/gluteoplastia-service02.jpg') }}" class="figure-img rounded" alt="Implantes glúteos después">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <!-- Text -->
+            <div class="container-slim">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="mb-sm-0">Las técnicas de esta pueden variar dependiendo del cirujano, así como de las necesidades del propio paciente pero por lo general se realiza mediante una incisión de 5 cm en la zona interglútea de cada nalga a tratar.</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-sm-0">La colocación del implante puede ser de forma submuscular, intramuscular u subfascial, cada una de las cuales ofrece diferentes tipos de aumento.  </p>
+                    </div>
+                </div>
+                <hr class="hr-lg">
+                <p>Si la persona desea mayor volumen en la parte superior de la nalga se puede optar por algún implante de tipo intramuscular o submuscular, por lo general el tamaño de los mismos para esta zona debe ser más reducido debido al poco espacio, aunque tienen un aspecto más natural. Por otro lado, si lo que se desea es mayor volumen en la zona baja se puede recurrir a una colocación subfascial.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Pricing -->
+    <section id="pricing" class="section" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-header-indicator"></span>
+                    <div class="section-header-content"><span class="typing">Precios</span></div>
+                </div>
+                <div class="row no-gutters">
+                    <!-- Pricing Table -->
+                    <div class="pricing-table featured col-md-6 mx-auto">
+                        <div class="pricing-table-header">
+                            <h5 class="title">Implantes glúteos</h5>
+                            <span class="caption text-muted">Gluteoplastia de aumento</span>
+                        </div>
+                        <div class="pricing-table-price">
+                            <span class="price"><span>$</span>1500 - <span>$</span>1800</span>
+                        </div>
+                        <ul class="pricing-table-list">
+                            <li>Honorarios del cirujano</li>
+                            <li>Honorarios de los ayudantes</li>
+                            <li>Honorarios del anestesiólogo</li>
+                        </ul>
+                        <div class="pricing-table-price">
+                            <span class="caption text-muted">
+                            *El precio no incluye implantes glúteos, centro quirúrgico y hospedaje los cuales pueden variar de $1000 a $1500 dependendiendo de la clínica y los implantes de elección.</span>
+                        </div>
+                        <div class="pricing-table-submit" data-local-scroll>
+                            <a href="{{ path('portada_homepage') }}#schedule" class="btn btn-primary-animated btn-block">{{"portada.agendar_cita"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+<!-- Content / End -->
+{% endblock %}

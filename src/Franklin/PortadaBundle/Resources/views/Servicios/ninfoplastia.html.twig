@@ -1,0 +1,194 @@
+{% extends 'PortadaBundle:Default:index.html.twig' %}
+
+{% block title %}
+<!-- Title -->
+<title>Dr. Franklin Alvear | Ninfoplastia</title>
+{% endblock %}
+
+{% block opengraph %}
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="Ninfoplastia">
+<meta itemprop="description" content="La ninfoplastia consiste en una operación quirúrgica para disminuir el tamaño de los labios menores exageradamente grandes (hipertróficos).">
+<meta itemprop="image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/ninfoplastia-service01.jpg">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dr_franklear">
+<meta name="twitter:title" content="Ninfoplastia">
+<meta name="twitter:description" content="La ninfoplastia consiste en una operación quirúrgica para disminuir el tamaño de los labios menores exageradamente grandes (hipertróficos).">
+<meta name="twitter:creator" content="@dr_franklear">
+<!-- Twitter summary card with large image must be at least 280x150px -->
+<meta name="twitter:image:src" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/ninfoplastia-service01.jpg">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="Ninfoplastia" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="{{ app.request.uri }}" />
+<meta property="og:image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/ninfoplastia-service01.jpg" />
+<meta property="og:description" content="La ninfoplastia consiste en una operación quirúrgica para disminuir el tamaño de los labios menores exageradamente grandes (hipertróficos)." />
+<meta property="og:site_name" content="franlkinalvear" />
+<meta property="fb:app_id" content="1522670851135903" />
+{% endblock %}
+
+{% block snippets %}
+<!-- rich snippets -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "name": "Ninfoplastia | Labiaplastia",
+        "image": [
+            "https://franklinalvear.com/bundles/portada/img/photos/doctor/ninfoplastia-service01.jpg",
+            "https://franklinalvear.com/bundles/portada/img/photos/doctor/ninfoplastia-service02.jpg"
+        ],
+        "description": "La ninfoplastia consiste en una operación quirúrgica para disminuir el tamaño de los labios menores exageradamente grandes (hipertróficos).",
+        "brand": [{
+            "@type": "Thing",
+            "name": "Franklin Alvear",
+            "description": "Franklin Alvear Cirujano Plástico y Estético",
+            "url": "https://franklinalvear.com",
+            "image": "https://franklinalvear.com/bundles/portada/img/franklin_icon.png"
+        }],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "212"
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": "300.00",
+            "priceValidUntil": "2018-06-30",
+            "availability": "https://franklinalvear.com/ninfoplastia",
+            "seller": {
+                "@type": "Organization",
+                "name": "Franklin Alvear",
+                "url": "https://franklinalvear.com",
+                "logo": "https://franklinalvear.com/bundles/portada/img/franklin_icon.png",
+                "email": "franklin@hospi.me"
+            }
+        }
+    }
+</script>
+{% endblock %}
+
+{% block bodyclass %}
+<body class="navigation-panel page-scrolling">
+{% endblock %}
+
+{% block navigation %}
+<!-- Navigation -->
+<nav id="navigation" class="navigation-panel light">
+
+    <div class="navigation-inner">
+        <!-- Navigation Primary -->
+        <ul class="nav nav-primary-panel">
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
+        </ul>
+    </div>
+    
+</nav>
+<!-- Navigation / End -->
+{% endblock %}
+
+{% block content %}
+<!-- Content -->
+<div id="content" data-scheme="light">
+    
+    <!-- Section - Image -->
+    <section class="section section-case-study-header text-center light" data-scheme="light">
+        <!-- BG Image -->
+        <div class="bg-image-container overlay-bottom light">
+            <img src="{{ asset('bundles/portada/img/photos/doctor/project-cover.jpg') }}" alt="Franlin Alvear cirujano plástico">
+        </div>
+    </section>
+
+    <!-- Section - Description -->
+    <section class="section light" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container-slim">
+                <h1 class=" display-4 mb-0">Ninfoplastia</h1>
+                <p class="lead text-muted">Labiaplastia</p>
+                <p class="lead">La ninfoplastia consiste en una operación quirúrgica para disminuir el tamaño de los labios menores exageradamente grandes (hipertróficos). Normalmente es la longitud vertical o altura, la que es excesiva y la que provoca que sobresalgan entre los mayores.</p>
+            </div>
+            <!-- Image -->
+            <div class="container pt-5 pb-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <figure>
+                            <img src="{{ asset('bundles/portada/img/photos/doctor/ninfoplastia-service01.jpg') }}" class="figure-img rounded" alt="Labiaplastia antes">
+                        </figure>
+                    </div>
+                    <div class="col-md-6">
+                        <figure>
+                            <img src="{{ asset('bundles/portada/img/photos/doctor/ninfoplastia-service02.jpg') }}" class="figure-img rounded" alt="Labiaplastia después">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <!-- Text -->
+            <div class="container-slim">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="mb-sm-0">Es muy importante que la reducción se realice con un criterio funcional y estético. No solo hay que reducir la altura del labio para que no moleste o provoque irritaciones en la vulva, sino que se debe remodelar para que estéticamente quede natural y sin cicatrices visibles. </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-sm-0">Se trata de una intervención relativamente sencilla y se puede practicar bajo anestesia local y sedación. Se realiza en un quirófano pero la paciente puede volver a su casa el mismo día. La recuperación es rápida y el postoperatorio nada doloroso.  </p>
+                    </div>
+                </div>
+                <hr class="hr-lg">
+                <p>El procedimiento precisa de unos mínimos puntos de sutura reabsorbibles, que se eliminan espontáneamente en 7-10 días. La recuperación es conocida cursando con una ligera inflamación que remite en 7 días. </p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Pricing -->
+    <section id="pricing" class="section" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-header-indicator"></span>
+                    <div class="section-header-content"><span class="typing">Precios</span></div>
+                </div>
+                <div class="row no-gutters">
+                    <!-- Pricing Table -->
+                    <div class="pricing-table featured col-md-6 mx-auto">
+                        <div class="pricing-table-header">
+                            <h5 class="title">Ninfoplastia</h5>
+                            <span class="caption text-muted">Labiaplastia</span>
+                        </div>
+                        <div class="pricing-table-price">
+                            <span class="price"><span>$</span>300 - <span>$</span>500</span>
+                        </div>
+                        <ul class="pricing-table-list">
+                            <li>Honorarios del cirujano</li>
+                            <li>Materiales e insumos médicos</li>
+                        </ul>
+                        <div class="pricing-table-price">
+                            <span class="caption text-muted">
+                            *Es un procedimiento ambulatorio, no se requiere centro quirúrgico por lo tanto no se añade ningún valor adicional.</span>
+                        </div>
+                        <div class="pricing-table-submit" data-local-scroll>
+                            <a href="{{ path('portada_homepage') }}#schedule" class="btn btn-primary-animated btn-block">{{"portada.agendar_cita"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+<!-- Content / End -->
+{% endblock %}
