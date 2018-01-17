@@ -55,6 +55,8 @@ portada:
     escribe_mensaje: "Escribe tu mensaje..."
     envia_mensaje: "Enviar el mensaje"
     leer_mas: "Leer más"
+    vcard: "vCard"
+    copia_datos: "Guarda en tus contactos"
     cirugia_rostro: "Cirugía del Rostro"
     lifting_facial: "Lifting facial"
     lifting_facial_descripcion: "La ritidectomía es un procedimiento de cirugía plástica estética que consiste en la eliminación quirúrgica de arrugas..."

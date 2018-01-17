@@ -13,3 +13,7 @@ portada_servicio:
 portada_send_message:
     path:     /send-message/{name}/{email}/{message}
     defaults: { _controller: PortadaBundle:Default:sendMessage }
+
+portada_vcard:
+    path:     /md/vcard/
+    defaults: { _controller: PortadaBundle:Default:vcard }

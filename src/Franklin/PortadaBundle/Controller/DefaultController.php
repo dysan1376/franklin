@@ -135,4 +135,44 @@ class DefaultController extends Controller
         //return $this->render('FormulariosBundle:Default:promomail.html.twig');
         return new Response('success');
     }
+
+    public function vcardAction()
+    {
+        //Con nombres y apellidos
+        $nombre1 = 'Franklin';
+        $apellido1 = 'Alvear';
+        
+
+        //Con Historia clinica
+        $prefix = 'Dr.';
+        $telefono = '0990459900';
+        //Con firma
+        $title = 'Cirujano Plástico';
+        $direccion1 = 'Amazonas N39-216 y Gaspar de Villarroel';
+        $direccion2 = 'Pedregal N35-15 y Hernández de Girón';
+
+        //Con avatar
+        $path = 'jpg';
+        $avatarUrl = 'https://franklinalvear.com/bundles/portada/img/photos/doctor/avatar-sm.jpg';
+
+        //Con email
+        $email = 'franklin@hospi.me';
+
+        $dataArray = "BEGIN:VCARD\nVERSION:4.0\nN;CHARSET=utf-8:".$apellido1.";".$nombre1.";;".$prefix.";\nFN;CHARSET=utf-8:".$nombre1." ".$apellido1."\nORG;CHARSET=utf-8:hospi.me\nTITLE;CHARSET=utf-8:".$title."\nPHOTO;MEDIATYPE=image/".$path.":".$avatarUrl."\nTEL;TYPE=work,voice=uri:".$telefono."\nADR;WORK;CHARSET=utf-8:;;".$direccion1."\nADR;WORK;CHARSET=utf-8:;;".$direccion2."\nURL:https://franklinalvear.com\nEMAIL:".$email."\nEND:VCARD\n";
+        
+        $data = $dataArray;
+
+        $size = strlen($data);
+
+        $filename = $nombre1." ".$apellido1.".vcf";
+
+        $response = new Response($data);
+
+        $response->headers->set('Content-Type', 'application/octet-stream; charset=UTF-8');
+        $response->headers->set('Content-Length', $size);
+        $response->headers->set('Content-Disposition', 'attachment; filename="' . $filename . '";');
+        $response->headers->set('Content-Transfer-Encoding', 'binary');
+
+        return $response;
+    }
 }
