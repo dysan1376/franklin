@@ -204,23 +204,17 @@
                     <form class="form-horizontal" action="{{ path ('portada_homepage') }}" method="POST" {{ form_enctype(form) }} data-message-error="Opps... Something went wrong - please try again later"
                     data-message-success="Thanks! You will recieve a responsve in 24h!" data-validate>
                         {{ form_errors(form) }}
-                    <!--form class="contact-form"
-                    data-message-error="Opps... Something went wrong - please try again later"
-                    data-message-success="Thanks! You will recieve a responsve in 24h!" data-validate-->
                         <div class="row mb-4">
                             <div class="col-md-6 form-group">
                                 <label>{{"portada.nombre"|trans}}:</label>
-                                <!--input name="name" type="text" class="form-control" required-->
                                 {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
                             </div>
                             <div class="col-md-6 form-group">
                                 <label class="text-center">{{"portada.email"|trans}}:</label>
-                                 <!--input name="email" type="email" class="form-control" required-->
                                  {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                         <div class="form-group">
-                            <!--textarea name="message" cols="30" rows="6" class="form-control-text" placeholder='{{"portada.escribe_mensaje"|trans}}' required></textarea-->
                             {{ form_widget(form.message, {'attr': {'class': 'form-control-text', 'cols': '30', 'rows': '6', 'placeholder': 'portada.escribe_mensaje'|trans}}) }}
                         </div>
                         <div style="display:none;">

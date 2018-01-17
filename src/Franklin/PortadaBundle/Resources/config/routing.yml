@@ -13,11 +13,3 @@ portada_servicio:
 portada_send_message:
     path:     /send-message/{name}/{email}/{message}
     defaults: { _controller: PortadaBundle:Default:sendMessage }
-
-
-#AMP routes
-portada_homepage_amp:
-    path:     /amp/index/{_locale}
-    defaults: { _controller: PortadaBundle:Amp:index, _locale: es }
-    requirements:
-        _locale: es|pt|en|it
