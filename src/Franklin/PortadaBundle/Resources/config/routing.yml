@@ -2,13 +2,13 @@ portada_homepage:
     path:     /{_locale}
     defaults: { _controller: PortadaBundle:Default:index, _locale: es }
     requirements:
-        _locale: es|pt|en
+        _locale: es|pt|en|it
 
 portada_servicio:
     path:     /{servicio}/{_locale}
     defaults: { _controller: PortadaBundle:Default:servicio, _locale: es }
     requirements:
-        _locale: es|pt|en
+        _locale: es|pt|en|it
 
 portada_send_message:
     path:     /send-message/{name}/{email}/{message}
@@ -20,4 +20,4 @@ portada_homepage_amp:
     path:     /amp/index/{_locale}
     defaults: { _controller: PortadaBundle:Amp:index, _locale: es }
     requirements:
-        _locale: es|pt|en
+        _locale: es|pt|en|it
