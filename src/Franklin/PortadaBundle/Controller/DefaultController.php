@@ -27,30 +27,32 @@ class DefaultController extends Controller
     		    $message = $form["message"]->getData();
 
         		//Send email
-    			// $message = \Swift_Message::newInstance()
-    		 //        ->setSubject($translator->trans('portada.nuevo_message'))
-    		 //        ->setFrom($email)
-    		 //        ->setTo('franklin@hospi.me')
-    		 //        ->setBody(
-    		 //            $this->renderView(
-    		 //                'PortadaBundle:Default:mail.html.twig', array(
-    		 //                    'message' => $message,
-    		 //                    'name' => $name
-    		 //                    )
-    		 //            ),
-    		 //            'text/html'
-    		 //        )
-    		 //    ;
-    		 //    if ($this->get('mailer')->send($message)) {
-        	 //		//success
-        	 //    } else {
-        	 //		//fail
-        	 //    }
+    			$message = \Swift_Message::newInstance()
+    		        ->setSubject($translator->trans('portada.nuevo_message'))
+    		        ->setFrom($email)
+    		        ->setTo('franklin@hospi.me')
+    		        ->setBody(
+    		            $this->renderView(
+    		                'PortadaBundle:Default:mail.html.twig', array(
+    		                    'message' => $message,
+    		                    'name' => $name,
+                                'email' => $email
+    		            )),
+    		            'text/html'
+    		        )
+    		    ;
+    		    if ($this->get('mailer')->send($message)) {
+        	 		//success
+                    $flashBag = $this->get('session')->getFlashBag();
+                    $flashBag->add('success', $name.$translator->trans('portada.success_message'));
+                    new Response('success');
+        	    } else {
+        	 		//fail
+                    $flashBag = $this->get('session')->getFlashBag();
+                    $flashBag->add('info', $name.$translator->trans('portada.info_success'));
+                    new Response('info');
+        	    }
 
-        		$flashBag = $this->get('session')->getFlashBag();
-        		//$flashBag->add('success', $email);
-            	$flashBag->add('success', $name.$translator->trans('portada.success_message'));
-				new Response('success');
 			} else {
 				$flashBag = $this->get('session')->getFlashBag();
 				$flashBag->add('info', $name.$translator->trans('portada.info_success'));
