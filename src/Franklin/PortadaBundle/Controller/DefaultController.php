@@ -74,7 +74,6 @@ class DefaultController extends Controller
         $referer = $request->server->get('HTTP_REFERER');
         
         if ( ($user == 'anon.') || ($referer == "https://franklinalvear.com") || ( preg_match("~\bpt\b~",$referer)) || ( preg_match("~\ben\b~",$referer)) || ( preg_match("~\bes\b~",$referer)) || ( preg_match("~\bit\b~",$referer)) ) {
-        //if ( ($user == 'anon.') || ($referer == "http://localhost:8888/franklin/web/app_dev.php/") || ( preg_match("~\bpt\b~",$referer)) || ( preg_match("~\ben\b~",$referer)) || ( preg_match("~\bes\b~",$referer)) || ( preg_match("~\bit\b~",$referer)) ) {
             
             $lastPath = substr($referer, strpos($referer, $this->container->get('request')->getSchemeAndHttpHost()));
             $lastPath = str_replace($this->container->get('request')->getSchemeAndHttpHost(), '', $lastPath);
