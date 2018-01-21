@@ -81,9 +81,9 @@ class DefaultController extends Controller
             // get last route
             $matcher = $this->get('router')->getMatcher();
 
-            /* Not working */
+            /* Not working as in hospi.me */
             //$parameters = $matcher->match($lastPath);
-            /* Not working */
+            /* Not working as in hospi.me */
             
             // set new locale (to session and to the route parameters)
             $parameters['_locale'] = $locale;
@@ -103,53 +103,56 @@ class DefaultController extends Controller
         
     }
 
-    public function servicioAction($servicio, $_locale, Request $request)
+    public function servicioAction($slug, $_locale, Request $request)
     {
 
     	$message = new Message();
     	$form = $this->createForm(new MessageType(), $message);
 
-    	if ($request->isMethod('POST')) {
-        	$form->bind($request);
-        	$translator = $this->get('translator');
-        	if ($form->isValid()) {
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
+            $translator = $this->get('translator');
+            if ($form->isValid()) {
 
-        		$email = $form["email"]->getData();
-    		    $name = $form["name"]->getData();
-    		    $message = $form["message"]->getData();
+                $email = $form["email"]->getData();
+                $name = $form["name"]->getData();
+                $message = $form["message"]->getData();
 
-        		//Send email
-    			// $message = \Swift_Message::newInstance()
-    		 //        ->setSubject($translator->trans('portada.nuevo_message'))
-    		 //        ->setFrom($email)
-    		 //        ->setTo('franklin@hospi.me')
-    		 //        ->setBody(
-    		 //            $this->renderView(
-    		 //                'PortadaBundle:Default:mail.html.twig', array(
-    		 //                    'message' => $message,
-    		 //                    'name' => $name
-    		 //                    )
-    		 //            ),
-    		 //            'text/html'
-    		 //        )
-    		 //    ;
-    		 //    if ($this->get('mailer')->send($message)) {
-        	 //		//success
-        	 //    } else {
-        	 //		//fail
-        	 //    }
+                //Send email
+                $message = \Swift_Message::newInstance()
+                    ->setSubject($translator->trans('portada.nuevo_message'))
+                    ->setFrom($email)
+                    ->setTo('franklin@hospi.me')
+                    ->setBody(
+                        $this->renderView(
+                            'PortadaBundle:Default:mail.html.twig', array(
+                                'message' => $message,
+                                'name' => $name,
+                                'email' => $email
+                        )),
+                        'text/html'
+                    )
+                ;
+                if ($this->get('mailer')->send($message)) {
+                    //success
+                    $flashBag = $this->get('session')->getFlashBag();
+                    $flashBag->add('success', $name.$translator->trans('portada.success_message'));
+                    new Response('success');
+                } else {
+                    //fail
+                    $flashBag = $this->get('session')->getFlashBag();
+                    $flashBag->add('info', $name.$translator->trans('portada.info_success'));
+                    new Response('info');
+                }
 
-        		$flashBag = $this->get('session')->getFlashBag();
-        		//$flashBag->add('success', $email);
-            	$flashBag->add('success', $name.$translator->trans('portada.success_message'));
-				new Response('success');
-			} else {
-				$flashBag = $this->get('session')->getFlashBag();
-				$flashBag->add('info', $name.$translator->trans('portada.info_success'));
-				new Response('info');
-			}
-		}
-    	return $this->render('PortadaBundle:Servicios:'. $servicio .'.html.twig', array(
+            } else {
+                $flashBag = $this->get('session')->getFlashBag();
+                $flashBag->add('info', $name.$translator->trans('portada.info_success'));
+                new Response('info');
+            }
+        }
+
+    	return $this->render('PortadaBundle:Servicios:'. $slug .'.html.twig', array(
         	'form'=>$form->createView()
         ));
     }

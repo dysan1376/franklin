@@ -9,7 +9,7 @@ portada_locale:
     defaults: { _controller: PortadaBundle:Default:locale }
 
 portada_servicio:
-    path:     /{servicio}/{_locale}
+    path:     /{_locale}/{slug}
     defaults: { _controller: PortadaBundle:Default:servicio, _locale: es }
     requirements:
         _locale: es|pt|en|it
