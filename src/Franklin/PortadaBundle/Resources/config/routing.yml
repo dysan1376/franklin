@@ -4,6 +4,10 @@ portada_homepage:
     requirements:
         _locale: es|pt|en|it
 
+portada_locale:
+    path:     /locale/{locale}
+    defaults: { _controller: PortadaBundle:Default:locale }
+
 portada_servicio:
     path:     /{servicio}/{_locale}
     defaults: { _controller: PortadaBundle:Default:servicio, _locale: es }

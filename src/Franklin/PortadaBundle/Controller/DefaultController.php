@@ -14,6 +14,7 @@ class DefaultController extends Controller
 {
     public function indexAction($_locale, Request $request)
     {
+        $session = $this->container->get('session')->start();
     	$message = new Message();
     	$form = $this->createForm(new MessageType(), $message);
 
@@ -63,6 +64,44 @@ class DefaultController extends Controller
         return $this->render('PortadaBundle:Default:index.html.twig', array(
         	'form'=>$form->createView()
         ));
+    }
+
+    public function localeAction($locale, Request $request)
+    {
+
+        $request = $this->getRequest();
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $referer = $request->server->get('HTTP_REFERER');
+        
+        if ( ($user == 'anon.') || ($referer == "https://franklinalvear.com") || ( preg_match("~\bpt\b~",$referer)) || ( preg_match("~\ben\b~",$referer)) || ( preg_match("~\bes\b~",$referer)) || ( preg_match("~\bit\b~",$referer)) ) {
+        //if ( ($user == 'anon.') || ($referer == "http://localhost:8888/franklin/web/app_dev.php/") || ( preg_match("~\bpt\b~",$referer)) || ( preg_match("~\ben\b~",$referer)) || ( preg_match("~\bes\b~",$referer)) || ( preg_match("~\bit\b~",$referer)) ) {
+            
+            $lastPath = substr($referer, strpos($referer, $this->container->get('request')->getSchemeAndHttpHost()));
+            $lastPath = str_replace($this->container->get('request')->getSchemeAndHttpHost(), '', $lastPath);
+
+            // get last route
+            $matcher = $this->get('router')->getMatcher();
+
+            /* Not working */
+            //$parameters = $matcher->match($lastPath);
+            /* Not working */
+            
+            // set new locale (to session and to the route parameters)
+            $parameters['_locale'] = $locale;
+            $parameters['_route'] = "portada_homepage";
+
+            $request->setLocale($request->getSession()->set('_locale', $locale));
+
+            // default parameters has to be unsetted!
+            $route = $parameters['_route'];
+            unset($parameters['_route']);
+            unset($parameters['_controller']);
+
+            return $this->redirect($this->generateUrl($route, $parameters));
+        } else {
+            return $this->redirect($this->generateUrl('portada_homepage'));
+        }
+        
     }
 
     public function servicioAction($servicio, $_locale, Request $request)
