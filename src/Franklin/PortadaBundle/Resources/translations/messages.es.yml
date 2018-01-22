@@ -186,3 +186,6 @@ slug:
     rinoplastia: "rinoplastia"
     trasero-brasilero: "trasero-brasilero"
     vaginoplastia: "vaginoplastia"
+error:
+    not_found: "La página que buscas no existe"
+    volver: "Volver al inicio"

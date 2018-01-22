@@ -5,6 +5,7 @@ namespace Franklin\PortadaBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use Franklin\PortadaBundle\Entity\Message;
 
@@ -112,6 +113,10 @@ class DefaultController extends Controller
             'slug' => $slug,
             'locale' => $_locale
         ));
+        //404
+        if (!$servicio) {
+            throw new NotFoundHttpException();
+        }
 
     	$message = new Message();
     	$form = $this->createForm(new MessageType(), $message);
