@@ -2,7 +2,95 @@
 
 {% block title %}
 <!-- Title -->
-<title>Dr. Franklin Alvear | Titulo</title>
+<title>Dr. Franklin Alvear | {{servicio.title}}</title>
+{% endblock %}
+
+{% block keywords %}
+    {{servicio.keywords}}
+{% endblock %}
+
+{% block description %}
+    {{servicio.description}}
+{% endblock %}
+
+{% block hreflang %}
+<!-- hreflang tag -->
+<link rel="alternate" href="https://franklinalvear.com/es/{{servicio.slugEs|trans}}" hreflang="es" />
+<link rel="alternate" href="https://franklinalvear.com/pt/{{servicio.slugPt|trans}}" hreflang="pt" />
+<link rel="alternate" href="https://franklinalvear.com/en/{{servicio.slugEn|trans}}" hreflang="en" />
+<link rel="alternate" href="https://franklinalvear.com/it/{{servicio.slugIt|trans}}" hreflang="it" />
+{% endblock %}
+
+{% block opengraph %}
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="{{servicio.title}}">
+<meta itemprop="description" content="{{servicio.description}}">
+<meta itemprop="image" content="{{servicio.imageUrlMain}}">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dr_franklear">
+<meta name="twitter:title" content="{{servicio.title}}">
+<meta name="twitter:description" content="{{servicio.description}}">
+<meta name="twitter:creator" content="@dr_franklear">
+<!-- Twitter summary card with large image must be at least 280x150px -->
+<meta name="twitter:image:src" content="{{servicio.imageUrlMain}}">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="{{servicio.title}}" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="{{ app.request.uri }}" />
+<meta property="og:image" content="{{servicio.imageUrlMain}}" />
+<meta property="og:description" content="{{servicio.description}}" />
+<meta property="og:locale" content="es">
+<meta property="og:locale:alternate" content="en" />
+<meta property="og:locale:alternate" content="pt" />
+<meta property="og:locale:alternate" content="it" />
+<meta property="og:site_name" content="Dr. Franklin Alvear {{"portada.cirujano_plastico_estetico"|trans}}" />
+<meta property="fb:app_id" content="1522670851135903" />
+{% endblock %}
+
+{% block snippets %}
+<!-- rich snippets -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "name": "{{servicio.title}}",
+        "mpn": "franklin-351",
+        "image": [
+            "https://franklinalvear.com/bundles/portada/img/photos/doctor/acido-hialuronico-service01.jpg",
+            "https://franklinalvear.com/bundles/portada/img/photos/doctor/acido-hialuronico-service02.jpg"
+        ],
+        "description": "{{servicio.description}}",
+        "brand": [{
+            "@type": "Thing",
+            "name": "Franklin Alvear",
+            "description": "Franklin Alvear Cirujano Plástico y Estético",
+            "url": "https://franklinalvear.com",
+            "image": "https://franklinalvear.com/bundles/portada/img/franklin_icon.png"
+        }],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "124"
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": "300.00",
+            "priceValidUntil": "2018-06-30",
+            "availability": "{{ app.request.uri }}",
+            "seller": {
+                "@type": "Organization",
+                "name": "Franklin Alvear",
+                "url": "https://franklinalvear.com",
+                "logo": "https://franklinalvear.com/bundles/portada/img/franklin_icon.png",
+                "email": "franklin@hospi.me"
+            }
+        }
+    }
+</script>
 {% endblock %}
 
 {% block bodyclass %}
@@ -37,33 +125,31 @@
     <section class="section section-case-study-header text-center light" data-scheme="light">
         <!-- BG Image -->
         <div class="bg-image-container overlay-bottom light">
-            <img src="{{ asset('bundles/portada/img/photos/doctor/project-cover.jpg') }}" alt="">
+            <img src="{{ asset('bundles/portada/img/photos/doctor/project-cover.jpg') }}" alt="Franklin Alvear cover">
         </div>
     </section>
 
     <!-- Section - Description -->
-    <section class="section light" data-scheme="light">
+    <section style="padding-bottom:0;" class="section light" data-scheme="light">
     
         <!-- Section Content -->
         <div class="section-content">
             <div class="container-slim">
-                <h1 class=" display-4 mb-0">Hypertension Treatment</h1>
-                <p class="lead text-muted">Medical Support</p>
-                <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                <h1 class=" display-4 mb-0">{{servicio.title}}</h1>
+                <p class="lead text-muted">{{servicio.subtitle}}</p>
+                <p class="lead">{{servicio.paragraphOne}} </p>
             </div>
             <!-- Image -->
             <div class="container pt-5 pb-5">
                 <div class="row">
                     <div class="col-md-6">
                         <figure>
-                            <img src="{{ asset('bundles/portada/img/photos/doctor/project01.jpg') }}" class="figure-img rounded" alt="">
-                            <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                            <img src="{{ servicio.imageUrlMain }}" class="figure-img rounded" alt="{{ servicio.imageAltMain }}">
                         </figure>
                     </div>
                     <div class="col-md-6">
                         <figure>
-                            <img src="{{ asset('bundles/portada/img/photos/doctor/project02.jpg') }}" class="figure-img rounded" alt="">
-                            <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                            <img src="{{ servicio.imageUrlSecondary }}" class="figure-img rounded" alt="{{ servicio.imageAltSecondary }}">
                         </figure>
                     </div>
                 </div>
@@ -72,14 +158,14 @@
             <div class="container-slim">
                 <div class="row">
                     <div class="col-sm-6">
-                        <p class="mb-sm-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                        <p class="mb-sm-0">{{servicio.paragraphTwo}}</p>
                     </div>
                     <div class="col-sm-6">
-                        <p class="mb-sm-0">The majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                        <p class="mb-sm-0">{{servicio.paragraphThree}}</p>
                     </div>
                 </div>
                 <hr class="hr-lg">
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                <p>{{servicio.paragraphFour}}</p>
             </div>
         </div>
 
@@ -94,31 +180,88 @@
                 <!-- Section Header -->
                 <div class="section-header">
                     <span class="section-header-indicator"></span>
-                    <div class="section-header-content"><span class="typing">Precios</span></div>
+                    <div class="section-header-content"><span class="typing">{{"portada.precios"|trans}}</span></div>
                 </div>
                 <div class="row no-gutters">
+                    {% if servicio.honorarios == "TIPO4" %}
                     <!-- Pricing Table -->
-                    <div class="pricing-table featured col-md-6 mx-auto">
+                    <div class="pricing-table col-md-4 animated" data-animation="fadeInRight">
                         <div class="pricing-table-header">
-                            <h5 class="title">Ginecomastia</h5>
-                            <span class="caption text-muted">Mamas masculinas</span>
+                            <h5 class="title">{{"portada.lipolaser"|trans}}</h5>
+                            <span class="caption text-muted">{{"portada.lipectomia_laser"|trans}}</span>
                         </div>
                         <div class="pricing-table-price">
-                            <span class="price"><span>$</span>1500 - <span>$</span>1800</span>
+                            <span class="price"><span>{{servicio.currency}}</span>{{servicio.priceMin + 400}} - <span>{{servicio.currency}}</span>{{servicio.priceMax + 400}}</span>
                         </div>
                         <ul class="pricing-table-list">
-                            <li>Honorarios del cirujano</li>
-                            <li>Honorarios de los ayudantes</li>
-                            <li>Honorarios del anestesiólogo</li>
+                            <li>{{"portada.honorarios_cirujano"|trans}}</li>
+                            <li>{{"portada.honorarios_ayudantes"|trans}}</li>
+                            <li>{{"portada.honorarios_anestesiologo"|trans}}</li>
+                            <li>{{"portada.equipo_lipolaser"|trans}}</li>
                         </ul>
                         <div class="pricing-table-price">
-                            <span class="caption text-muted">
-                            *El precio no incluye el costo del centro quirúrgico y hospedaje los cuales pueden variar de $1500 a $2000 dependendiendo de la clínica de elección.</span>
+                            <span class="caption text-muted">{{servicio.appendText}}</span>
                         </div>
+                        <div class="pricing-table-submit" data-local-scroll="">
+                            <a href="{{ path('portada_homepage') }}#schedule" class="btn btn-dark btn-block">{{"portada.agendar_cita"|trans}}</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <!-- Pricing Table -->
+                    <div class="pricing-table featured {% if servicio.honorarios == "TIPO4" %}col-md-4{% else %}col-md-6 mx-auto{% endif %} ">
+                        <div class="pricing-table-header">
+                            <h5 class="title">{% if servicio.honorarios == "TIPO4" %}{{"portada.lipoescultura_convencional"|trans}}{% else %}{{servicio.title}}{% endif %}</h5>
+                            <span class="caption text-muted">{{servicio.subtitle}}</span>
+                        </div>
+                        <div class="pricing-table-price">
+                            <span class="price"><span>{{servicio.currency}}</span>{{servicio.priceMin}}{% if servicio.priceMax is not null %} - <span>{{servicio.currency}}</span>{{servicio.priceMax}}{% endif %}</span>
+                        </div>
+                        <ul class="pricing-table-list">
+                            <li>{{"portada.honorarios_cirujano"|trans}}</li>
+                            {% if servicio.honorarios == "TIPO1" %}
+                            <li>{{"portada.materiales_insumos"|trans}}</li>
+                            {% elseif servicio.honorarios == "TIPO2" %}
+                            <li>{{servicio.title}}</li>
+                            <li>{{"portada.materiales_insumos"|trans}}</li>
+                            {% elseif servicio.honorarios == "TIPO3" or servicio.honorarios == "TIPO4" %}
+                            <li>{{"portada.honorarios_ayudantes"|trans}}</li>
+                            <li>{{"portada.honorarios_anestesiologo"|trans}}</li>
+                            {% endif %}
+                            
+                        </ul>
+                        {% if servicio.appendText is not null %}
+                        <div class="pricing-table-price">
+                            <span class="caption text-muted">{{servicio.appendText}}</span>
+                        </div>
+                        {% endif %}
                         <div class="pricing-table-submit" data-local-scroll>
                             <a href="{{ path('portada_homepage') }}#schedule" class="btn btn-primary-animated btn-block">{{"portada.agendar_cita"|trans}}</a>
                         </div>
                     </div>
+                    {% if servicio.honorarios == "TIPO4" %}
+                    <!-- Pricing Table -->
+                    <div class="pricing-table col-md-4 animated" data-animation="fadeInLeft">
+                        <div class="pricing-table-header">
+                            <h5 class="title">{{"portada.vibrolipo"|trans}}</h5>
+                            <span class="caption text-muted">{{"portada.lipectomia_vibro"|trans}}</span>
+                        </div>
+                        <div class="pricing-table-price">
+                            <span class="price"><span>{{servicio.currency}}</span>{{servicio.priceMin + 200}} - <span>{{servicio.currency}}</span>{{servicio.priceMax + 200}}</span>
+                        </div>
+                        <ul class="pricing-table-list">
+                            <li>{{"portada.honorarios_cirujano"|trans}}</li>
+                            <li>{{"portada.honorarios_ayudantes"|trans}}</li>
+                            <li>{{"portada.honorarios_anestesiologo"|trans}}</li>
+                            <li>{{"portada.equipo_vibrolipo"|trans}}</li>
+                        </ul>
+                        <div class="pricing-table-price">
+                            <span class="caption text-muted">{{servicio.appendText}}</span>
+                        </div>
+                        <div class="pricing-table-submit" data-local-scroll="">
+                            <a href="{{ path('portada_homepage') }}#schedule" class="btn btn-dark btn-block">{{"portada.agendar_cita"|trans}}</a>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -127,4 +270,53 @@
 
 </div>
 <!-- Content / End -->
+{% endblock %}
+
+{% block message %}
+<!-- Window - Message -->
+<div id="message-window" class="window window-primary">
+    <svg class="window-background" viewBox="0 0 1920 1080" preserveAspectRatio="none"></svg>
+    <div class="window-inner">
+        <section class="section dark">
+            <div class="section-content">
+                <div class="container-slim">
+                    <!-- Section Header -->
+                    <div class="section-header">
+                        <img src="{{ asset('bundles/portada/img/photos/doctor/avatar-sm.jpg') }}" alt="" class="section-header-image">
+                        <div class="section-header-content">
+                            <span class="typing">{{"portada.normalmente"|trans}}</span>
+                        </div>
+                    </div>
+                    <!-- Section Content -->
+                    <form class="form-horizontal" action="{{ path ('portada_servicio', {'_locale': servicio.locale, 'slug': servicio.slug }) }}" method="POST" {{ form_enctype(form) }} data-message-error="Opps... Something went wrong - please try again later"
+                    data-message-success="Thanks! You will recieve a responsve in 24h!" data-validate>
+                        {{ form_errors(form) }}
+                        <div class="row mb-4">
+                            <div class="col-md-6 form-group">
+                                <label>{{"portada.nombre"|trans}}:</label>
+                                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="text-center">{{"portada.email"|trans}}:</label>
+                                 {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_widget(form.message, {'attr': {'class': 'form-control-text', 'cols': '30', 'rows': '6', 'placeholder': 'portada.escribe_mensaje'|trans}}) }}
+                        </div>
+                        <div style="display:none;">
+                            {{ form_rest(form) }}
+                        </div>
+                        <div class="text-center">
+                            <button id="submit" class="btn btn-lg btn-outline-white">{{"portada.envia_mensaje"|trans}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Window Toggle - Message -->
+<button class="window-toggle" data-target="#message-window"><i class="fa fa-comments"></i><i class="fa fa-times"></i></button>
 {% endblock %}

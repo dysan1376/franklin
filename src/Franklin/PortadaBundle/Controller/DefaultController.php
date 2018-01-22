@@ -46,18 +46,18 @@ class DefaultController extends Controller
         	 		//success
                     $flashBag = $this->get('session')->getFlashBag();
                     $flashBag->add('success', $name.$translator->trans('portada.success_message'));
-                    new Response('success');
+                    //new Response('success');
         	    } else {
         	 		//fail
                     $flashBag = $this->get('session')->getFlashBag();
                     $flashBag->add('info', $name.$translator->trans('portada.info_success'));
-                    new Response('info');
+                    //new Response('info');
         	    }
 
 			} else {
 				$flashBag = $this->get('session')->getFlashBag();
 				$flashBag->add('info', $name.$translator->trans('portada.info_success'));
-				new Response('info');
+				//new Response('info');
 			}
 		}
 
@@ -105,6 +105,13 @@ class DefaultController extends Controller
 
     public function servicioAction($slug, $_locale, Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        //Get servicio
+        $servicio = $em->getRepository('PortadaBundle:Servicio')->findOneBy(array(
+            'slug' => $slug,
+            'locale' => $_locale
+        ));
 
     	$message = new Message();
     	$form = $this->createForm(new MessageType(), $message);
@@ -137,46 +144,29 @@ class DefaultController extends Controller
                     //success
                     $flashBag = $this->get('session')->getFlashBag();
                     $flashBag->add('success', $name.$translator->trans('portada.success_message'));
-                    new Response('success');
+                    //new Response('success');
                 } else {
                     //fail
                     $flashBag = $this->get('session')->getFlashBag();
                     $flashBag->add('info', $name.$translator->trans('portada.info_success'));
-                    new Response('info');
+                    //new Response('info');
                 }
 
             } else {
                 $flashBag = $this->get('session')->getFlashBag();
                 $flashBag->add('info', $name.$translator->trans('portada.info_success'));
-                new Response('info');
+                //new Response('info');
             }
         }
 
-    	return $this->render('PortadaBundle:Servicios:'. $slug .'.html.twig', array(
-        	'form'=>$form->createView()
+        // echo "<pre>";
+        // \Doctrine\Common\Util\Debug::dump($servicio);
+        // echo '</pre>';
+
+    	return $this->render('PortadaBundle:Servicios:servicio.html.twig', array(
+        	'form'=>$form->createView(),
+            'servicio' => $servicio
         ));
-    }
-
-    public function sendMessageAction($name, $email, $message)
-    {
-    	$message = \Swift_Message::newInstance()
-            ->setSubject('Mensaje nuevo')
-            ->setFrom('info@franklinalvear.com')
-            ->setTo('franklin@hospi.me')
-            ->setBody(
-                $this->renderView(
-                    'PortadaBundle:Default:mail.html.twig', array(
-                        'message' => $message,
-                        'name' => $name
-                        )
-                ),
-                'text/html'
-            )
-        ;
-        $this->get('mailer')->send($message);
-
-        //return $this->render('FormulariosBundle:Default:promomail.html.twig');
-        return new Response('success');
     }
 
     public function vcardAction()
