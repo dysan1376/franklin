@@ -150,7 +150,7 @@ class Servicio
     /**
      * @var string
      *
-     * @ORM\Column(name="append_text", type="text")
+     * @ORM\Column(name="append_text", type="text", nullable=true)
      */
     private $appendText;
 
@@ -185,7 +185,7 @@ class Servicio
     /**
      * @var string
      *
-     * @ORM\Column(name="price_max", type="string", length=255)
+     * @ORM\Column(name="price_max", type="string", length=255, nullable=true)
      */
     private $priceMax;
 
