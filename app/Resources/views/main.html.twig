@@ -316,6 +316,13 @@
         }
     }
     </script>
+    <script type="text/javascript">
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+         $('#start').toggleClass('dark light');
+         $('#start').toggleClass('bg-dark bg-light');
+         $('#start').data('scheme', 'light');
+        }
+    </script>
 {% endblock %}
 
 </body>
