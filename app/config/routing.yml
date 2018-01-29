@@ -1,3 +1,9 @@
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/blogs
+    requirements:
+        _locale: es|pt|en|it
+
 portada:
     resource: "@PortadaBundle/Resources/config/routing.yml"
     prefix:   /
