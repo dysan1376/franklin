@@ -8,11 +8,11 @@ class DefaultController extends Controller
 {
     public function indexAction($_locale)
     {
-        return $this->render('BlogBundle:Default:index.html.twig');
+        return $this->render('BlogBundle:Default:blogs.html.twig');
     }
 
     public function slugAction($_locale)
     {
-    	return $this->render('BlogBundle:Default:slug.html.twig');
+    	return $this->render('BlogBundle:Default:blog.html.twig');
     }
 }

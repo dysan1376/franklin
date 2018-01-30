@@ -1,0 +1,189 @@
+{% extends '::main.html.twig' %}
+
+{% block navigation %}
+<!-- Navigation -->
+<nav id="navigation" class="navigation-panel light">
+
+    <div class="navigation-inner">
+        <!-- Navigation Primary -->
+        <ul class="nav nav-primary-panel">
+            <li class="nav-item"><a href="#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
+            <li class="nav-item"><a href="#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
+            <li class="nav-item"><a href="#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
+            <li class="nav-item"><a href="#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
+            <li class="nav-item"><a href="#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
+        </ul>
+    </div>
+    
+</nav>
+<!-- Navigation / End -->
+{% endblock %}
+
+{% block content %}
+<!-- Content -->
+<div id="content">
+
+    <!-- Section - Intro -->
+    <section id="intro" class="section h-md dark bg-dark" data-scheme="dark">
+
+        <!-- BG Image -->
+        <div class="bg-image-container"><img src="{{ asset('bundles/portada/img/photos/blog.png') }}" alt=""></div>
+    
+        <!-- Section Content -->
+        <div class="section-content pos-v-center" data-local-scroll>
+            <div class="container">
+
+                <div class="row text-center">
+                    <div class="col-md-6 push-md-3">
+                        <h6 class="mb-2">Franklin Alvear</h6>
+                        <hr class="sep-oval">
+                        <h1><span class="typing">Bienvenido a mi <strong>Blog</strong></span></h1>
+                        <a href="#blog" class="btn btn-primary">Continuar</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Blog -->
+    <section id="blog" class="section" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <img src="{{ asset('bundles/portada/img/photos/doctor/avatar-sm.png') }}" alt="" class="section-header-image">
+                    <div class="section-header-content">
+                        <span class="typing">¿Qué te gustaría ver hoy?</span>
+                        <!-- Filter - Isotope -->
+                        <ul class="nav nav-pills filter show-after-typing" data-filter-list="#posts-list">
+                            <li class="nav-item"><a href="#" class="nav-link active" data-filter="*">Todo</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-filter=".Cirugias">Cirugías</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-filter=".No_quirurgico">No quirúrgico</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-filter=".Tendencias">Tendencias</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-filter=".Otros">Otros</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Filter List -->
+                <div id="posts-list" class="row masonry filter-list">  
+                    <div class="masonry-sizer col-xl-4 col-sm-6 col-12"></div>
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 Cirugias">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="{{ path('blog_slug') }}"><img src="{{ asset('bundles/portada/img/posts/post01.jpg') }}" alt=""></a>
+                                <button class="btn-play" data-toggle="video-modal" data-target="#modalVideo" data-video="https://www.youtube.com/embed/uVju5--RqtY"></button>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="blog-post-panel.html">Perfect Nature</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">24 July 2017</a></li>
+                                    <li><a href="#">Lifestyle</a></li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 Work">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="{{ path('blog_slug') }}"><img src="{{ asset('bundles/portada/img/posts/post03.jpg') }}" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="blog-post-panel.html">How to work more effective?</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">24 July 2017</a></li>
+                                    <li><a href="#">Work</a></li>
+                                </ul>
+                                <p>Proin pulvinar massa neque, vel sodales augue aliquet placerat. Sed consequat commodo magna ac luctus.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 No_quirurgico">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="{{ path('blog_slug') }}"><img src="{{ asset('bundles/portada/img/posts/post02.jpg') }}" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="blog-post-panel.html">Great workspace idas</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">24 July 2017</a></li>
+                                    <li><a href="#">Lifestyle</a></li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 Cirugias">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="{{ path('blog_slug') }}"><img src="{{ asset('bundles/portada/img/posts/post04.jpg') }}" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="blog-post-panel.html">Road trip to Colorado</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">24 July 2017</a></li>
+                                    <li><a href="#">Lifestyle</a></li>
+                                </ul>
+                                <p>Sed consequat commodo magna ac luctus. Vel sodales augue aliquet placerat. </p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 Otros">
+                        <!-- Blockquote -->
+                        <blockquote class="blockquote bg-dark dark">
+                            <div class="bg-image-container"><img src="{{ asset('bundles/portada/img/photos/doctor/blockquote01.jpg') }}" alt=""></div>
+                            <p>Vel sodales augue aliquet placerat. Sed consequat commodo magna ac luctus.</p>
+                            <footer class="text-muted"><span class="name">Mary Jane, The Founder</span></footer>
+                        </blockquote>
+                    </div>
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 Tendencias">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="{{ path('blog_slug') }}">Hello world!</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">24 July 2017</a></li>
+                                    <li><a href="#">Lifestyle</a></li>
+                                </ul>
+                                <p>Vel sodales augue aliquet placerat. Sed consequat commodo magna ac luctus.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <i class="ti-angle-left"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <i class="ti-angle-right"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+<!-- Content / End -->
+{% endblock %}
+
+{% block message %}{% endblock %}

@@ -1,0 +1,91 @@
+{% extends '::main.html.twig' %}
+
+{% block navigation %}
+<!-- Navigation -->
+<nav id="navigation" class="navigation-panel light">
+
+    <div class="navigation-inner">
+        <!-- Navigation Primary -->
+        <ul class="nav nav-primary-panel">
+            <li class="nav-item"><a href="#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
+            <li class="nav-item"><a href="#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
+            <li class="nav-item"><a href="#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
+            <li class="nav-item"><a href="#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
+            <li class="nav-item"><a href="#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{ path('blog_homepage') }}" class="nav-link">Blog</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
+        </ul>
+    </div>
+    
+</nav>
+<!-- Navigation / End -->
+{% endblock %}
+
+{% block content %}
+<!-- Content -->
+<div id="content" data-scheme="light">
+    
+    <!-- Section - Image -->
+    <section class="section section-case-study-header text-center light bg-light" data-scheme="light">
+        <!-- BG Image -->
+        <div class="bg-image-container overlay-bottom light">
+            <img src="{{ asset('bundles/portada/img/posts/project-cover.jpg') }}" alt="">
+        </div>
+        <div class="section-content">
+            <div class="container-slim">
+                <!-- Image Box -->
+                <figure class="image-box shadow animated" data-animation="fadeIn">
+                    <div class="image">
+                        <img src="{{ asset('bundles/portada/img/posts/project01.jpg') }}" alt="">
+                        <button class="btn-play" data-toggle="video-modal" data-target="#modalVideo" data-video="https://www.youtube.com/embed/uVju5--RqtY"></button>
+                    </div>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section - Description -->
+    <section class="section bg-light light pt-0" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="post-content section-content">
+            <div class="container-slim">
+                <br><br><br>
+                <h1 class="display-4 mb-0">Sparan Race</h1>
+                <p class="date text-muted">21 July 2016</p>
+                <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                <!--hr class="hr-lg"-->
+                <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                <figure>
+                    <img src="{{ asset('bundles/portada/img/posts/project02.jpg') }}" class="figure-img rounded" alt="">
+                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                </figure>
+                <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                <br><br>
+                <div id="disqus_thread"></div>
+            </div>
+
+            
+        </div>
+
+    </section>
+
+</div>
+<!-- Content / End -->
+{% endblock %}
+
+{% block message %}{% endblock %}
+
+{% block script %}
+{{ parent() }}
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://franklinalvear.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endblock %}
+
