@@ -1,5 +1,101 @@
 {% extends '::main.html.twig' %}
 
+{% block title %}
+<!-- Title -->
+<title>Dr. Franklin Alvear | {#{servicio.title}#}</title>
+{% endblock %}
+
+{% block keywords %}
+    {#{servicio.keywords}#}
+{% endblock %}
+
+{% block description %}
+    {#{servicio.description}#}
+{% endblock %}
+
+{% block hreflang %}
+<!-- hreflang tag -->
+<link rel="alternate" href="https://franklinalvear.com/es/{#{servicio.slugEs|trans}#}" hreflang="es" />
+<link rel="alternate" href="https://franklinalvear.com/pt/{#{servicio.slugPt|trans}#}" hreflang="pt" />
+<link rel="alternate" href="https://franklinalvear.com/en/{#{servicio.slugEn|trans}#}" hreflang="en" />
+<link rel="alternate" href="https://franklinalvear.com/it/{#{servicio.slugIt|trans}#}" hreflang="it" />
+{% endblock %}
+
+{% block opengraph %}
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="Franklin Alvear Cirujano Plástico">
+<meta itemprop="description" content="Franklin Alvear Cirujano Plástico">
+<meta itemprop="image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/franklin.jpg">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dr_franklear">
+<meta name="twitter:title" content="Franklin Alvear Cirujano Plástico">
+<meta name="twitter:description" content="Franklin Alvear Cirujano Plástico">
+<meta name="twitter:creator" content="@dr_franklear">
+<!-- Twitter summary card with large image must be at least 280x150px -->
+<meta name="twitter:image:src" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/franklin.jpg">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="Franklin Alvear Cirujano Plástico" />
+<meta property="og:type" content="profile" />
+<meta property="og:url" content="{{ app.request.uri }}" />
+<meta property="og:image" content="https://franklinalvear.com/bundles/portada/img/photos/doctor/franklin.jpg" />
+<meta property="og:description" content="Franklin Alvear Cirujano Plástico" />
+<meta property="og:locale" content="es">
+<meta property="og:locale:alternate" content="en" />
+<meta property="og:locale:alternate" content="pt" />
+<meta property="og:locale:alternate" content="it" />
+<meta property="og:site_name" content="Dr. Franklin Alvear | Cirujano Plástico" />
+<meta property="fb:app_id" content="1522670851135903" />
+{% endblock %}
+
+{% block snippets %}
+<!-- rich snippets -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://franklinalvear.com/es/blog/articulo"
+        },
+        "headline": "Titulo del articulo",
+        "image": [
+            "https://franklinalvear.com/bundles/portada/blog/1x1/photo.jpg",
+            "https://franklinalvear.com/bundles/portada/blog/4x3/photo.jpg",
+            "https://franklinalvear.com/bundles/portada/blog/16x9/photo.jpg"
+        ],
+        "datePublished": "2015-02-05T08:00:00+08:00",
+        "dateModified": "2015-02-05T09:20:00+08:00",
+        "author": {
+            "@type": "Person",
+            "name": "Franklin Alvear",
+            "jobTitle": "Cirujano Plástico",
+            "telephone": "(593)0990459900",
+            "url": "http://franklinalvear.com",
+            "email": "franklin@hospi.me",
+            "memberOf": [{
+                "@type": "Thing",
+                "name": "Sociedade Brasileira de Cirurgía Plástica e Estética",
+                "description": "Sociedad Científica Brasilera",
+                "url": "http://www.sbmcpe.com.br/",
+                "image": "http://www.sbmcpe.com.br/wp-content/uploads/2016/09/15-anos-sbmcpe-peq.png"
+            }]
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Franklin Alvear",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://franklinalvear.com/bundles/portada/img/photos/doctor/avatar.png"
+            }
+        },
+        "description": "A most wonderful article"
+    }
+</script>
+{% endblock %}
+
 {% block navigation %}
 <!-- Navigation -->
 <nav id="navigation" class="navigation-panel light">
@@ -12,7 +108,7 @@
             <li class="nav-item"><a href="#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
             <li class="nav-item"><a href="#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
             <li class="nav-item"><a href="#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
-            <li class="nav-item"><a href="{{ path('blog_homepage') }}" class="nav-link">Blog</a></li>
+            <li class="nav-item"><a href="{{ path('blog_homepage') }}" class="nav-link">{{"blog.blogtitle"|trans}}</a></li>
             <li class="nav-item"><a href="#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
         </ul>
     </div>
@@ -53,6 +149,7 @@
                 <br><br><br>
                 <h1 class="display-4 mb-0">Sparan Race</h1>
                 <p class="date text-muted">21 July 2016</p>
+
                 <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
                 <!--hr class="hr-lg"-->
                 <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
@@ -61,6 +158,8 @@
                     <figcaption class="figure-caption">A caption for the above image.</figcaption>
                 </figure>
                 <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+
+
                 <br><br>
                 <div id="disqus_thread"></div>
             </div>

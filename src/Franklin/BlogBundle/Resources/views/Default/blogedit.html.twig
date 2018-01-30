@@ -1,0 +1,198 @@
+{% extends '::main.html.twig' %}
+
+{% block title %}
+<!-- Title -->
+<title>Dr. Franklin Alvear | New Blog </title>
+{% endblock %}
+
+{% block navigation %}
+<!-- Navigation -->
+<nav id="navigation" class="navigation-panel light">
+
+    <div class="navigation-inner">
+        <!-- Navigation Primary -->
+        <ul class="nav nav-primary-panel">
+            <li class="nav-item"><a href="#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
+            <li class="nav-item"><a href="#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
+            <li class="nav-item"><a href="#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
+            <li class="nav-item"><a href="#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
+            <li class="nav-item"><a href="#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{ path('blog_homepage') }}" class="nav-link">{{"blog.blogtitle"|trans}}</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
+        </ul>
+    </div>
+    
+</nav>
+<!-- Navigation / End -->
+{% endblock %}
+
+{% block content %}
+<!-- Content -->
+
+<!-- Content / End -->
+
+<!-- Content -->
+<div id="content" data-scheme="light">
+
+    <!-- Section - Intro -->
+    <section id="intro" class="section h-md dark bg-dark" data-scheme="dark">
+
+        <!-- BG Image -->
+        <div class="bg-image-container"><img src="{{ asset('bundles/portada/img/photos/blog.png') }}" alt=""></div>
+    
+        <!-- Section Content -->
+        <div class="section-content pos-v-center" data-local-scroll>
+            <div class="container">
+
+                <div class="row text-center">
+                    <div class="col-md-6 push-md-3">
+                        <h6 class="mb-2">Franklin Alvear</h6>
+                        <hr class="sep-oval">
+                        <h1><span class="typing">Busca <strong>inspiración</strong></span></h1>
+                        <a href="#blog" class="btn btn-primary">Continuar</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Description -->
+    <section id="blog" class="section bg-light light pt-0" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="post-content section-content">
+            <div class="container-slim">
+                <br><br><br>
+                <h1 class="display-4 mb-0">Nuevo Bog</h1>
+                <p class="date text-muted">{{ "now"|date('d\\ \\d\\e F \\d\\e\\l Y\\ \\a \\l\\a\\s h:i a\\.') }}</p>
+
+                <form action="#" action="{{ path ('blog_edit', {'id': id}) }}" method="POST" {{ form_enctype(form) }} data-validate>
+                    {{ form_errors(form) }}
+                    <div class="form-group">
+                        <label>Slug</label>
+                        {{ form_widget(form.slug, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Slug Español</label>
+                        {{ form_widget(form.slugEs, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Slug English</label>
+                        {{ form_widget(form.slugEn, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Slug Português</label>
+                        {{ form_widget(form.slugPt, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Slug Italiano</label>
+                        {{ form_widget(form.slugIt, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Locale</label>
+                        {{ form_widget(form.locale, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Keywords</label>
+                        {{ form_widget(form.keywords, {'attr': {'class': 'form-control', 'cols': '30', 'rows': '5'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Tag</label>
+                        {{ form_widget(form.tag, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Subtitle</label>
+                        {{ form_widget(form.subtitle, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Text</label>
+                        {{ form_widget(form.text, { 'attr': {'class': 'form-control tinymce'} }) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Append Text</label>
+                        {{ form_widget(form.appendText, {'attr': {'class': 'form-control', 'cols': '30', 'rows': '5'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Image Url 1</label>
+                        {{ form_widget(form.imageUrlOne, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Image Alt 1</label>
+                        {{ form_widget(form.imageAltOne, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Image Url 2</label>
+                        {{ form_widget(form.imageUrlTwo, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Image Alt 2</label>
+                        {{ form_widget(form.imageAltTwo, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Image Url 3</label>
+                        {{ form_widget(form.imageUrlThree, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Image Alt 3</label>
+                        {{ form_widget(form.imageAltThree, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Image Url 4</label>
+                        {{ form_widget(form.imageUrlFour, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Image Alt 4</label>
+                        {{ form_widget(form.imageAltFour, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div style="display:none;">
+                        {{ form_rest(form) }}
+                    </div>
+                    <div class="form-group form-submit">
+                        <button type="submit" class="btn btn-primary btn-block"><span>Publicar post!</span></button>
+                    </div>
+                </form>
+
+            </div>
+
+            
+        </div>
+
+    </section>
+
+</div>
+<!-- Content / End -->
+{% endblock %}
+
+{% block message %}{% endblock %}
+
+{% block script %}
+{{parent()}}
+  <script src='https://cdn.tinymce.com/4/tinymce.min.js'></script>
+  <script>
+    tinymce.init({
+      selector: '.tinymce',
+      theme: 'modern',
+      height: 400,
+      plugins: [
+        'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+        'save table contextmenu directionality emoticons template paste textcolor'
+      ],
+      toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+    });
+  </script>
+{% endblock %}

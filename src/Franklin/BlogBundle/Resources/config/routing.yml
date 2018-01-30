@@ -5,3 +5,11 @@ blog_homepage:
 blog_slug:
     path:     /slug
     defaults: { _controller: BlogBundle:Default:slug }
+
+blog_new:
+    path:     /franklin-alvear/new
+    defaults: { _controller: BlogBundle:Default:new }
+
+blog_edit:
+    path:     /franklin-alvear/edit/{id}
+    defaults: { _controller: BlogBundle:Default:edit }
