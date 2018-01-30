@@ -1,15 +1,19 @@
 blog_homepage:
-    path:     /
-    defaults: { _controller: BlogBundle:Default:index }
+    path:     /{_locale}/blogs
+    defaults: { _controller: BlogBundle:Default:index, _locale: es  }
+    requirements:
+        _locale: es|pt|en|it
 
 blog_slug:
-    path:     /slug
-    defaults: { _controller: BlogBundle:Default:slug }
+    path:     /{_locale}/blogs/slug
+    defaults: { _controller: BlogBundle:Default:slug, _locale: es  }
+    requirements:
+        _locale: es|pt|en|it
 
 blog_new:
-    path:     /franklin-alvear/new
+    path:     /franklin-alvear/new/blog
     defaults: { _controller: BlogBundle:Default:new }
 
 blog_edit:
-    path:     /franklin-alvear/edit/{id}
+    path:     /franklin-alvear/edit/blog/{id}
     defaults: { _controller: BlogBundle:Default:edit }

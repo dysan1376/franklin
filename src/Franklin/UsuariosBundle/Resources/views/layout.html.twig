@@ -1,0 +1,54 @@
+{% extends '::main.html.twig' %}
+
+{% block content %}
+<!-- Content -->
+<div id="content" data-scheme="light">
+    
+    <!-- Section - Intro -->
+    <section id="intro" class="section h-md dark bg-dark" data-scheme="dark">
+
+        <!-- BG Image -->
+        <div class="bg-image-container"><img src="{{ asset('bundles/portada/img/photos/blog.png') }}" alt=""></div>
+    
+        <!-- Section Content -->
+        <div class="section-content pos-v-center" data-local-scroll>
+            <div class="container">
+
+                <div class="row text-center">
+                    <div class="col-md-6 push-md-3">
+                        <h6 class="mb-2">Franklin Alvear</h6>
+                        <hr class="sep-oval">
+                        <h1><span class="typing">Bienvenido a mi <strong>Blog</strong></span></h1>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section - Description -->
+    <section class="section bg-light light pt-0" data-scheme="light">
+    
+        <!-- Section Content -->
+        <div class="post-content section-content">
+            <div class="container-slim">
+                <br><br><br>
+                
+                {% block fos_user_content %}
+                {% endblock fos_user_content %}
+
+                <br><br>
+            </div>
+
+            
+        </div>
+
+    </section>
+
+</div>
+<!-- Content / End -->
+{% endblock %}
+
+
+{% block message %}{% endblock %}

@@ -23,7 +23,7 @@ class DefaultController extends Controller
     	return $this->render('BlogBundle:Default:blog.html.twig');
     }
 
-    public function newAction($_locale, Request $request)
+    public function newAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $blog = new Blog();
@@ -44,7 +44,7 @@ class DefaultController extends Controller
         ));
     }
 
-    public function editAction($_locale, $id, Request $request)
+    public function editAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 

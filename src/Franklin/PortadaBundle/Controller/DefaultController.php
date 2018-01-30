@@ -213,4 +213,9 @@ class DefaultController extends Controller
 
         return $response;
     }
+
+    public function dashboardAction()
+    {
+        return $this->render('PortadaBundle:Default:dashboard.html.twig');
+    }
 }

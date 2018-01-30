@@ -1,0 +1,51 @@
+<style type="text/css">
+    input#fos_user_registration_form_plainPassword_second {
+        margin-bottom: 0 !important;
+    }
+    ul#parsley-fos_user_registration_formroles {
+        display: none;
+    }
+</style>
+<section class="tile color transparent-black">
+    <div class="tile-body">
+        <form parsley-validate action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register form-horizontal" novalidate>
+            <div class="input-group">
+                {% set userholder = 'form.username'|trans({}, 'FOSUserBundle') %}
+                {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'parsley-required': 'true', 'parsley-error-message': 'Escriba un nombre de usuario', 'placeholder': userholder} }) }}
+                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+            </div>
+            <div class="input-group">
+                {% set mailholder = 'form.email'|trans({}, 'FOSUserBundle') %}
+                {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'parsley-required': 'true', 'parsley-error-message': 'Escriba un correo electrónico', 'placeholder': mailholder} }) }}
+                <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+            </div>
+            {% set password = 'form.password'|trans({}, 'FOSUserBundle') %}
+            {% set password_confirmation = 'form.password_confirmation'|trans({}, 'FOSUserBundle') %}
+            {% for child in form.plainPassword %}
+                {% if loop.first %}
+                <div class="input-group">
+                    <!--label class="col-sm-4 control-label">{#{ form_label(child) }#}</label-->
+                    {{ form_widget(child, {'attr': {'class': 'form-control', 'parsley-required': 'true', 'data-equalto': '#fos_user_registration_form_plainPassword_second', 'parsley-error-message': 'Ingrese una contraseña', 'placeholder': password}}) }}
+                    <div class="input-group-addon"><i class="fa fa-unlock-alt"></i></div>
+                </div>
+                {% elseif loop.last %}
+                <div class="input-group">
+                    <!--label class="col-sm-4 control-label">{{ form_label(child) }}</label-->
+                        {{ form_widget(child, {'attr': {'class': 'form-control', 'parsley-required': 'true', 'data-equalto': '#fos_user_registration_form_plainPassword_first', 'parsley-error-message': 'La contraseña debe coincidir', 'placeholder': password_confirmation}}) }}
+                        <div class="input-group-addon"><i class="fa fa-unlock-alt"></i></div>
+                </div><br>
+                {% endif %}
+            {% endfor %}
+            
+                    
+            <div style="display: none;">{{ form_rest(form) }}</div>
+            <div class="form-group form-submit">
+                <div>
+                    <input class="btn btn-primary btn-block" type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script src="{{ asset('bundles/portada/assets/js/vendor/parsley/parsley.min.js') }}"></script>

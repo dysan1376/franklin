@@ -1,0 +1,56 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+
+<style type="text/css">label:before {left:3px !important;}</style>
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<h2>
+    <a href="{{ path('portada_dashboard') }}">{{"usuarios.tucuenta"|trans}}
+     {{app.user}}
+     <i class="fa fa-chevron-circle-right"></i></a><br><br>
+    <a href="{{ path('fos_user_security_logout') }}" style="text-decoration:none; font-size: 12px; float: right;">{{"usuarios.otracuenta"|trans}}</a>
+</h2>
+
+{% else %}
+<section class="tile color transparent-black">
+    <div class="tile-body">
+    {% if error %}
+        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+    {% endif %}
+    <form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        <div class="input-group">
+            <input class="form-control" type="text" id="username" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" name="_username" value="{{ last_username }}" required="required" />
+            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+        </div>
+        <div class="input-group">
+            <input class="form-control"  type="password" id="password" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" name="_password" required="required" />
+            <div class="input-group-addon"><i class="fa fa-key"></i></div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <div class="checkbox check-transparent">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                </div>
+            </div>
+        </div><br>
+        <div class="form-group form-submit">
+            <div>
+                <input class="btn btn-primary btn-block" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" /><br><br>
+                  <section class="controls">
+                    <a href="{{ path('fos_user_resetting_request') }}">{{"usuarios.olvido"|trans}}</a><br>
+                  </section>
+            </div>
+        </div>
+        <section class="log-in">
+            <p></p>
+            <a href="{{ path('fos_user_registration_register') }}">{{"usuarios.registrate"|trans}}</a>
+        </section>
+    </form>
+    </div>
+</section>
+{% endif %}
+
+{% endblock fos_user_content %}

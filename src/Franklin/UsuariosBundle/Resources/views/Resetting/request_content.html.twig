@@ -1,0 +1,24 @@
+<style type="text/css">
+    .parsley-error-list {
+        display: none !important;
+    }
+</style>
+<section class="tile color transparent-black">
+    <div class="tile-body">
+        {% if invalid_username is defined %}
+            <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</p>
+        {% endif %}
+        <form parsley-validate action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request form-horizontal" novalidate>
+            <div class="input-group">
+                <input class="form-control" type="text" id="username" placeholder="{{ 'resetting.request.username'|trans({}, 'FOSUserBundle') }}" name="username" required="required" />
+                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+            </div><br>
+            <div class="form-group">
+                <div>
+                    <input type="submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" />
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="{{ asset('bundles/portada/assets/js/vendor/parsley/parsley.min.js') }}"></script>

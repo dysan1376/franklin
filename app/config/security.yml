@@ -1,7 +1,7 @@
 security:
     providers:
         fos_userbundle:
-            id: fos_user.user_provider.username
+            id: fos_user.user_provider.username_email
 
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
@@ -12,7 +12,7 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
-                default_target_path: portada_homepage
+                default_target_path: portada_dashboard
             logout:
                  path:   fos_user_security_logout
             anonymous:    true
@@ -24,9 +24,11 @@ security:
                  user_provider: fos_userbundle
 
     access_control:
-        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/dashboard, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/franklin-alvear, role: IS_AUTHENTICATED_FULLY }
+        
 
     role_hierarchy:
         ROLE_USER:     ROLE_USER

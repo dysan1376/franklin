@@ -128,7 +128,6 @@
 
 </head>
 
-
 {% block bodyclass %}
 <body class="navigation-panel page-scrolling light-scheme">
 {% endblock %}
@@ -166,7 +165,10 @@
 <a id="navigation-toggle" class="nav-toggle"><span></span><span></span><span></span><span></span></a>
 
 {% block content %}
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
 {% endblock %}
+
 
 {% block footer %}
 <!-- Footer -->

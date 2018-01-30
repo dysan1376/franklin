@@ -1,0 +1,10 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
+    {% if app.session is not empty %}
+        <h2>
+            <a href="{{ path('portada_dashboard') }}" style="text-decoration:none;">Ingresa a tu cuenta <i class="fa fa-chevron-circle-right"></i></a><br>
+        </h2>
+    {% endif %}
+{% endblock fos_user_content %}
