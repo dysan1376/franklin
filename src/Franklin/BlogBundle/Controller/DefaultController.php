@@ -7,8 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-//use Pagerfanta\Adapter\ArrayAdapter;
-//use Pagerfanta\Pagerfanta;
+use Pagerfanta\Adapter\ArrayAdapter;
+use Pagerfanta\Pagerfanta;
 
 use Franklin\BlogBundle\Entity\Blog;
 
@@ -21,15 +21,15 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $blogs = $em->getRepository('BlogBundle:Blog')->findAll();
 
-        // $adapter = new ArrayAdapter($blogs);
-        // $pager = new Pagerfanta($adapter);
-        // $pager->setMaxPerPage(2);
-        // $pager->setCurrentPage($page);
+        $adapter = new ArrayAdapter($blogs);
+        $pager = new Pagerfanta($adapter);
+        $pager->setMaxPerPage(2);
+        $pager->setCurrentPage($page);
 
         return $this->render('BlogBundle:Default:blogs.html.twig', array(
-            'blogs' => $blogs
-            //'blogs' => $pager->getCurrentPageResults(),
-            //'pager' => $pager,
+            // 'blogs' => $blogs
+            'blogs' => $pager->getCurrentPageResults(),
+            'pager' => $pager,
         ));
     }
 

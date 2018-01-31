@@ -266,7 +266,7 @@
 
 
                 <!-- Pagerfanta -->
-                {#% set anterior = "portada.blogs.anterior"|trans %}
+                {% set anterior = "portada.blogs.anterior"|trans %}
                 {% set siguiente = "portada.blogs.siguiente"|trans %}
                 {% if pager is not null and pager.haveToPaginate %}
                     <ul class="pagination justify-content-center">
@@ -278,7 +278,7 @@
                             'next_message': '<i class="ti-angle-right"></i>'
                         }) }}
                     </ul>
-                {% endif %#}
+                {% endif %}
                 <!-- /Pagerfanta -->
             </div>
         </div>
