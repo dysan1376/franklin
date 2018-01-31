@@ -63,7 +63,7 @@
                         <!-- Filter - Isotope -->
                         <ul class="nav nav-pills filter show-after-typing" data-filter-list="#posts-list">
                             <li class="nav-item"><a href="#" class="nav-link active" data-filter="*">Todo</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link" data-filter=".Cirugias">Cirugías</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-filter=".Plástica">Plástica</a></li>
                             <li class="nav-item"><a href="#" class="nav-link" data-filter=".No_quirurgico">No quirúrgico</a></li>
                             <li class="nav-item"><a href="#" class="nav-link" data-filter=".Tendencias">Tendencias</a></li>
                             <li class="nav-item"><a href="#" class="nav-link" data-filter=".Otros">Otros</a></li>
@@ -71,8 +71,90 @@
                     </div>
                 </div>
                 <!-- Filter List -->
-                <div id="posts-list" class="row masonry filter-list">  
+                <div id="posts-list" class="row masonry filter-list">
                     <div class="masonry-sizer col-xl-4 col-sm-6 col-12"></div>
+                    {% for blog in blogs %}
+                    {% if blog.type == "video" %}
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 {{blog.tag|title}}">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="{{ path('blog_slug') }}"><img src="{{blog.imageUrlOne}}" alt=""></a>
+                                <button class="btn-play" data-toggle="video-modal" data-target="#modalVideo" data-video="{{blog.imageUrlTwo}}"></button>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="{{ path('blog_slug') }}">{{blog.title}}</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
+                                    <li><a href="#">{{blog.tag|title}}</a></li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    {% endif %}
+                    {% if blog.type == "default" %}
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 {{blog.tag|title}}">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="{{ path('blog_slug') }}"><img src="{{blog.imageUrlOne}}" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="{{ path('blog_slug') }}">{{blog.title}}</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
+                                    <li><a href="#">{{blog.tag|title}}</a></li>
+                                </ul>
+                                <p>{{blog.description}}</p>
+                            </div>
+                        </article>
+                    </div>
+                    {% endif %}
+                    {% if blog.type == "image" %}
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 {{blog.tag|title}}">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="{{ path('blog_slug') }}"><img src="{{blog.imageUrlOne}}" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="{{ path('blog_slug') }}">{{blog.title}}</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
+                                    <li><a href="#">{{blog.tag|title}}</a></li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    {% endif %}
+                    {% if blog.type == "quote" %}
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 {{blog.tag|title}}">
+                        <!-- Blockquote -->
+                        <blockquote class="blockquote bg-dark dark">
+                            <div class="bg-image-container"><img src="{{blog.imageUrlOne}}" alt=""></div>
+                            {{blog.text|raw}}
+                            <footer class="text-muted"><span class="name">{{blog.appendText}}</span></footer>
+                        </blockquote>
+                    </div>
+                    {% endif %}
+                    {% if blog.type == "text" %}
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 {{blog.tag|title}}">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="{{ path('blog_slug') }}">{{blog.title}}</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
+                                    <li><a href="#">{{blog.tag|title}}</a></li>
+                                </ul>
+                                <p>{{blog.description}}</p>
+                            </div>
+                        </article>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                    {#% block hide %}
                     <div class="masonry-item col-xl-4 col-sm-6 col-12 Cirugias">
                         <!-- Post - Item -->
                         <article class="post item">
@@ -89,7 +171,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="masonry-item col-xl-4 col-sm-6 col-12 Work">
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 Tendencias">
                         <!-- Post - Item -->
                         <article class="post item">
                             <div class="post-image">
@@ -157,9 +239,11 @@
                             </div>
                         </article>
                     </div>
+                    {% endblock %#}
+
                 </div>
                 <!-- Pagination -->
-                <ul class="pagination justify-content-center">
+                <!--ul class="pagination justify-content-center">
                     <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
                             <i class="ti-angle-left"></i>
@@ -177,7 +261,25 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </li>
-                </ul>
+                </ul-->
+                <!-- Pagination / End-->
+
+
+                <!-- Pagerfanta -->
+                {% set anterior = "portada.blogs.anterior"|trans %}
+                {% set siguiente = "portada.blogs.siguiente"|trans %}
+                {% if pager is not null and pager.haveToPaginate %}
+                    <ul class="pagination justify-content-center">
+                        {{ pagerfanta(pager, 'twitter_bootstrap4', {
+                            'proximity': 2,
+                            'routeName': 'blog_homepage_paginated',
+                            'routeParams': app.request.query.all,
+                            'prev_message': '<i class="ti-angle-left"></i>',
+                            'next_message': '<i class="ti-angle-right"></i>'
+                        }) }}
+                    </ul>
+                {% endif %}
+                <!-- /Pagerfanta -->
             </div>
         </div>
 

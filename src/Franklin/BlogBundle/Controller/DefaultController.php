@@ -7,15 +7,34 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+use Pagerfanta\Adapter\ArrayAdapter;
+use Pagerfanta\Pagerfanta;
+
 use Franklin\BlogBundle\Entity\Blog;
 
 use Franklin\BlogBundle\Form\Type\BlogType;
 
 class DefaultController extends Controller
 {
-    public function indexAction($_locale)
+    public function indexAction($page, $_locale)
     {
-        return $this->render('BlogBundle:Default:blogs.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $blogs = $em->getRepository('BlogBundle:Blog')->findAll();
+        // echo "<pre>";
+        // \Doctrine\Common\Util\Debug::dump(count($blogs));
+        // echo '</pre>';
+        $adapter = new ArrayAdapter($blogs);
+        $pager = new Pagerfanta($adapter);
+        $pager->setMaxPerPage(2);
+        $pager->setCurrentPage($page);
+        // echo "<pre>";
+        // \Doctrine\Common\Util\Debug::dump($pager);
+        // echo '</pre>';
+        return $this->render('BlogBundle:Default:blogs.html.twig', array(
+            //'blogs' => $blogs
+            'blogs' => $pager->getCurrentPageResults(),
+            'pager' => $pager,
+        ));
     }
 
     public function slugAction($_locale)

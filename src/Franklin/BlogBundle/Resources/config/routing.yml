@@ -1,7 +1,15 @@
 blog_homepage:
     path:     /{_locale}/blogs
-    defaults: { _controller: BlogBundle:Default:index, _locale: es  }
+    defaults: { _controller: BlogBundle:Default:index, page: 1, _locale: es  }
     requirements:
+        _method:  GET
+        _locale: es|pt|en|it
+
+blog_homepage_paginated:
+    pattern:  /{_locale}/blogs/{page}
+    defaults: { _controller: BlogBundle:Default:index, _locale: es }
+    requirements:
+        _method:  GET
         _locale: es|pt|en|it
 
 blog_slug:
