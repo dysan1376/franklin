@@ -171,6 +171,13 @@ class Blog
     /**
      * @var string
      *
+     * @ORM\Column(name="image_url_cover", type="string", length=255, nullable=true)
+     */
+    private $imageUrlCover;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="image_alt_four", type="string", length=255, nullable=true)
      */
     private $imageAltFour;
@@ -726,6 +733,54 @@ class Blog
     public function getImageAltFour()
     {
         return $this->imageAltFour;
+    }
+
+    /**
+     * Set imageUrlCover
+     *
+     * @param string $imageUrlCover
+     *
+     * @return Blog
+     */
+    public function setImageUrlCover($imageUrlCover)
+    {
+        $this->imageUrlCover = $imageUrlCover;
+
+        return $this;
+    }
+
+    /**
+     * Get imageUrlCover
+     *
+     * @return string
+     */
+    public function getImageUrlCover()
+    {
+        return $this->imageUrlCover;
+    }
+
+    /**
+     * Set imageAltCover
+     *
+     * @param string $imageAltCover
+     *
+     * @return Blog
+     */
+    public function setImageAltCover($imageAltCover)
+    {
+        $this->imageAltCover = $imageAltCover;
+
+        return $this;
+    }
+
+    /**
+     * Get imageAltCover
+     *
+     * @return string
+     */
+    public function getImageAltCover()
+    {
+        return $this->imageAltCover;
     }
 
     /**
