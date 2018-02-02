@@ -171,6 +171,13 @@ class Blog
     /**
      * @var string
      *
+     * @ORM\Column(name="image_alt_four", type="string", length=255, nullable=true)
+     */
+    private $imageAltFour;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="image_url_cover", type="string", length=255, nullable=true)
      */
     private $imageUrlCover;
@@ -178,9 +185,9 @@ class Blog
     /**
      * @var string
      *
-     * @ORM\Column(name="image_alt_four", type="string", length=255, nullable=true)
+     * @ORM\Column(name="image_alt_cover", type="string", length=255, nullable=true)
      */
-    private $imageAltFour;
+    private $imageAltCover;
 
     /**
      * @var \DateTime
