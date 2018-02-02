@@ -23,7 +23,7 @@ class DefaultController extends Controller
 
         $adapter = new ArrayAdapter($blogs);
         $pager = new Pagerfanta($adapter);
-        $pager->setMaxPerPage(2);
+        $pager->setMaxPerPage(6);
         $pager->setCurrentPage($page);
 
         return $this->render('BlogBundle:Default:blogs.html.twig', array(
