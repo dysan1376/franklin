@@ -26,6 +26,8 @@ class BlogType extends AbstractType
 			->add('description')
 			->add('text')
 			->add('appendText')
+			->add('imageUrlCover')
+			->add('imageAltCover')
 			->add('imageUrlOne')
 			->add('imageAltOne')
 			->add('imageUrlTwo')

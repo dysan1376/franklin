@@ -5,6 +5,17 @@
 <title>Dr. Franklin Alvear | {#{servicio.title}#}</title>
 {% endblock %}
 
+{% block css %}
+{{parent()}}
+<!--style type="text/css">
+    p .p1 {
+        font-size: 1.35rem;
+        margin-bottom: 2rem;
+        font-weight: 300;   
+    }
+</style-->
+{% endblock %}
+
 {% block keywords %}
     {#{servicio.keywords}#}
 {% endblock %}
@@ -125,7 +136,7 @@
     <section class="section section-case-study-header text-center light bg-light" data-scheme="light">
         <!-- BG Image -->
         <div class="bg-image-container overlay-bottom light">
-            <img src="{{ asset('bundles/portada/img/posts/project-cover.jpg') }}" alt="">
+            <img src="{{blog.imageUrlOne}}" alt="{{blog.imageAltOne}}">
         </div>
         <div class="section-content">
             <div class="container-slim">
@@ -189,5 +200,11 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<script type="text/javascript">
+$(function(){
+    $('p').addClass('lead');
+});
+</script>
 {% endblock %}
 
