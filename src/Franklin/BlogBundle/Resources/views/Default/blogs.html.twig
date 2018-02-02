@@ -79,7 +79,7 @@
                         <!-- Post - Item -->
                         <article class="post item">
                             <div class="post-image">
-                                <a href="{{ path('blog_slug') }}"><img src="{{blog.imageUrlOne}}" alt=""></a>
+                                <a href="{{ path('blog_slug') }}"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
                                 <button class="btn-play" data-toggle="video-modal" data-target="#modalVideo" data-video="{{blog.imageUrlTwo}}"></button>
                             </div>
                             <div class="post-content">
@@ -97,7 +97,7 @@
                         <!-- Post - Item -->
                         <article class="post item">
                             <div class="post-image">
-                                <a href="{{ path('blog_slug') }}"><img src="{{blog.imageUrlOne}}" alt=""></a>
+                                <a href="{{ path('blog_slug') }}"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
                             </div>
                             <div class="post-content">
                                 <h4 class="post-title"><a href="{{ path('blog_slug') }}">{{blog.title}}</a></h4>
@@ -115,7 +115,7 @@
                         <!-- Post - Item -->
                         <article class="post item">
                             <div class="post-image">
-                                <a href="{{ path('blog_slug') }}"><img src="{{blog.imageUrlOne}}" alt=""></a>
+                                <a href="{{ path('blog_slug') }}"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
                             </div>
                             <div class="post-content">
                                 <h4 class="post-title"><a href="{{ path('blog_slug') }}">{{blog.title}}</a></h4>
@@ -131,7 +131,7 @@
                     <div class="masonry-item col-xl-4 col-sm-6 col-12 {{blog.tag|title}}">
                         <!-- Blockquote -->
                         <blockquote class="blockquote bg-dark dark">
-                            <div class="bg-image-container"><img src="{{blog.imageUrlOne}}" alt=""></div>
+                            <div class="bg-image-container"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></div>
                             {{blog.text|raw}}
                             <footer class="text-muted"><span class="name">{{blog.appendText}}</span></footer>
                         </blockquote>
