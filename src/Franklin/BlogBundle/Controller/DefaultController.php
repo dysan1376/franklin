@@ -33,9 +33,24 @@ class DefaultController extends Controller
         ));
     }
 
-    public function slugAction($_locale)
+    public function viewAction($_locale, $slug, Request $request)
     {
-    	return $this->render('BlogBundle:Default:blog.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        //Get blog
+        $blog = $em->getRepository('BlogBundle:Blog')->findOneBy(array(
+            'slug' => $slug,
+            'locale' => $_locale
+        ));
+        if (!$blog) {
+            throw new NotFoundHttpException();
+        }
+
+    	return $this->render('BlogBundle:Default:blog.html.twig', array(
+            'blog' => $blog
+        ));
+
+        //return $this->render('BlogBundle:Default:blog.html.twig');
     }
 
     public function newAction(Request $request)

@@ -79,11 +79,11 @@
                         <!-- Post - Item -->
                         <article class="post item">
                             <div class="post-image">
-                                <a href="{{ path('blog_slug') }}"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
+                                <a href="{{ path('blog_view', {'slug': blog.slug}) }}"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
                                 <button class="btn-play" data-toggle="video-modal" data-target="#modalVideo" data-video="{{blog.imageUrlTwo}}"></button>
                             </div>
                             <div class="post-content">
-                                <h4 class="post-title"><a href="{{ path('blog_slug') }}">{{blog.title}}</a></h4>
+                                <h4 class="post-title"><a href="{{ path('blog_view', {'slug': blog.slug}) }}">{{blog.title}}</a></h4>
                                 <ul class="post-meta">
                                     <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
                                     <li><a href="#">{{blog.tag|title}}</a></li>
@@ -97,10 +97,10 @@
                         <!-- Post - Item -->
                         <article class="post item">
                             <div class="post-image">
-                                <a href="{{ path('blog_slug') }}"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
+                                <a href="{{ path('blog_view', {'slug': blog.slug}) }}"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
                             </div>
                             <div class="post-content">
-                                <h4 class="post-title"><a href="{{ path('blog_slug') }}">{{blog.title}}</a></h4>
+                                <h4 class="post-title"><a href="{{ path('blog_view', {'slug': blog.slug}) }}">{{blog.title}}</a></h4>
                                 <ul class="post-meta">
                                     <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
                                     <li><a href="#">{{blog.tag|title}}</a></li>
@@ -115,10 +115,10 @@
                         <!-- Post - Item -->
                         <article class="post item">
                             <div class="post-image">
-                                <a href="{{ path('blog_slug') }}"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
+                                <a href="{{ path('blog_view', {'slug': blog.slug}) }}"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
                             </div>
                             <div class="post-content">
-                                <h4 class="post-title"><a href="{{ path('blog_slug') }}">{{blog.title}}</a></h4>
+                                <h4 class="post-title"><a href="{{ path('blog_view', {'slug': blog.slug}) }}">{{blog.title}}</a></h4>
                                 <ul class="post-meta">
                                     <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
                                     <li><a href="#">{{blog.tag|title}}</a></li>
@@ -142,7 +142,7 @@
                         <!-- Post - Item -->
                         <article class="post item">
                             <div class="post-content">
-                                <h4 class="post-title"><a href="{{ path('blog_slug') }}">{{blog.title}}</a></h4>
+                                <h4 class="post-title"><a href="{{ path('blog_view', {'slug': blog.slug}) }}">{{blog.title}}</a></h4>
                                 <ul class="post-meta">
                                     <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
                                     <li><a href="#">{{blog.tag|title}}</a></li>

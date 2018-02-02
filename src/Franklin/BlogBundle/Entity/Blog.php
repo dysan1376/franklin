@@ -122,6 +122,20 @@ class Blog
     /**
      * @var string
      *
+     * @ORM\Column(name="image_url_cover", type="string", length=255, nullable=true)
+     */
+    private $imageUrlCover;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image_alt_cover", type="string", length=255, nullable=true)
+     */
+    private $imageAltCover;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="image_url_one", type="string", length=255, nullable=true)
      */
     private $imageUrlOne;
@@ -174,20 +188,6 @@ class Blog
      * @ORM\Column(name="image_alt_four", type="string", length=255, nullable=true)
      */
     private $imageAltFour;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image_url_cover", type="string", length=255, nullable=true)
-     */
-    private $imageUrlCover;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image_alt_cover", type="string", length=255, nullable=true)
-     */
-    private $imageAltCover;
 
     /**
      * @var \DateTime

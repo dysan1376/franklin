@@ -12,9 +12,9 @@ blog_homepage_paginated:
         _method:  GET
         _locale: es|pt|en|it
 
-blog_slug:
-    path:     /{_locale}/blogs/slug
-    defaults: { _controller: BlogBundle:Default:slug, _locale: es  }
+blog_view:
+    path:     /{_locale}/blogs/view/{slug}
+    defaults: { _controller: BlogBundle:Default:view, _locale: es  }
     requirements:
         _locale: es|pt|en|it
 
