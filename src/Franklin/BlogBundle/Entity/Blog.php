@@ -66,7 +66,7 @@ class Blog
     /**
      * @var string
      *
-     * @ORM\Column(name="keywords", type="text")
+     * @ORM\Column(name="keywords", type="text", nullable=true)
      */
     private $keywords;
 
@@ -101,14 +101,14 @@ class Blog
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="text", type="text")
+     * @ORM\Column(name="text", type="text", nullable=true)
      */
     private $text;
 
@@ -185,7 +185,7 @@ class Blog
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_actualizacion", type="datetime", nullable=true)
+     * @ORM\Column(name="fecha_actualizacion", type="datetime", nullable=true, nullable=true)
      */
     private $fechaActualizacion;
 
