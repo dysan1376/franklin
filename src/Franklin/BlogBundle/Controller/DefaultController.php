@@ -42,6 +42,16 @@ class DefaultController extends Controller
             'slug' => $slug,
             'locale' => $_locale
         ));
+
+        //Get blog in spanish
+        if (!$blog) {
+           
+           $blog = $em->getRepository('BlogBundle:Blog')->findOneBy(array(
+               'slug' => $slug,
+               'locale' => 'es'
+           )); 
+        }
+        
         if (!$blog) {
             throw new NotFoundHttpException();
         }
