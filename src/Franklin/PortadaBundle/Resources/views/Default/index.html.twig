@@ -814,6 +814,117 @@
 
     </section>
 
+    <!-- Section - Blog -->
+    <section id="blog" class="section bg-light" data-scheme="light">
+    
+        <!-- BG Image -->
+        <div class="bg-image-container zooming"><img src="{{ asset('bundles/portada/img/photos/doctor/home01.jpg') }}" alt="corredor hospital"></div>
+    
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <img src="{{ asset('bundles/portada/img/photos/doctor/avatar-sm.png') }}" alt="Franklin Alvear Cirujano Plástico" class="section-header-image">
+                    <div class="section-header-content">
+                        <span class="typing">{{"portada.ultimos_posts"|trans}}</span>
+                        <div class="section-header-caption show-after-typing">
+                            <a href="{{ path('blog_homepage') }}" class="btn btn-outline-primary btn-sm">{{"portada.revisa_mi_blog"|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row masonry">  
+                    <div class="masonry-sizer col-xl-4 col-sm-6 col-12"></div>
+
+                    {% for blog in blogs %}
+                    {% if blog.type == "video" %}
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 {{blog.tag|title}}">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="#"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
+                                <button class="btn-play" data-toggle="video-modal" data-target="#modalVideo" data-video="{{blog.youtubeVideoLink}}"></button>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="#">{{blog.title}}</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
+                                    <li><a href="#">{{blog.tag|title}}</a></li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    {% endif %}
+                    {% if blog.type == "default" %}
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 {{blog.tag|title}}">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="{{ path('blog_view', {'slug': blog.slug}) }}"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="{{ path('blog_view', {'slug': blog.slug}) }}">{{blog.title}}</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
+                                    <li><a href="#">{{blog.tag|title}}</a></li>
+                                </ul>
+                                <p>{{blog.description}}</p>
+                            </div>
+                        </article>
+                    </div>
+                    {% endif %}
+                    {% if blog.type == "image" %}
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 {{blog.tag|title}}">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="{{ path('blog_view', {'slug': blog.slug}) }}"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="{{ path('blog_view', {'slug': blog.slug}) }}">{{blog.title}}</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
+                                    <li><a href="#">{{blog.tag|title}}</a></li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    {% endif %}
+                    {% if blog.type == "quote" %}
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 {{blog.tag|title}}">
+                        <!-- Blockquote -->
+                        <blockquote class="blockquote bg-dark dark">
+                            <div class="bg-image-container"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></div>
+                            {{blog.text|raw}}
+                            <footer class="text-muted"><span class="name">{{blog.appendText}}</span></footer>
+                        </blockquote>
+                    </div>
+                    {% endif %}
+                    {% if blog.type == "text" %}
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12 {{blog.tag|title}}">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="{{ path('blog_view', {'slug': blog.slug}) }}">{{blog.title}}</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
+                                    <li><a href="#">{{blog.tag|title}}</a></li>
+                                </ul>
+                                <p>{{blog.description}}</p>
+                            </div>
+                        </article>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="text-center mt-3">
+                    <a href="{{ path('blog_homepage') }}" class="btn btn-primary">{{"portada.revisa_mi_blog"|trans}}</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
     <!-- Section - Contact -->
     <section id="contact" class="section section-contact fullheight bg-light" data-scheme="dark">
 

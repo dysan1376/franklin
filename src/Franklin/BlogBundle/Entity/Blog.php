@@ -190,6 +190,13 @@ class Blog
     private $imageAltFour;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="youtube_video_link", type="string", length=255, nullable=true)
+     */
+    private $youtubeVideoLink;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_creacion", type="datetime")
@@ -788,6 +795,30 @@ class Blog
     public function getImageAltCover()
     {
         return $this->imageAltCover;
+    }
+
+    /**
+     * Set youtubeVideoLink
+     *
+     * @param string $youtubeVideoLink
+     *
+     * @return Blog
+     */
+    public function setYoutubeVideoLink($youtubeVideoLink)
+    {
+        $this->youtubeVideoLink = $youtubeVideoLink;
+
+        return $this;
+    }
+
+    /**
+     * Get youtubeVideoLink
+     *
+     * @return string
+     */
+    public function getYoutubeVideoLink()
+    {
+        return $this->youtubeVideoLink;
     }
 
     /**

@@ -135,7 +135,9 @@
                 <figure class="image-box shadow animated" data-animation="fadeIn">
                     <div class="image">
                         <img src="{{blog.imageUrlTwo}}" alt="{{blog.imageAltTwo}}">
-                        <!--button class="btn-play" data-toggle="video-modal" data-target="#modalVideo" data-video="https://www.youtube.com/embed/uVju5--RqtY"></button-->
+                        {% if blog.youtubeVideoLink is not null %}
+                        <button class="btn-play" data-toggle="video-modal" data-target="#modalVideo" data-video="{{blog.youtubeVideoLink}}"></button>
+                        {% endif %}
                     </div>
                 </figure>
             </div>
@@ -151,27 +153,11 @@
                 <br><br><br>
                 <h1 class="display-4 mb-0">{{blog.title}}</h1>
                 <p class="date text-muted">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</p>
-
-                {#% block hide %}
-                <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                <!--hr class="hr-lg"-->
-                <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                <figure>
-                    <img src="{{ asset('bundles/portada/img/posts/project02.jpg') }}" class="figure-img rounded" alt="">
-                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
-                </figure>
-                <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                {% endblock %#}
                 {{blog.text|raw}}
-
-
                 <br><br>
                 <div id="disqus_thread"></div>
             </div>
-
-            
         </div>
-
     </section>
 
 </div>

@@ -36,6 +36,7 @@ class BlogType extends AbstractType
 			->add('imageAltThree')
 			->add('imageUrlFour')
 			->add('imageAltFour')
+			->add('youtubeVideoLink')
 			->add('fechaCreacion')
 			->add('fechaActualizacion');
       }

@@ -15,6 +15,10 @@ class DefaultController extends Controller
 {
     public function indexAction($_locale, Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        $blogsAll = $em->getRepository('BlogBundle:Blog')->findAll();
+        $blogs = array_slice($blogsAll,0,6,false);
+
         $session = $this->container->get('session')->start();
     	$message = new Message();
     	$form = $this->createForm(new MessageType(), $message);
@@ -63,7 +67,8 @@ class DefaultController extends Controller
 		}
 
         return $this->render('PortadaBundle:Default:index.html.twig', array(
-        	'form'=>$form->createView()
+        	'form'=>$form->createView(),
+            'blogs' => $blogs
         ));
     }
 
