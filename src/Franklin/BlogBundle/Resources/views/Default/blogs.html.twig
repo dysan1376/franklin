@@ -7,13 +7,13 @@
     <div class="navigation-inner">
         <!-- Navigation Primary -->
         <ul class="nav nav-primary-panel">
-            <li class="nav-item"><a href="#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
-            <li class="nav-item"><a href="#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
-            <li class="nav-item"><a href="#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
-            <li class="nav-item"><a href="#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
-            <li class="nav-item"><a href="#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
             <li class="nav-item"><a href="{{ path('blog_homepage') }}" class="nav-link">{{"blog.blogtitle"|trans}}</a></li>
-            <li class="nav-item"><a href="#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
         </ul>
     </div>
     
@@ -64,7 +64,7 @@
                         <ul class="nav nav-pills filter show-after-typing" data-filter-list="#posts-list">
                             <li class="nav-item"><a href="#" class="nav-link active" data-filter="*">Todo</a></li>
                             <li class="nav-item"><a href="#" class="nav-link" data-filter=".Plástica">Plástica</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link" data-filter=".No quirurgico">No quirúrgico</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-filter=".Información">Información</a></li>
                             <li class="nav-item"><a href="#" class="nav-link" data-filter=".Tendencias">Tendencias</a></li>
                             <li class="nav-item"><a href="#" class="nav-link" data-filter=".Otros">Otros</a></li>
                         </ul>
@@ -79,11 +79,11 @@
                         <!-- Post - Item -->
                         <article class="post item">
                             <div class="post-image">
-                                <a href="{{ path('blog_view', {'slug': blog.slug}) }}"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
+                                <a href="#"><img src="{{blog.imageUrlCover}}" alt="{{blog.imageAltCover}}"></a>
                                 <button class="btn-play" data-toggle="video-modal" data-target="#modalVideo" data-video="{{blog.imageUrlTwo}}"></button>
                             </div>
                             <div class="post-content">
-                                <h4 class="post-title"><a href="{{ path('blog_view', {'slug': blog.slug}) }}">{{blog.title}}</a></h4>
+                                <h4 class="post-title"><a href="#">{{blog.title}}</a></h4>
                                 <ul class="post-meta">
                                     <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
                                     <li><a href="#">{{blog.tag|title}}</a></li>
