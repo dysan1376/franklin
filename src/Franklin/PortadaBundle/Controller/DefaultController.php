@@ -72,7 +72,7 @@ class DefaultController extends Controller
         ));
     }
 
-    public function localeAction($locale, Request $request)
+    public function localeAction($_locale, Request $request)
     {
 
         $request = $this->getRequest();
@@ -86,16 +86,13 @@ class DefaultController extends Controller
 
             // get last route
             $matcher = $this->get('router')->getMatcher();
-
-            /* Not working as in hospi.me */
-            //$parameters = $matcher->match($lastPath);
-            /* Not working as in hospi.me */
+            $parameters = $matcher->match($lastPath);
             
             // set new locale (to session and to the route parameters)
-            $parameters['_locale'] = $locale;
+            $parameters['_locale'] = $_locale;
             $parameters['_route'] = "portada_homepage";
 
-            $request->setLocale($request->getSession()->set('_locale', $locale));
+            $request->setLocale($request->getSession()->set('_locale', $_locale));
 
             // default parameters has to be unsetted!
             $route = $parameters['_route'];

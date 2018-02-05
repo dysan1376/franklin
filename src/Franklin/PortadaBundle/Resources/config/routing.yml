@@ -5,7 +5,7 @@ portada_homepage:
         _locale: es|pt|en|it
 
 portada_locale:
-    path:     /locale/{locale}
+    path:     /locale/{_locale}
     defaults: { _controller: PortadaBundle:Default:locale }
 
 portada_servicio:
