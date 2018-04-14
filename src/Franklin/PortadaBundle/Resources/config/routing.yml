@@ -25,3 +25,11 @@ portada_vcard:
 portada_dashboard:
     path:     /dashboard
     defaults: { _controller: PortadaBundle:Default:dashboard }
+
+portada_wellknown01:
+    path:     /.well-known/acme-challenge/Vz_MDA9Sx7GvP-Fw4qBNwHtJb0aAgqn6xAx_Zpi-pWg
+    defaults:  { _controller: PortadaBundle:Default:wellkonwn01 }
+
+portada_wellknown02:
+    path:     /.well-known/acme-challenge/duVET-ghuuSy7JFUXwU6lvMupZ7lFz0iPPJVQJxmWE0
+    defaults:  { _controller: PortadaBundle:Default:wellkonwn02 }
