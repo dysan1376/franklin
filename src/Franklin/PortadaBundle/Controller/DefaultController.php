@@ -16,7 +16,11 @@ class DefaultController extends Controller
     public function indexAction($_locale, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $blogsAll = $em->getRepository('BlogBundle:Blog')->findAll();
+        //$blogsAll = $em->getRepository('BlogBundle:Blog')->findAll();
+        $blogsAll = $em->getRepository('BlogBundle:Blog')->findBy(
+            array(),
+            array('id' => 'DESC')
+        );
         $blogs = array_slice($blogsAll,0,6,false);
 
         $session = $this->container->get('session')->start();
