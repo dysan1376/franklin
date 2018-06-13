@@ -224,4 +224,14 @@ class DefaultController extends Controller
     {
         return $this->render('PortadaBundle:Default:dashboard.html.twig');
     }
+
+    public function privacyAction()
+    {
+        return $this->render('PortadaBundle:Default:privacy.html.twig');
+    }
+
+    public function termsAction()
+    {
+        return $this->render('PortadaBundle:Default:terms.html.twig');
+    }
 }
