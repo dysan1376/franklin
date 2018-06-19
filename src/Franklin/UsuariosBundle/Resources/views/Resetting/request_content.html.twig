@@ -1,24 +1,21 @@
-<style type="text/css">
-    .parsley-error-list {
-        display: none !important;
-    }
-</style>
-<section class="tile color transparent-black">
-    <div class="tile-body">
-        {% if invalid_username is defined %}
-            <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</p>
-        {% endif %}
-        <form parsley-validate action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request form-horizontal" novalidate>
-            <div class="input-group">
-                <input class="form-control" type="text" id="username" placeholder="{{ 'resetting.request.username'|trans({}, 'FOSUserBundle') }}" name="username" required="required" />
-                <div class="input-group-addon"><i class="fa fa-user"></i></div>
-            </div><br>
-            <div class="form-group">
-                <div>
-                    <input type="submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" />
-                </div>
-            </div>
-        </form>
+{% if invalid_username is defined %}
+    <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</p><br>
+{% endif %}
+
+<form action="{{ path('fos_user_resetting_send_email') }}" method="post" class="login100-form validate-form flex-sb flex-w">
+
+    <span class="txt1 p-b-11">
+        Nombre de usuario o email
+    </span>
+    <div class="wrap-input100 validate-input m-b-36" data-validate = "Username or email required">
+        <input class="input100" type="text" id="username" placeholder="Nombre de usuario o email" name="_username" required="required">
+        <span class="focus-input100"></span>
     </div>
-</section>
-<script src="{{ asset('bundles/portada/assets/js/vendor/parsley/parsley.min.js') }}"></script>
+
+    <div class="container-login100-form-btn">
+        <button class="login100-form-btn" type="submit" id="_submit" name="_submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}">
+            {{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}
+        </button>
+    </div>
+
+</form>
