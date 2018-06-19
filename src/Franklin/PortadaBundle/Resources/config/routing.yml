@@ -22,10 +22,6 @@ portada_vcard:
     path:     /md/vcard/
     defaults: { _controller: PortadaBundle:Default:vcard }
 
-portada_dashboard:
-    path:     /dashboard
-    defaults: { _controller: PortadaBundle:Default:dashboard }
-
 portada_privacy:
     path:     /privacy-policy
     defaults: { _controller: PortadaBundle:Default:privacy }

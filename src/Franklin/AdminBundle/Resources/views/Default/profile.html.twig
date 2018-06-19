@@ -1,0 +1,65 @@
+{% extends 'AdminBundle:Default:admin.html.twig' %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Datos de usuario</h4>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-5 pr-1">
+                                    <div class="form-group">
+                                        <label>Empresa</label>
+                                        <input type="text" class="form-control" disabled="" placeholder="Empresa" value="Dr. Franklin Alvear">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 px-1">
+                                    <div class="form-group">
+                                        <label>Nombre de usuario</label>
+                                        <input type="text" class="form-control" placeholder="Username" value="{{app.user.username}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 pl-1">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email</label>
+                                        <input type="email" class="form-control" placeholder="Email" value="{{app.user.email}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <div class="form-group">
+                                        <label>Ultimo ingreso</label>
+                                        <input type="text" class="form-control" placeholder="Ultimo ingreso" value="{{app.user.lastLogin|date('d-m-Y \\ \\a \\l\\a\\s \\ h:i\\ a')}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 pl-1">
+                                    <div class="form-group">
+                                        <label>Acceso</label>
+                                        <input type="text" class="form-control" placeholder="Acceso" value="Administrador">
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ path ('fos_user_change_password') }}"><button type="button" class="btn btn-danger btn-fill pull-right">Cambiar contraseña</button></a>
+
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    $('.profile').addClass('nav-item active');
+    $('.navbar-brand').text('Perfil');
+</script>
+{% endblock %}

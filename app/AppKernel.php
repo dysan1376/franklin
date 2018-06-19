@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Franklin\UsuariosBundle\UsuariosBundle(),
             new Franklin\PortadaBundle\PortadaBundle(),
             new Franklin\BlogBundle\BlogBundle(),
+            new Franklin\AdminBundle\AdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

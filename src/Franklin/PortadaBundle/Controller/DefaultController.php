@@ -220,11 +220,6 @@ class DefaultController extends Controller
         return $response;
     }
 
-    public function dashboardAction()
-    {
-        return $this->render('PortadaBundle:Default:dashboard.html.twig');
-    }
-
     public function privacyAction()
     {
         return $this->render('PortadaBundle:Default:privacy.html.twig');

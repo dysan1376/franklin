@@ -1,0 +1,63 @@
+{% extends 'AdminBundle:Default:admin.html.twig' %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card strpied-tabled-with-hover">
+                    <div class="card-header ">
+                        <h4 class="card-title">Listado de blogs</h4>
+                        <p class="card-category">Revisa, edita o crea blogs</p>
+                        <a href="{{ path ('blog_new') }}"><button type="button" class="btn btn-warning btn-fill pull-right">Nuevo Blog</button></a>
+                    </div>
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Fecha</th>
+                                <th>Tag</th>
+                                <th>Type</th>
+                                <th>Editar</th>
+                            </thead>
+                            <tbody>
+                            	{% for blog in blogs %}
+                            	<tr>
+                                    <td>{{blog.id}}</td>
+                                    <td><a href="{{ path('blog_view', {'slug': blog.slug}) }}">{{blog.title[:40] ~ '...'}}</a></td>
+                                    <td>{{blog.fechaCreacion|date('d-m-Y')}}</td>
+                                    <td>{{blog.tag}}</td>
+                                    <td>{{blog.type}}</td>
+                                    <td><a href="{{ path('blog_edit', {'id': blog.id}) }}">Editar <i class="fa fa-edit"></i></a></td>
+                                </tr>
+                            	{% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Pagerfanta -->
+                {% if pager is not null and pager.haveToPaginate %}
+                    <ul class="pagination justify-content-center">
+                        {{ pagerfanta(pager, 'twitter_bootstrap4', {
+                            'proximity': 2,
+                            'routeName': 'admin_blog_paginated',
+                            'routeParams': app.request.query.all,
+                            'prev_message': '<i class="fa fa-angle-left"></i>',
+                            'next_message': '<i class="fa fa-angle-right"></i>'
+                        }) }}
+                    </ul>
+                {% endif %}
+                <!-- /Pagerfanta -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    $('.blogs').addClass('nav-item active');
+    $('.navbar-brand').text('Blogs');
+</script>
+{% endblock %}

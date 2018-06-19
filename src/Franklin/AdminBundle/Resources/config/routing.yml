@@ -1,0 +1,18 @@
+admin_dashboard:
+    path:     /dashboard
+    defaults: { _controller: AdminBundle:Default:dashboard }
+
+admin_profile:
+    path:     /profile
+    defaults: { _controller: AdminBundle:Default:profile }
+
+admin_blog:
+    pattern:  /blog
+    defaults: { _controller: AdminBundle:Default:blog , page: 1 }
+    requirements:
+        _method:  GET
+admin_blog_paginated:
+    pattern:  /blog/{page}
+    defaults: { _controller: AdminBundle:Default:blog }
+    requirements:
+        _method:  GET
