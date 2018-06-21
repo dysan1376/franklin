@@ -13,16 +13,18 @@
     <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('bundles/portada/img/favicon_152x152.png') }}">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Dr. Franklin Alvear | Cirujano Plástico</title>
+    <title>{{"admin.franklin_alvear_cirujano"|trans}}</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    {% block css %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <!-- CSS Files -->
     <link href="{{ asset('bundles/portada/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('bundles/portada/css/light-bootstrap-dashboard.css?v=2.0.1') }}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('bundles/portada/css/demo.css') }}" rel="stylesheet" />
+    {% endblock %}
 </head>
 <!-- End Head -->
 {% endblock %}
@@ -49,25 +51,25 @@
                     <li class="dashboard">
                         <a class="nav-link" href="{{ path('admin_dashboard') }}">
                             <i class="nc-icon nc-chart-pie-35"></i>
-                            <p>Dashboard</p>
+                            <p>{{"admin.panel_control"|trans}}</p>
                         </a>
                     </li>
                     <li class="profile">
                         <a class="nav-link" href="{{ path('admin_profile') }}">
                             <i class="nc-icon nc-circle-09"></i>
-                            <p>Perfil</p>
+                            <p>{{"admin.perfil"|trans}}</p>
                         </a>
                     </li>
                     <li class="blogs">
                         <a class="nav-link" href="{{ path('admin_blog') }}">
                             <i class="nc-icon nc-paper-2"></i>
-                            <p>Blogs</p>
+                            <p>{{"admin.blogs"|trans}}</p>
                         </a>
                     </li>
                     <li class="nav-item active active-pro">
                         <a class="nav-link active" href="{{ path('fos_user_security_logout') }}">
                             <i class="nc-icon nc-button-power"></i>
-                            <p>Salir</p>
+                            <p>{{"admin.salir"|trans}}</p>
                         </a>
                     </li>
                 </ul>
@@ -105,25 +107,19 @@
                         <ul class="footer-menu">
                             <li>
                                 <a href="{{ path('admin_dashboard') }}">
-                                    Dashboard
+                                    {{"admin.panel_control"|trans}}
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('admin_profile') }}">
-                                    Perfil
+                                    {{"admin.perfil"|trans}}
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('admin_blog') }}">
-                                    Blogs
+                                    {{"admin.blogs"|trans}}
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ path('fos_user_security_logout') }}">
-                                    Salir
-                                </a>
-                            </li>
-                            
                         </ul>
                         <p class="copyright text-center">
                             Franklin Alvear ©

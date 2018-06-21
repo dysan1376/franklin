@@ -1,210 +1,430 @@
-{% extends '::main.html.twig' %}
+{% extends 'AdminBundle:Default:admin.html.twig' %}
 
-{% block title %}
-<!-- Title -->
-<title>Dr. Franklin Alvear | New Blog </title>
-{% endblock %}
-
-{% block navigation %}
-<!-- Navigation -->
-<nav id="navigation" class="navigation-panel light">
-
-    <div class="navigation-inner">
-        <!-- Navigation Primary -->
-        <ul class="nav nav-primary-panel">
-            <li class="nav-item"><a href="#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
-            <li class="nav-item"><a href="#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
-            <li class="nav-item"><a href="#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
-            <li class="nav-item"><a href="#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
-            <li class="nav-item"><a href="#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
-            <li class="nav-item"><a href="{{ path('blog_homepage') }}" class="nav-link">{{"blog.blogtitle"|trans}}</a></li>
-            <li class="nav-item"><a href="#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
-        </ul>
-    </div>
-    
-</nav>
-<!-- Navigation / End -->
+{% block css %}
+{{parent()}}
+<style type="text/css">
+    .posts {
+        white-space: nowrap;
+        width: 100%;
+        display: table;
+    }
+    .image {
+        vertical-align: middle;
+          padding: 13px;
+          display: table-cell;
+    }
+    .image img {
+        max-width: 100%;
+    }
+    .preview {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    .lower {
+        text-transform: none!important;
+    }
+</style>
 {% endblock %}
 
 {% block content %}
-<!-- Content -->
-
-<!-- Content / End -->
-
-<!-- Content -->
-<div id="content" data-scheme="light">
-
-    <!-- Section - Intro -->
-    <section id="intro" class="section h-md dark bg-dark" data-scheme="dark">
-
-        <!-- BG Image -->
-        <div class="bg-image-container"><img src="{{ asset('bundles/portada/img/photos/blog.png') }}" alt=""></div>
-    
-        <!-- Section Content -->
-        <div class="section-content pos-v-center" data-local-scroll>
-            <div class="container">
-
-                <div class="row text-center">
-                    <div class="col-md-6 push-md-3">
-                        <h6 class="mb-2">Franklin Alvear</h6>
-                        <hr class="sep-oval">
-                        <h1><span class="typing">Busca <strong>inspiración</strong></span></h1>
-                        <a href="#blog" class="btn btn-primary">Continuar</a>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">{{"blog.post"|trans}}</h4>
+                        <p class="card-category">{{"blog.tipos_posts"|trans}}</p>
+                    </div>
+                    <div class="posts">
+                        <div class="image">
+                            <img src="{{ asset('bundles/portada/img/posts/default.png') }}">
+                        </div>
+                        <div class="image">
+                            <img src="{{ asset('bundles/portada/img/posts/image.png') }}">
+                        </div>
+                        <div class="image">
+                            <img src="{{ asset('bundles/portada/img/posts/text.png') }}">
+                        </div>
+                        <div class="image">
+                            <img src="{{ asset('bundles/portada/img/posts/video.png') }}">
+                        </div>
+                        <div class="image">
+                            <img src="{{ asset('bundles/portada/img/posts/quote.png') }}">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ path ('blog_new') }}" method="POST" {{ form_enctype(form) }} data-validate>
+                            {{ form_errors(form) }}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.slug"|trans}}</label>
+                                        {{ form_widget(form.slug, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.slug_es"|trans}}</label>
+                                        {{ form_widget(form.slugEs, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.slug_en"|trans}}</label>
+                                        {{ form_widget(form.slugEn, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.slug_pt"|trans}}</label>
+                                        {{ form_widget(form.slugPt, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.slug_it"|trans}}</label>
+                                        {{ form_widget(form.slugIt, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.locale"|trans}}</label>
+                                        {{ form_widget(form.locale, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.keywords"|trans}}</label>
+                                        {{ form_widget(form.keywords, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.tag"|trans}}</label>
+                                        {{ form_widget(form.tag, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.type"|trans}}</label>
+                                        {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.title"|trans}}</label>
+                                        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.subtitle"|trans}}</label>
+                                        {{ form_widget(form.subtitle, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.description"|trans}}</label>
+                                        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label><p>{{"blog.texto"|trans}}</p></label>
+                                        <div class="card-header">
+                                            <p class="card-category">{{"blog.para_incliur"|trans}}</p><br>
+                                            <p class="card-category">{{"blog.second_image"|trans}}</p>
+                                            <xmp><figure>
+    <img src=“../../../../uploads/posts/second/second-image-name.jpg”
+     class="figure-img rounded" alt="">
+</figure></xmp>
+                                            <p class="card-category">{{"blog.third_image"|trans}}</p>
+                                            <xmp><figure>
+    <img src=“../../../../uploads/posts/third/third-image-name.jpg”
+     class="figure-img rounded" alt="">
+</figure></xmp>
+                                        </div>
+                                        {{ form_widget(form.text, { 'attr': {'class': 'form-control tinymce'} }) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.append_text"|trans}}</label>
+                                        {{ form_widget(form.appendText, {'attr': {'class': 'form-control', 'cols': '30', 'rows': '5'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label><p>{{"blog.imagenes"|trans}}</p></label>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">{{"blog.cada_tipo"|trans}}</h4>
+                                        </div>
+                                        <div class="card-body table-full-width table-responsive">
+                                            <table class="table table-hover table-striped">
+                                                <thead>
+                                                    <th>{{"blog.imagenes"|trans}}</th>
+                                                    <th>{{"blog.default"|trans}}</th>
+                                                    <th>{{"blog.image"|trans}}</th>
+                                                    <th>{{"blog.text"|trans}}</th>
+                                                    <th>{{"blog.video"|trans}}</th>
+                                                    <th>{{"blog.quote"|trans}}</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>{{"blog.cover"|trans}}</td>
+                                                        <td>870 x 513 px</td>
+                                                        <td>870 x 950 px</td>
+                                                        <td> --------- </td>
+                                                        <td>870 x 870 px</td>
+                                                        <td>385 x 378 px</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>{{"blog.background"|trans}}</td>
+                                                        <td>1920 x 800 px</td>
+                                                        <td>1920 x 800 px</td>
+                                                        <td>1920 x 800 px</td>
+                                                        <td> --------- </td>
+                                                        <td> --------- </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>{{"blog.first"|trans}}</td>
+                                                        <td>900 x 520 px</td>
+                                                        <td>900 x 520 px</td>
+                                                        <td>900 x 520 px</td>
+                                                        <td> --------- </td>
+                                                        <td> --------- </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>{{"blog.second"|trans}}</td>
+                                                        <td>900 x 520 px</td>
+                                                        <td>900 x 520 px</td>
+                                                        <td>900 x 520 px</td>
+                                                        <td> --------- </td>
+                                                        <td> --------- </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>{{"blog.third"|trans}}</td>
+                                                        <td>900 x 520 px</td>
+                                                        <td>900 x 520 px</td>
+                                                        <td>900 x 520 px</td>
+                                                        <td> --------- </td>
+                                                        <td> --------- </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.cover_image"|trans}}</label><br>
+                                        <img id="blog_table_cover_img" class="preview" src="">
+                                        {{ form_widget(form.cover, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.alt_cover"|trans}}</label>
+                                        {{ form_widget(form.altCover, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.background_image"|trans}}</label>
+                                        <img id="blog_table_background_img" class="preview" src="">
+                                        {{ form_widget(form.background, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.alt_background"|trans}}</label>
+                                        {{ form_widget(form.altBackground, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.first_image"|trans}}</label>
+                                        <img id="blog_table_first_img" class="preview" src="">
+                                        {{ form_widget(form.first, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.alt_first"|trans}}</label>
+                                        {{ form_widget(form.altFirst, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.second_image"|trans}}</label>
+                                        <img id="blog_table_second_img" class="preview" src="">
+                                        {{ form_widget(form.second, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.alt_second"|trans}}</label>
+                                        {{ form_widget(form.altSecond, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.third_image"|trans}}</label>
+                                        <img id="blog_table_third_img" class="preview" src="">
+                                        {{ form_widget(form.third, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.alt_third"|trans}}</label>
+                                        {{ form_widget(form.altThird, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"blog.youtube_link"|trans}} <span class="lower">{{"blog.usar_formato"|trans}}</span></label>
+                                        {{ form_widget(form.youtubeVideoLink, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            
 
+                            
+                            <button type="submit" class="btn btn-info btn-fill pull-right">{{"blog.publicar_post"|trans}}</button>
+                            <div style="display:none;">
+                                {{ form_rest(form) }}
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-
-    </section>
-
-    <!-- Section - Description -->
-    <section id="blog" class="section bg-light light pt-0" data-scheme="light">
-    
-        <!-- Section Content -->
-        <div class="post-content section-content">
-            <div class="container-slim">
-                <br><br><br>
-                <h1 class="display-4 mb-0">Nuevo Blog</h1>
-                <p class="date text-muted">{{ "now"|date('d\\ \\d\\e F \\d\\e\\l Y\\ \\a \\l\\a\\s h:i a\\.') }}</p>
-
-                <form action="#" action="{{ path ('blog_new') }}" method="POST" {{ form_enctype(form) }} data-validate>
-                    {{ form_errors(form) }}
-                    <div class="form-group">
-                        <label>Slug</label>
-                        {{ form_widget(form.slug, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Slug Español</label>
-                        {{ form_widget(form.slugEs, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Slug English</label>
-                        {{ form_widget(form.slugEn, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Slug Português</label>
-                        {{ form_widget(form.slugPt, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Slug Italiano</label>
-                        {{ form_widget(form.slugIt, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Locale</label>
-                        {{ form_widget(form.locale, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Keywords</label>
-                        {{ form_widget(form.keywords, {'attr': {'class': 'form-control', 'cols': '30', 'rows': '5'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Tag</label>
-                        {{ form_widget(form.tag, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Type</label>
-                        {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Title</label>
-                        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Subtitle</label>
-                        {{ form_widget(form.subtitle, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Text</label>
-                        {{ form_widget(form.text, { 'attr': {'class': 'form-control tinymce'} }) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Append Text</label>
-                        {{ form_widget(form.appendText, {'attr': {'class': 'form-control', 'cols': '30', 'rows': '5'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Image Url Cover</label>
-                        {{ form_widget(form.imageUrlCover, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Image Alt Cover</label>
-                        {{ form_widget(form.imageAltCover, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Image Url 1</label>
-                        {{ form_widget(form.imageUrlOne, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Image Alt 1</label>
-                        {{ form_widget(form.imageAltOne, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Image Url 2</label>
-                        {{ form_widget(form.imageUrlTwo, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Image Alt 2</label>
-                        {{ form_widget(form.imageAltTwo, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Image Url 3</label>
-                        {{ form_widget(form.imageUrlThree, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Image Alt 3</label>
-                        {{ form_widget(form.imageAltThree, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Image Url 4</label>
-                        {{ form_widget(form.imageUrlFour, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Image Alt 4</label>
-                        {{ form_widget(form.imageAltFour, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="form-group">
-                        <label>Youtube Link</label>
-                        {{ form_widget(form.youtubeVideoLink, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div style="display:none;">
-                        {{ form_rest(form) }}
-                    </div>
-                    <div class="form-group form-submit">
-                        <button type="submit" class="btn btn-primary btn-block"><span>Publicar</span></button>
-                    </div>
-                </form>
-
-            </div>
-
-            
-        </div>
-
-    </section>
-
+    </div>
 </div>
-<!-- Content / End -->
 {% endblock %}
 
-{% block message %}{% endblock %}
-
 {% block script %}
-{{parent()}}
-  <script src='https://cdn.tinymce.com/4/tinymce.min.js'></script>
-  <script>
-    tinymce.init({
-      selector: '.tinymce',
-      theme: 'modern',
-      height: 400,
-      plugins: [
-        'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-        'save table contextmenu directionality emoticons template paste textcolor'
-      ],
-      toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
-    });
-  </script>
+<script type="text/javascript">
+    $('.blogs').addClass('nav-item active');
+    $('.navbar-brand').text('{{"blog.nuevo_blog"|trans}}');
+</script>
+<script src='https://cdn.tinymce.com/4/tinymce.min.js'></script>
+<script>
+  tinymce.init({
+    selector: '.tinymce',
+    theme: 'modern',
+    height: 400,
+    plugins: [
+      'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+      'save table contextmenu directionality emoticons template paste textcolor'
+    ],
+    toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+  });
+</script>
+<script type="text/javascript">
+$("#blog_table_cover").change(function(e) {
+    var file = e.originalEvent.srcElement.files[0];
+    var img = $('#blog_table_cover_img');
+    var reader = new FileReader();
+    reader.onloadend = function() {img.attr('src', reader.result)}
+    reader.readAsDataURL(file);
+});
+$("#blog_table_background").change(function(e) {
+    var file = e.originalEvent.srcElement.files[0];
+    var img = $('#blog_table_background_img');
+    var reader = new FileReader();
+    reader.onloadend = function() {img.attr('src', reader.result)}
+    reader.readAsDataURL(file);
+});
+$("#blog_table_first").change(function(e) {
+    var file = e.originalEvent.srcElement.files[0];
+    var img = $('#blog_table_first_img');
+    var reader = new FileReader();
+    reader.onloadend = function() {img.attr('src', reader.result)}
+    reader.readAsDataURL(file);
+});
+$("#blog_table_second").change(function(e) {
+    var file = e.originalEvent.srcElement.files[0];
+    var img = $('#blog_table_second_img');
+    var reader = new FileReader();
+    reader.onloadend = function() {img.attr('src', reader.result)}
+    reader.readAsDataURL(file);
+});
+$("#blog_table_third").change(function(e) {
+    var file = e.originalEvent.srcElement.files[0];
+    var img = $('#blog_table_third_img');
+    var reader = new FileReader();
+    reader.onloadend = function() {img.attr('src', reader.result)}
+    reader.readAsDataURL(file);
+});
+</script>
 {% endblock %}

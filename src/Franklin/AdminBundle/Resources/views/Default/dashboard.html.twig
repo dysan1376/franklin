@@ -7,23 +7,23 @@
             <div class="col-md-4">
                 <div class="card ">
                     <div class="card-header ">
-                        <h4 class="card-title">Blogs</h4>
-                        <p class="card-category">Estadísticas</p>
+                        <h4 class="card-title">{{"admin.blogs"|trans}}</h4>
+                        <p class="card-category">{{"admin.estadisticas"|trans}}</p>
                     </div>
                     <div class="card-body ">
                         <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
                     </div>
                     <div class="card-footer ">
                         <div class="legend">
-                            <i class="fa fa-circle text-info"></i> Plástica
-                            <i class="fa fa-circle text-danger"></i> Información
-                            <i class="fa fa-circle text-warning"></i> Tendencias
-                            <i class="fa fa-circle text-primary"></i> Otros
+                            <i class="fa fa-circle text-info"></i> {{"admin.plastica"|trans}}
+                            <i class="fa fa-circle text-danger"></i> {{"admin.informacion"|trans}}
+                            <i class="fa fa-circle text-warning"></i> {{"admin.tendencias"|trans}}
+                            <i class="fa fa-circle text-primary"></i> {{"admin.otros"|trans}}
                         </div>
                         <hr>
                         <div class="stats">
-                            <i class="fa fa-th"></i> Total blogs: {{blogs}}<br>
-                            <i class="fa fa-clock-o"></i> Ultimo blog hace {{days}} días 
+                            <i class="fa fa-th"></i> {{"admin.blogs_publicados"|trans}}: {{blogs}}<br>
+                            <i class="fa fa-clock-o"></i> {{"admin.ultimo_blog_hace"|trans}} {{days}} {{"admin.dias"|trans}} 
                         </div>
                     </div>
                 </div>
@@ -31,22 +31,22 @@
             <div class="col-md-8">
                 <div class="card ">
                     <div class="card-header ">
-                        <h4 class="card-title">Traducción de la página</h4>
-                        <p class="card-category">Todos los procedimientos</p>
+                        <h4 class="card-title">{{"admin.traduccion_pagina"|trans}}</h4>
+                        <p class="card-category">{{"admin.todos_procedimientos"|trans}}</p>
                     </div>
                     <div class="card-body ">
                         <div id="chartActivity" class="ct-chart"></div>
                     </div>
                     <div class="card-footer ">
                         <div class="legend">
-                            <i class="fa fa-circle text-info"></i> Español
-                            <i class="fa fa-circle text-danger"></i> Inglés
-                            <i class="fa fa-circle text-warning"></i> Português
-                            <i class="fa fa-circle text-primary"></i> Italiano
+                            <i class="fa fa-circle text-info"></i> {{"admin.espanol"|trans}}
+                            <i class="fa fa-circle text-danger"></i> {{"admin.english"|trans}}
+                            <i class="fa fa-circle text-warning"></i> {{"admin.portugues"|trans}}
+                            <i class="fa fa-circle text-primary"></i> {{"admin.italiano"|trans}}
                         </div>
                         <hr>
                         <div class="stats">
-                            <i class="fa fa-check"></i> Traducción revisada
+                            <i class="fa fa-check"></i> {{"admin.traduccion_revisada"|trans}}
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                 <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffranklinalvear.cirujanoplastico%2F&tabs=timeline&width=400&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1522670851135903" width="500" height="800" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
             </div>
             <div class="col-md-6">
-                <a class="twitter-timeline" data-width="500" data-height="800" data-dnt="true" data-theme="clear" data-link-color="#19CF86" href="https://twitter.com/dr_franklear?ref_src=twsrc%5Etfw">Tweets by dr_franklear</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a class="twitter-timeline" data-width="500" data-height="800" data-dnt="true" data-theme="clear" data-link-color="#19CF86" href="https://twitter.com/dr_franklear?ref_src=twsrc%5Etfw">{{"admin.tweets_por"|trans}} dr_franklear</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
     </div>
@@ -67,7 +67,7 @@
 {% block script %}
 <script type="text/javascript">
     $('.dashboard').addClass('nav-item active');
-    $('.navbar-brand').text('Dashboard');
+    $('.navbar-brand').text('{{"admin.panel_control"|trans}}');
 </script>
 <script type="text/javascript">
     $().ready(function() {
@@ -220,7 +220,7 @@
 
 
             var data = {
-                labels: ['Ambulatorio', 'Rostro', 'Busto', 'Corporal', 'Femenina', 'Masculina'],
+                labels: ['{{"admin.ambulatorio"|trans}}', '{{"admin.rostro"|trans}}', '{{"admin.busto"|trans}}', '{{"admin.corporal"|trans}}', '{{"admin.femenina"|trans}}', '{{"admin.masculina"|trans}}'],
                 series: [
                     [3, 9, 3, 6, 3, 3],
                     [3, 9, 3, 6, 3, 3],

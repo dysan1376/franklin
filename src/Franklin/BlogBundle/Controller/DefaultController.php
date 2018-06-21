@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\File\File;
 
 use Pagerfanta\Adapter\ArrayAdapter;
 use Pagerfanta\Pagerfanta;
@@ -74,12 +75,78 @@ class DefaultController extends Controller
         $blog->setFechaCreacion(new \Datetime());
         $form = $this->createForm(new BlogType(), $blog);
 
+        // echo "<pre>";
+        // \Doctrine\Common\Util\Debug::dump($this->get('kernel')->getRootDir().'/../web/uploads/posts/cover');
+        // echo '</pre>';
+
         if ($request->isMethod('POST')) {
             $form->bind($request);
             if ($form->isValid()) {
+
+                //Upload cover
+                $fileCover = $blog->getCover();
+                if ($fileCover) {
+                    $fileNameCover = $this->generateUniqueFileName().'.'.$fileCover->guessExtension();
+                    $fileCover->move(
+                        $this->get('kernel')->getRootDir().'/../web/uploads/posts/cover',
+                        $fileNameCover
+                    );
+                    $blog->setCover($fileNameCover);
+                    //    
+                }
+                
+                //Upload background
+                $fileBackground = $blog->getBackground();
+                if ($fileBackground) {
+                    $fileNameBackground = $this->generateUniqueFileName().'.'.$fileBackground->guessExtension();
+                    $fileBackground->move(
+                        $this->get('kernel')->getRootDir().'/../web/uploads/posts/background',
+                        $fileNameBackground
+                    );
+                    $blog->setBackground($fileNameBackground);
+                    //    
+                }
+                
+                //Upload first
+                $fileFirst = $blog->getFirst();
+                if ($fileFirst) {
+                    $fileNameFirst = $this->generateUniqueFileName().'.'.$fileFirst->guessExtension();
+                    $fileFirst->move(
+                        $this->get('kernel')->getRootDir().'/../web/uploads/posts/first',
+                        $fileNameFirst
+                    );
+                    $blog->setFirst($fileNameFirst);
+                    //    
+                }
+
+                //Upload second
+                $fileSecond = $blog->getSecond();
+                if ($fileSecond) {
+                    $fileNameSecond = $this->generateUniqueFileName().'.'.$fileSecond->guessExtension();
+                    $fileSecond->move(
+                        $this->get('kernel')->getRootDir().'/../web/uploads/posts/second',
+                        $fileNameSecond
+                    );
+                    $blog->setSecond($fileNameSecond);
+                    //    
+                }
+
+                //Upload third
+                $fileThird = $blog->getThird();
+                if ($fileThird) {
+                    $fileNameThird = $this->generateUniqueFileName().'.'.$fileThird->guessExtension();
+                    $fileThird->move(
+                        $this->get('kernel')->getRootDir().'/../web/uploads/posts/third',
+                        $fileNameThird
+                    );
+                    $blog->setThird($fileNameThird);
+                    //    
+                }
+
+
                 $em->persist($blog);
                 $em->flush();
-                return $this->redirect($this->generateUrl('blog_homepage'));
+                return $this->redirect($this->generateUrl('admin_blog'));
             }
         }
 
@@ -94,7 +161,31 @@ class DefaultController extends Controller
 
         //Setters
         $blog = $em->getRepository('BlogBundle:Blog')->find($id);
+        //Last images
+        $lastCover = $blog->getCover();
+        $lastBackground = $blog->getBackground();
+        $lastFirst = $blog->getFirst();
+        $lastSecond = $blog->getSecond();
+        $lastThird = $blog->getThird();
+
         $blog->setFechaActualizacion(new \Datetime());
+        //Set files
+        if ($lastCover) {
+            $blog->setCover(new File($this->get('kernel')->getRootDir().'/../web/uploads/posts/cover'.'/'.$lastCover));    
+        }
+        if ($lastBackground) {
+            $blog->setBackground(new File($this->get('kernel')->getRootDir().'/../web/uploads/posts/background'.'/'.$lastBackground));    
+        }
+        if ($lastFirst) {
+            $blog->setFirst(new File($this->get('kernel')->getRootDir().'/../web/uploads/posts/first'.'/'.$lastFirst));    
+        }
+        if ($lastSecond) {
+            $blog->setSecond(new File($this->get('kernel')->getRootDir().'/../web/uploads/posts/second'.'/'.$lastSecond));    
+        }
+        if ($lastThird) {
+            $blog->setThird(new File($this->get('kernel')->getRootDir().'/../web/uploads/posts/third'.'/'.$lastThird));    
+        }
+        
 
         $form = $this->createForm(new BlogType(), $blog);
 
@@ -103,16 +194,123 @@ class DefaultController extends Controller
             $form->bind($request);
             if ($form->isValid()) {
 
+                $fileCover = $blog->getCover();
+                if (!$fileCover) {
+                    $blog->setCover($lastCover);
+                } else {
+                    if ($lastCover) {
+                        //Remove Images
+                        $blog->removeFiles('cover', $lastCover);    
+                    }
+                    //Upload cover
+                    $fileNameCover = $this->generateUniqueFileName().'.'.$fileCover->guessExtension();
+                    $fileCover->move(
+                        $this->get('kernel')->getRootDir().'/../web/uploads/posts/cover',
+                        $fileNameCover
+                    );
+                    $blog->setCover($fileNameCover);
+                    //
+                }
+
+                $fileBackground = $blog->getBackground();
+                if (!$fileBackground) {
+                    $blog->setBackground($lastBackground);
+                } else {
+                    if ($lastBackground) {
+                        //Remove Images
+                        $blog->removeFiles('background', $lastBackground);    
+                    }
+                    //Upload background
+                    $fileNameBackground = $this->generateUniqueFileName().'.'.$fileBackground->guessExtension();
+                    $fileBackground->move(
+                        $this->get('kernel')->getRootDir().'/../web/uploads/posts/background',
+                        $fileNameBackground
+                    );
+                    $blog->setBackground($fileNameBackground);
+                    //
+                }
+
+                $fileFirst = $blog->getFirst();
+                if (!$fileFirst) {
+                    $blog->setFirst($lastFirst);
+                } else {
+                    if ($lastFirst) {
+                        //Remove Images
+                        $blog->removeFiles('first', $lastFirst);    
+                    }
+                    //Upload first
+                    $fileNameFirst = $this->generateUniqueFileName().'.'.$fileFirst->guessExtension();
+                    $fileFirst->move(
+                        $this->get('kernel')->getRootDir().'/../web/uploads/posts/first',
+                        $fileNameFirst
+                    );
+                    $blog->setFirst($fileNameFirst);
+                    //
+                }
+
+                $fileSecond = $blog->getSecond();
+                if (!$fileSecond) {
+                    $blog->setSecond($lastSecond);
+                } else {
+                    if ($lastSecond) {
+                        //Remove Images
+                        $blog->removeFiles('second', $lastSecond);    
+                    }
+                    //Upload second
+                    $fileNameSecond = $this->generateUniqueFileName().'.'.$fileSecond->guessExtension();
+                    $fileSecond->move(
+                        $this->get('kernel')->getRootDir().'/../web/uploads/posts/second',
+                        $fileNameSecond
+                    );
+                    $blog->setSecond($fileNameSecond);
+                    //
+                }
+
+                $fileThird = $blog->getThird();
+                if (!$fileThird) {
+                    $blog->setThird($lastThird);
+                } else {
+                    if ($lastThird) {
+                        //Remove Images
+                        $blog->removeFiles('third', $lastThird);    
+                    }
+                    //Upload third
+                    $fileNameThird = $this->generateUniqueFileName().'.'.$fileThird->guessExtension();
+                    $fileThird->move(
+                        $this->get('kernel')->getRootDir().'/../web/uploads/posts/third',
+                        $fileNameThird
+                    );
+                    $blog->setThird($fileNameThird);
+                    //
+
+                }
                 $em->persist($blog);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('blog_homepage'));
-                
+                return $this->redirect($this->generateUrl('admin_blog'));
             }
         }
+
+        //Set file name again
+        $blog->setCover($lastCover);
+        $blog->setBackground($lastBackground);
+        $blog->setFirst($lastFirst);
+        $blog->setSecond($lastSecond);
+        $blog->setThird($lastThird);
     	return $this->render('BlogBundle:Default:blogedit.html.twig', array(
             'form' => $form->createView(),
-            'id' => $id
+            'id' => $id,
+            'blog' => $blog
         ));
+    }
+
+    /**
+     * @return string
+     */
+    private function generateUniqueFileName()
+    {
+        // md5() reduces the similarity of the file names generated by
+        // uniqid(), which is based on timestamps
+        return md5(uniqid());
     }
 }

@@ -7,7 +7,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Datos de usuario</h4>
+                        <h4 class="card-title">{{"admin.datos_usuario"|trans}}</h4>
                     </div>
                     <div class="card-body">
                         <form>
@@ -20,13 +20,13 @@
                                 </div>
                                 <div class="col-md-3 px-1">
                                     <div class="form-group">
-                                        <label>Nombre de usuario</label>
+                                        <label>{{"admin.nombre_usuario"|trans}}</label>
                                         <input type="text" class="form-control" placeholder="Username" value="{{app.user.username}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4 pl-1">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email</label>
+                                        <label for="exampleInputEmail1">{{"admin.email"|trans}}</label>
                                         <input type="email" class="form-control" placeholder="Email" value="{{app.user.email}}">
                                     </div>
                                 </div>
@@ -34,24 +34,59 @@
                             <div class="row">
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
-                                        <label>Ultimo ingreso</label>
+                                        <label>{{"admin.ultimo_ingreso"|trans}}</label>
                                         <input type="text" class="form-control" placeholder="Ultimo ingreso" value="{{app.user.lastLogin|date('d-m-Y \\ \\a \\l\\a\\s \\ h:i\\ a')}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 pl-1">
                                     <div class="form-group">
-                                        <label>Acceso</label>
+                                        <label>{{"admin.permisos"|trans}}</label>
                                         <input type="text" class="form-control" placeholder="Acceso" value="Administrador">
                                     </div>
                                 </div>
                             </div>
-                            <a href="{{ path ('fos_user_change_password') }}"><button type="button" class="btn btn-danger btn-fill pull-right">Cambiar contraseña</button></a>
+                            <a href="{{ path ('fos_user_change_password') }}"><button type="button" class="btn btn-danger btn-fill pull-right">{{"admin.cambiar_contrasena"|trans}}</button></a>
 
                             <div class="clearfix"></div>
                         </form>
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                            <div class="card card-user">
+                                <div class="card-image">
+                                    <img src="{{ asset('bundles/portada/img/faces/' ~ 'profile-background.jpg') }}" alt="profile background">
+                                </div>
+                                {% set random = random(3) %}
+                                <div class="card-body">
+                                    <div class="author">
+                                        <a href="#">
+                                            <img class="avatar border-gray" src="{{ asset('bundles/portada/img/faces/' ~ 'profile-doctor-' ~ random ~ '.jpg') }}" alt="doctor avatar">
+                                            <h5 class="title">{{app.user.username}}</h5>
+                                        </a>
+                                        <p class="description">
+                                            {{app.user.email}}
+                                        </p>
+                                    </div>
+                                    <p class="description text-center">
+                                        {{"admin.mil_enfermos"|trans}}
+                                        <br> {{"admin.mil_curas"|trans}}
+                                    </p>
+                                </div>
+                                <hr>
+                                <div class="button-container mr-auto ml-auto">
+                                    <button href="#" class="btn btn-simple btn-link btn-icon">
+                                        <i class="fa fa-facebook-square"></i>
+                                    </button>
+                                    <button href="#" class="btn btn-simple btn-link btn-icon">
+                                        <i class="fa fa-twitter"></i>
+                                    </button>
+                                    <button href="#" class="btn btn-simple btn-link btn-icon">
+                                        <i class="fa fa-google-plus-square"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
         </div>
     </div>
 </div>
@@ -60,6 +95,6 @@
 {% block script %}
 <script type="text/javascript">
     $('.profile').addClass('nav-item active');
-    $('.navbar-brand').text('Perfil');
+    $('.navbar-brand').text('{{"admin.perfil"|trans}}');
 </script>
 {% endblock %}

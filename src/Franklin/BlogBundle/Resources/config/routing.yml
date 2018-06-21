@@ -19,9 +19,9 @@ blog_view:
         _locale: es|pt|en|it
 
 blog_new:
-    path:     /franklin-alvear/new/blog
+    path:     /admin/new/blog
     defaults: { _controller: BlogBundle:Default:new }
 
 blog_edit:
-    path:     /franklin-alvear/edit/blog/{id}
+    path:     /admin/edit/blog/{id}
     defaults: { _controller: BlogBundle:Default:edit }

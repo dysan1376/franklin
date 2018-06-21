@@ -3,12 +3,17 @@
 namespace Franklin\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Blog
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Blog
 {
@@ -120,74 +125,79 @@ class Blog
     private $appendText;
 
     /**
-     * @var string
+     * @ORM\Column(name="cover", type="string", nullable=true)
      *
-     * @ORM\Column(name="image_url_cover", type="string", length=255, nullable=true)
+     * @Assert\File(mimeTypes={ "image/jpg", "image/jpeg", "image/png" })
+     * @Assert\File(maxSize="6000000")
      */
-    private $imageUrlCover;
+    private $cover;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="image_alt_cover", type="string", length=255, nullable=true)
+     * @ORM\Column(name="alt_cover", type="string", length=255, nullable=true)
      */
-    private $imageAltCover;
+    private $altCover;
+
+    /**
+     * @ORM\Column(name="background", type="string", nullable=true)
+     *
+     * @Assert\File(mimeTypes={ "image/jpg", "image/jpeg", "image/png" })
+     * @Assert\File(maxSize="6000000")
+     */
+    private $background;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="image_url_one", type="string", length=255, nullable=true)
+     * @ORM\Column(name="alt_background", type="string", length=255, nullable=true)
      */
-    private $imageUrlOne;
+    private $altBackground;
+
+    /**
+     * @ORM\Column(name="first", type="string", nullable=true)
+     *
+     * @Assert\File(mimeTypes={ "image/jpg", "image/jpeg", "image/png" })
+     * @Assert\File(maxSize="6000000")
+     */
+    private $first;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="image_alt_one", type="string", length=255, nullable=true)
+     * @ORM\Column(name="alt_first", type="string", length=255, nullable=true)
      */
-    private $imageAltOne;
+    private $altFirst;
+
+    /**
+     * @ORM\Column(name="second", type="string", nullable=true)
+     *
+     * @Assert\File(mimeTypes={ "image/jpg", "image/jpeg", "image/png" })
+     * @Assert\File(maxSize="6000000")
+     */
+    private $second;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="image_url_two", type="string", length=255, nullable=true)
+     * @ORM\Column(name="alt_second", type="string", length=255, nullable=true)
      */
-    private $imageUrlTwo;
+    private $altSecond;
+
+    /**
+     * @ORM\Column(name="third", type="string", nullable=true)
+     *
+     * @Assert\File(mimeTypes={ "image/jpg", "image/jpeg", "image/png" })
+     * @Assert\File(maxSize="6000000")
+     */
+    private $third;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="image_alt_two", type="string", length=255, nullable=true)
+     * @ORM\Column(name="alt_third", type="string", length=255, nullable=true)
      */
-    private $imageAltTwo;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image_url_three", type="string", length=255, nullable=true)
-     */
-    private $imageUrlThree;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image_alt_three", type="string", length=255, nullable=true)
-     */
-    private $imageAltThree;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image_url_four", type="string", length=255, nullable=true)
-     */
-    private $imageUrlFour;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image_alt_four", type="string", length=255, nullable=true)
-     */
-    private $imageAltFour;
+    private $altThird;
 
     /**
      * @var string
@@ -210,6 +220,12 @@ class Blog
      */
     private $fechaActualizacion;
 
+
+    public function removeFiles($folder, $file)
+    {
+        $file_path = __DIR__.'/../../../../web/uploads/posts/'.$folder.'/'.$file;
+        if(file_exists($file_path)) unlink($file_path);
+    }
 
     /**
      * Get id
@@ -558,243 +574,243 @@ class Blog
     }
 
     /**
-     * Set imageUrlOne
+     * Set cover
      *
-     * @param string $imageUrlOne
+     * @param string $cover
      *
      * @return Blog
      */
-    public function setImageUrlOne($imageUrlOne)
+    public function setCover($cover)
     {
-        $this->imageUrlOne = $imageUrlOne;
+        $this->cover = $cover;
 
         return $this;
     }
 
     /**
-     * Get imageUrlOne
+     * Get cover
      *
      * @return string
      */
-    public function getImageUrlOne()
+    public function getCover()
     {
-        return $this->imageUrlOne;
+        return $this->cover;
     }
 
     /**
-     * Set imageAltOne
+     * Set altCover
      *
-     * @param string $imageAltOne
+     * @param string $altCover
      *
      * @return Blog
      */
-    public function setImageAltOne($imageAltOne)
+    public function setAltCover($altCover)
     {
-        $this->imageAltOne = $imageAltOne;
+        $this->altCover = $altCover;
 
         return $this;
     }
 
     /**
-     * Get imageAltOne
+     * Get altCover
      *
      * @return string
      */
-    public function getImageAltOne()
+    public function getAltCover()
     {
-        return $this->imageAltOne;
+        return $this->altCover;
     }
 
     /**
-     * Set imageUrlTwo
+     * Set background
      *
-     * @param string $imageUrlTwo
+     * @param string $background
      *
      * @return Blog
      */
-    public function setImageUrlTwo($imageUrlTwo)
+    public function setBackground($background)
     {
-        $this->imageUrlTwo = $imageUrlTwo;
+        $this->background = $background;
 
         return $this;
     }
 
     /**
-     * Get imageUrlTwo
+     * Get background
      *
      * @return string
      */
-    public function getImageUrlTwo()
+    public function getBackground()
     {
-        return $this->imageUrlTwo;
+        return $this->background;
     }
 
     /**
-     * Set imageAltTwo
+     * Set altBackground
      *
-     * @param string $imageAltTwo
+     * @param string $altBackground
      *
      * @return Blog
      */
-    public function setImageAltTwo($imageAltTwo)
+    public function setAltBackground($altBackground)
     {
-        $this->imageAltTwo = $imageAltTwo;
+        $this->altBackground = $altBackground;
 
         return $this;
     }
 
     /**
-     * Get imageAltTwo
+     * Get altBackground
      *
      * @return string
      */
-    public function getImageAltTwo()
+    public function getAltBackground()
     {
-        return $this->imageAltTwo;
+        return $this->altBackground;
     }
 
     /**
-     * Set imageUrlThree
+     * Set first
      *
-     * @param string $imageUrlThree
+     * @param string $first
      *
      * @return Blog
      */
-    public function setImageUrlThree($imageUrlThree)
+    public function setFirst($first)
     {
-        $this->imageUrlThree = $imageUrlThree;
+        $this->first = $first;
 
         return $this;
     }
 
     /**
-     * Get imageUrlThree
+     * Get first
      *
      * @return string
      */
-    public function getImageUrlThree()
+    public function getFirst()
     {
-        return $this->imageUrlThree;
+        return $this->first;
     }
 
     /**
-     * Set imageAltThree
+     * Set altFirst
      *
-     * @param string $imageAltThree
+     * @param string $altFirst
      *
      * @return Blog
      */
-    public function setImageAltThree($imageAltThree)
+    public function setAltFirst($altFirst)
     {
-        $this->imageAltThree = $imageAltThree;
+        $this->altFirst = $altFirst;
 
         return $this;
     }
 
     /**
-     * Get imageAltThree
+     * Get altFirst
      *
      * @return string
      */
-    public function getImageAltThree()
+    public function getAltFirst()
     {
-        return $this->imageAltThree;
+        return $this->altFirst;
     }
 
     /**
-     * Set imageUrlFour
+     * Set second
      *
-     * @param string $imageUrlFour
+     * @param string $second
      *
      * @return Blog
      */
-    public function setImageUrlFour($imageUrlFour)
+    public function setSecond($second)
     {
-        $this->imageUrlFour = $imageUrlFour;
+        $this->second = $second;
 
         return $this;
     }
 
     /**
-     * Get imageUrlFour
+     * Get second
      *
      * @return string
      */
-    public function getImageUrlFour()
+    public function getSecond()
     {
-        return $this->imageUrlFour;
+        return $this->second;
     }
 
     /**
-     * Set imageAltFour
+     * Set altSecond
      *
-     * @param string $imageAltFour
+     * @param string $altSecond
      *
      * @return Blog
      */
-    public function setImageAltFour($imageAltFour)
+    public function setAltSecond($altSecond)
     {
-        $this->imageAltFour = $imageAltFour;
+        $this->altSecond = $altSecond;
 
         return $this;
     }
 
     /**
-     * Get imageAltFour
+     * Get altSecond
      *
      * @return string
      */
-    public function getImageAltFour()
+    public function getAltSecond()
     {
-        return $this->imageAltFour;
+        return $this->altSecond;
     }
 
     /**
-     * Set imageUrlCover
+     * Set third
      *
-     * @param string $imageUrlCover
+     * @param string $third
      *
      * @return Blog
      */
-    public function setImageUrlCover($imageUrlCover)
+    public function setThird($third)
     {
-        $this->imageUrlCover = $imageUrlCover;
+        $this->third = $third;
 
         return $this;
     }
 
     /**
-     * Get imageUrlCover
+     * Get third
      *
      * @return string
      */
-    public function getImageUrlCover()
+    public function getThird()
     {
-        return $this->imageUrlCover;
+        return $this->third;
     }
 
     /**
-     * Set imageAltCover
+     * Set altThird
      *
-     * @param string $imageAltCover
+     * @param string $altThird
      *
      * @return Blog
      */
-    public function setImageAltCover($imageAltCover)
+    public function setAltThird($altThird)
     {
-        $this->imageAltCover = $imageAltCover;
+        $this->altThird = $altThird;
 
         return $this;
     }
 
     /**
-     * Get imageAltCover
+     * Get altThird
      *
      * @return string
      */
-    public function getImageAltCover()
+    public function getAltThird()
     {
-        return $this->imageAltCover;
+        return $this->altThird;
     }
 
     /**

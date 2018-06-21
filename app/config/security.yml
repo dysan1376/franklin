@@ -27,7 +27,7 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/dashboard, role: ROLE_FRANKLIN }
-        - { path: ^/franklin-alvear, role: ROLE_FRANKLIN }
+        - { path: ^/admin, role: ROLE_FRANKLIN }
         
 
     role_hierarchy:

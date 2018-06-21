@@ -191,3 +191,4 @@ slug:
 error:
     not_found: "La página que buscas no existe"
     volver: "Volver al inicio"
+    desfibrilar: "Desfibrilar o paciente"

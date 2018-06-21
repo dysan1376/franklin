@@ -5,5 +5,9 @@
 {{ status_code }} {{ status_text }}
 </div>
 <br>
-	<a href="javascript:history.back()"><button class="button">{{"error.volver"|trans}}</button></a>
+	{% if status_code == 500 %}
+		<a href="{{ path('fos_user_security_logout') }}"><button class="button">{{"error.desfibrilar"|trans}}</button></a>
+	{% else %}
+		<a href="javascript:history.back()"><button class="button">{{"error.volver"|trans}}</button></a>
+	{% endif %}
 {% endblock %}

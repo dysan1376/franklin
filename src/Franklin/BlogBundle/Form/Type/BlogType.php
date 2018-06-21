@@ -17,25 +17,50 @@ class BlogType extends AbstractType
 			->add('slugEn')
 			->add('slugPt')
 			->add('slugIt')
-			->add('locale')
+			->add('locale', 'choice', array(
+				'choices' => array(
+					'es' => 'Español',
+					'en' => 'English',
+					'pt' => 'Português',
+					'it' => 'Italiano'
+				),
+				'required' => true
+			))
 			->add('keywords')
-			->add('tag')
-			->add('type')
+			->add('tag', 'choice', array(
+				'choices' => array(
+					'plástica' => 'Plástica',
+					'información' => 'Información',
+					'tendencias' => 'Tendencias',
+					'otros' => 'Otros'
+				),
+				'required' => true
+			))
+			->add('type', 'choice', array(
+				'choices' => array(
+					'default' => 'Default',
+					'image' => 'Image',
+					'text' => 'Text',
+					'video' => 'Video',
+					'quote' => 'Quote'
+				),
+				'required' => true
+			))
 			->add('title')
 			->add('subtitle')
 			->add('description')
 			->add('text')
 			->add('appendText')
-			->add('imageUrlCover')
-			->add('imageAltCover')
-			->add('imageUrlOne')
-			->add('imageAltOne')
-			->add('imageUrlTwo')
-			->add('imageAltTwo')
-			->add('imageUrlThree')
-			->add('imageAltThree')
-			->add('imageUrlFour')
-			->add('imageAltFour')
+			->add('cover')
+			->add('altCover')
+			->add('background')
+			->add('altBackground')
+			->add('first')
+			->add('altFirst')
+			->add('second')
+			->add('altSecond')
+			->add('third')
+			->add('altThird')
 			->add('youtubeVideoLink')
 			->add('fechaCreacion')
 			->add('fechaActualizacion');

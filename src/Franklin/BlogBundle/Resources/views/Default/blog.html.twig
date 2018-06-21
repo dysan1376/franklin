@@ -25,7 +25,7 @@
 <!-- Schema.org markup for Google+ -->
 <meta itemprop="name" content="{{blog.title}}">
 <meta itemprop="description" content="{{blog.description}}">
-<meta itemprop="image" content="{{blog.imageUrlCover}}">
+<meta itemprop="image" content="{{app.request.getSchemeAndHttpHost() ~ asset('uploads/posts/cover/' ~ blog.cover) }}">
 
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary_large_image">
@@ -34,13 +34,13 @@
 <meta name="twitter:description" content="{{blog.description}}">
 <meta name="twitter:creator" content="@dr_franklear">
 <!-- Twitter summary card with large image must be at least 280x150px -->
-<meta name="twitter:image:src" content="{{blog.imageUrlCover}}">
+<meta name="twitter:image:src" content="{{app.request.getSchemeAndHttpHost() ~ asset('uploads/posts/cover/' ~ blog.cover) }}">
 
 <!-- Open Graph data -->
 <meta property="og:title" content="{{blog.title}}" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="{{ app.request.uri }}" />
-<meta property="og:image" content="{{blog.imageUrlCover}}" />
+<meta property="og:image" content="{{app.request.getSchemeAndHttpHost() ~ asset('uploads/posts/cover/' ~ blog.cover) }}" />
 <meta property="og:description" content="{{blog.description}}" />
 <meta property="og:locale" content="es">
 <meta property="og:locale:alternate" content="en" />
@@ -62,11 +62,11 @@
         },
         "headline": "{{blog.title}}",
         "image": [
-            "{{blog.imageUrlCover}}",
-            "{{blog.imageUrlOne}}",
-            "{{blog.imageUrlTwo}}",
-            "{{blog.imageUrlThree}}",
-            "{{blog.imageUrlFour}}"
+            "{{app.request.getSchemeAndHttpHost() ~ asset('uploads/posts/cover/' ~ blog.cover) }}",
+            "{{app.request.getSchemeAndHttpHost() ~ asset('uploads/posts/background/' ~ blog.background) }}",
+            "{{app.request.getSchemeAndHttpHost() ~ asset('uploads/posts/first/' ~ blog.first) }}",
+            "{{app.request.getSchemeAndHttpHost() ~ asset('uploads/posts/second/' ~ blog.second) }}",
+            "{{app.request.getSchemeAndHttpHost() ~ asset('uploads/posts/third/' ~ blog.third) }}"
         ],
         "datePublished": "{{blog.fechaCreacion|date('Y-m-d')}}",
         "dateModified": "{{blog.fechaCreacion|date('Y-m-d')}}",
@@ -127,14 +127,14 @@
     <section class="section section-case-study-header text-center light bg-light" data-scheme="light">
         <!-- BG Image -->
         <div class="bg-image-container overlay-bottom light">
-            <img src="{{blog.imageUrlOne}}" alt="{{blog.imageAltOne}}">
+            <img src="{{ asset('uploads/posts/background/' ~ blog.background) }}" alt="{{blog.altBackground}}">
         </div>
         <div class="section-content">
             <div class="container-slim">
                 <!-- Image Box -->
                 <figure class="image-box shadow animated" data-animation="fadeIn">
                     <div class="image">
-                        <img src="{{blog.imageUrlTwo}}" alt="{{blog.imageAltTwo}}">
+                        <img src="{{ asset('uploads/posts/first/' ~ blog.first) }}" alt="{{blog.altFirst}}">
                         {% if blog.youtubeVideoLink is not null %}
                         <button class="btn-play" data-toggle="video-modal" data-target="#modalVideo" data-video="{{blog.youtubeVideoLink}}"></button>
                         {% endif %}
