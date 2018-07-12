@@ -34,6 +34,6 @@ portada_well_one:
     path:     /.well-known/acme-challenge/ftz5S_nrfG4rlzMQiVpLdQpW1hRzLXBufHmEZ-l1IKw
     defaults: { _controller: PortadaBundle:Default:wellOne }
 
-portada_well_one:
+portada_well_two:
     path:     /.well-known/acme-challenge/F12a0688p1nPpfJx-nMUDbOCaIFu0JhMx9lyvVNhvys
-    defaults: { _controller: PortadaBundle:Default:wellOne }
+    defaults: { _controller: PortadaBundle:Default:wellTwo }
