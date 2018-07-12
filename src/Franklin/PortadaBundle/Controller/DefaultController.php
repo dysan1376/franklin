@@ -229,14 +229,4 @@ class DefaultController extends Controller
     {
         return $this->render('PortadaBundle:Default:terms.html.twig');
     }
-
-    public function wellOneAction()
-    {
-        return $this->render('PortadaBundle:Default:wellOne.html.twig');
-    }
-
-    public function wellTwoAction()
-    {
-        return $this->render('PortadaBundle:Default:wellTwo.html.twig');
-    }
 }
