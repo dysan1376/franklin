@@ -18,6 +18,14 @@ portada_send_message:
     path:     /send-message/{name}/{email}/{message}
     defaults: { _controller: PortadaBundle:Default:sendMessage }
 
+portada_cert1:
+    path:    /.well-known/acme-challenge/4I_CMZnJB9sG2fpKnEofKc66mxuvjurxx58jQhzEq2g
+    defaults: { _controller: PortadaBundle:Default:cert1 }
+
+portada_cert2:
+    path:    /.well-known/acme-challenge/2aExt2RSoJitevJoHh4CTwQQcGCLYJqB6qVhpLhybFk
+    defaults: { _controller: PortadaBundle:Default:cert2 }
+
 portada_vcard:
     path:     /md/vcard/
     defaults: { _controller: PortadaBundle:Default:vcard }

@@ -220,6 +220,16 @@ class DefaultController extends Controller
         return $response;
     }
 
+    public function cert1Action()
+    {
+        return $this->render('PortadaBundle:Default:cert1.html.twig');
+    }
+
+    public function cert2Action()
+    {
+        return $this->render('PortadaBundle:Default:cert2.html.twig');
+    }
+
     public function privacyAction()
     {
         return $this->render('PortadaBundle:Default:privacy.html.twig');
