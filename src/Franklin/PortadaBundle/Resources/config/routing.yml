@@ -23,7 +23,7 @@ portada_cert1:
     defaults: { _controller: PortadaBundle:Default:cert1 }
 
 portada_cert2:
-    path:    /.well-known/acme-challenge/2aExt2RSoJitevJoHh4CTwQQcGCLYJqB6qVhpLhybFk
+    path:    /.well-known/acme-challenge/8kKgLHzNo6azsvAsY5WEf_wmQYFPzg_u-5s03r8vnHQ
     defaults: { _controller: PortadaBundle:Default:cert2 }
 
 portada_vcard:
