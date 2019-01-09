@@ -18,13 +18,13 @@ portada_send_message:
     path:     /send-message/{name}/{email}/{message}
     defaults: { _controller: PortadaBundle:Default:sendMessage }
 
-portada_cert1:
-    path:    /.well-known/acme-challenge/TTYGbHZruCs7PsZT6WPDAFVz1lZv1AQd9qVZdLXxUvM
-    defaults: { _controller: PortadaBundle:Default:cert1 }
+# portada_cert1:
+#     path:    /.well-known/acme-challenge/TTYGbHZruCs7PsZT6WPDAFVz1lZv1AQd9qVZdLXxUvM
+#     defaults: { _controller: PortadaBundle:Default:cert1 }
 
-portada_cert2:
-    path:    /.well-known/acme-challenge/r3lw_JuS5jwT9hiULv-9OE7ViZkVyyL7cdQ0LE6fiqg
-    defaults: { _controller: PortadaBundle:Default:cert2 }
+# portada_cert2:
+#     path:    /.well-known/acme-challenge/r3lw_JuS5jwT9hiULv-9OE7ViZkVyyL7cdQ0LE6fiqg
+#     defaults: { _controller: PortadaBundle:Default:cert2 }
 
 portada_vcard:
     path:     /md/vcard/
