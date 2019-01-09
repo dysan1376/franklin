@@ -19,11 +19,11 @@ portada_send_message:
     defaults: { _controller: PortadaBundle:Default:sendMessage }
 
 portada_cert1:
-    path:    /.well-known/acme-challenge/4I_CMZnJB9sG2fpKnEofKc66mxuvjurxx58jQhzEq2g
+    path:    /.well-known/acme-challenge/TTYGbHZruCs7PsZT6WPDAFVz1lZv1AQd9qVZdLXxUvM
     defaults: { _controller: PortadaBundle:Default:cert1 }
 
 portada_cert2:
-    path:    /.well-known/acme-challenge/8kKgLHzNo6azsvAsY5WEf_wmQYFPzg_u-5s03r8vnHQ
+    path:    /.well-known/acme-challenge/r3lw_JuS5jwT9hiULv-9OE7ViZkVyyL7cdQ0LE6fiqg
     defaults: { _controller: PortadaBundle:Default:cert2 }
 
 portada_vcard:
