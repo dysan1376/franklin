@@ -167,9 +167,12 @@ portada:
     comentario_cuatro: "Lo encontré en los "diez mejores cirujanos plásticos" y es verdad, gran doctor, me encanta su trabajo y volvería de nuevo." 
     enero: "enero"
     febrero: "febrero"
+    marzo: "marzo"
     abril: "abril"
     mayo: "mayo"
     junio: "junio"
+    noviembre: "noviembre"
+    diciembre: "diciembre"
 slug:
     acido-hialuronico: "acido-hialuronico"
     botox: "botox"

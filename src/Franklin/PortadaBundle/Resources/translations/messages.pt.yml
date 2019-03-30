@@ -167,9 +167,12 @@ portada:
     comentario_cuatro: "Eu encontrei ele no “top ten dos cirurgiões plásticos” e é verdade, ótimo médico, adoro o trabalho dele e eu voltaria novamente." 
     enero: "janeiro"
     febrero: "fevereiro"
+    marzo: "março"
     abril: "abril"
     mayo: "maio"
     junio: "junho"
+    noviembre: "novembro"
+    diciembre: "dezembro"
 slug:
     acido-hialuronico: "acido-hialuronico"
     botox: "botox"
