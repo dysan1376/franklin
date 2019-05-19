@@ -42,6 +42,7 @@ admin:
     id: "ID"
     nombre: "Nombre"
     fecha_creacion: "Fecha de creación"
+    fecha_programado: "Fecha programado"
     tag: "Etiqueta"
     type: "Tipo de post"
     editar: "Editar"
