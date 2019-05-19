@@ -20,11 +20,11 @@ class DefaultController extends Controller
     public function indexAction($page, $_locale)
     {
         $em = $this->getDoctrine()->getManager();
-        //$blogs = $em->getRepository('BlogBundle:Blog')->findAll();
-        $blogs = $em->getRepository('BlogBundle:Blog')->findBy(
-            array(),
-            array('id' => 'DESC')
-        );
+        $blogs = $em->getRepository('BlogBundle:Blog')->findBlogsPublicados();
+        // $blogs = $em->getRepository('BlogBundle:Blog')->findBy(
+        //     array(),
+        //     array('id' => 'DESC')
+        // );
 
         $adapter = new ArrayAdapter($blogs);
         $pager = new Pagerfanta($adapter);

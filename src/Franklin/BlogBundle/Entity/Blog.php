@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\File\File;
  * @ORM\Table()
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity(repositoryClass="Franklin\BlogBundle\Entity\BlogRepository")
  */
 class Blog
 {
@@ -219,6 +220,20 @@ class Blog
      * @ORM\Column(name="fecha_actualizacion", type="datetime", nullable=true, nullable=true)
      */
     private $fechaActualizacion;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="programar", type="boolean", nullable=true)
+     */
+    private $programar;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_programada", type="datetime", nullable=true)
+     */
+    private $fechaProgramada;
 
 
     public function removeFiles($folder, $file)
@@ -884,5 +899,54 @@ class Blog
     {
         return $this->fechaActualizacion;
     }
+
+    /**
+     * Set programar
+     *
+     * @param boolean $programar
+     *
+     * @return Blog
+     */
+    public function setProgramar($programar)
+    {
+        $this->programar = $programar;
+
+        return $this;
+    }
+
+    /**
+     * Get programar
+     *
+     * @return boolean
+     */
+    public function getProgramar()
+    {
+        return $this->programar;
+    }
+
+    /**
+     * Set fechaProgramada
+     *
+     * @param \DateTime $fechaProgramada
+     *
+     * @return Blog
+     */
+    public function setFechaProgramada($fechaProgramada)
+    {
+        $this->fechaProgramada = $fechaProgramada;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaProgramada
+     *
+     * @return \DateTime
+     */
+    public function getFechaProgramada()
+    {
+        return $this->fechaProgramada;
+    }
+
 }
 

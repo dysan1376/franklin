@@ -63,7 +63,17 @@ class BlogType extends AbstractType
 			->add('altThird')
 			->add('youtubeVideoLink')
 			->add('fechaCreacion')
-			->add('fechaActualizacion');
+			->add('fechaActualizacion')
+			->add('programar', 'checkbox', array(
+				    'data' => false,
+				    'required' => false
+				))
+			->add('fechaProgramada', 'datetime', array(
+				'input' => 'datetime',
+				'widget' => 'single_text',
+				'format' => 'yyyy-MM-dd      HH:mm',
+				'required' => false,
+				));
       }
 		
 

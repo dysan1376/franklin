@@ -72,10 +72,11 @@ class DefaultController extends Controller
     public function blogAction($page)
     {
         $em = $this->getDoctrine()->getManager();
-        $blogs = $em->getRepository('BlogBundle:Blog')->findBy(
-            array(),
-            array('id' => 'DESC')
-        );
+        $blogs = $em->getRepository('BlogBundle:Blog')->findAllDesc();
+        // $blogs = $em->getRepository('BlogBundle:Blog')->findBy(
+        //     array(),
+        //     array('id' => 'DESC')
+        // );
         $adapter = new ArrayAdapter($blogs);
         $pager = new Pagerfanta($adapter);
         $pager->setMaxPerPage(6);
