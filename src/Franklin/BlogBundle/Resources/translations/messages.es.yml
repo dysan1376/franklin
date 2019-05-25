@@ -27,6 +27,7 @@ blog:
     usar_formato: "(Usar el formato 'host/embed/videoID' Ej: https://www.youtube.com/embed/I3Zbj4rJhko)"
     publicar_ahora: "Publicar ahora"
     programar_publicacion: "Programar publicación"
+    ingresa_fecha: "Ingresa una fecha para programar la publicación."
     default: "Default"
     image: "Image"
     text: "Text"
