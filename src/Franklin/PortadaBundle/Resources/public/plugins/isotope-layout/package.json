@@ -78,7 +78,8 @@
     "jquery-bridget": "^2",
     "jshint": "^2.9.1",
     "minimist": "^1.2.0",
-    "qunitjs": "^1.15"
+    "qunitjs": "^1.15",
+    "jquery": ">=3.4.0"
   },
   "directories": {
     "test": "test"
