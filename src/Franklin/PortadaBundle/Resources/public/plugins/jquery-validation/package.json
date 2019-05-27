@@ -54,7 +54,8 @@
     "url": "https://github.com/jzaefferer/jquery-validation/issues"
   },
   "dependencies": {
-    "jquery": "^1.7 || ^2.0 || ^3.1"
+    //"jquery": "^1.7 || ^2.0 || ^3.1" Github complain
+    "jquery": ">=3.4.0"
   },
   "description": "Client-side form validation made easy",
   "devDependencies": {

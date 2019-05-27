@@ -60,7 +60,8 @@
     "fizzy-ui-utils": "^2.0.4",
     "get-size": "^2.0.0",
     "masonry-layout": "^4.1.0",
-    "outlayer": "^2.1.0"
+    "outlayer": "^2.1.0",
+    "jquery": ">=3.4.0"
   },
   "description": "Filter and sort magical layouts",
   "devDependencies": {
