@@ -197,8 +197,8 @@ class DefaultController extends Controller
         $direccion2 = 'Pedregal N35-15 y Hernández de Girón';
 
         //Con avatar
-        $path = 'jpg';
-        $avatarUrl = 'https://franklinalvear.com/bundles/portada/img/photos/doctor/avatar-sm.jpg';
+        $path = 'png';
+        $avatarUrl = 'https://franklinalvear.com/bundles/portada/img/photos/doctor/avatar-sm.png';
 
         //Con email
         $email = 'franklin@hospi.me';
