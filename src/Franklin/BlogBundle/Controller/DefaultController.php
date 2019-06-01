@@ -143,6 +143,13 @@ class DefaultController extends Controller
                     //    
                 }
 
+                //Set No programado datetime
+                $programar = $blog->getProgramar();
+                if (!$programar) {
+                    $fechaCreacion = $blog->getFechaCreacion();
+                    $blog->setFechaProgramada($fechaCreacion);
+                }
+
 
                 $em->persist($blog);
                 $em->flush();
@@ -284,6 +291,14 @@ class DefaultController extends Controller
                     //
 
                 }
+
+                //Set No programado datetime
+                $programar = $blog->getProgramar();
+                if (!$programar) {
+                    $fechaCreacion = $blog->getFechaCreacion();
+                    $blog->setFechaProgramada($fechaCreacion);
+                }
+                
                 $em->persist($blog);
                 $em->flush();
 
