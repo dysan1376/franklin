@@ -174,6 +174,9 @@ class DefaultController extends Controller
         //Last images
         $lastCover = $blog->getCover();
         $lastBackground = $blog->getBackground();
+        echo "<pre>";
+        \Doctrine\Common\Util\Debug::dump('Antes de background ');
+        echo '</pre>';
         $lastFirst = $blog->getFirst();
         $lastSecond = $blog->getSecond();
         $lastThird = $blog->getThird();
