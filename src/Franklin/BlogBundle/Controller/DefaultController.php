@@ -165,6 +165,9 @@ class DefaultController extends Controller
     public function editAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        echo "<pre>";
+        \Doctrine\Common\Util\Debug::dump('inside edit ');
+        echo '</pre>';
 
         //Setters
         $blog = $em->getRepository('BlogBundle:Blog')->find($id);
