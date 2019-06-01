@@ -180,6 +180,9 @@ class DefaultController extends Controller
         //Set No programado datetime
         $programar = $blog->getProgramar();
         echo "<pre>";
+        \Doctrine\Common\Util\Debug::dump('antes del 0');
+        echo '</pre>';
+        echo "<pre>";
         \Doctrine\Common\Util\Debug::dump('programar ' + $programar);
         echo '</pre>';
         echo "<pre>";
@@ -214,13 +217,6 @@ class DefaultController extends Controller
 
 
         if ($request->isMethod('POST')) {
-            echo "<pre>";
-            \Doctrine\Common\Util\Debug::dump('is post method');
-            echo '</pre>';
-            $form->bind($request);
-            echo "<pre>";
-            \Doctrine\Common\Util\Debug::dump('bind request');
-            echo '</pre>';
             echo "<pre>";
             \Doctrine\Common\Util\Debug::dump($form->getErrorsAsString());
             echo '</pre>';
