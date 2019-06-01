@@ -175,9 +175,20 @@ class DefaultController extends Controller
         $lastSecond = $blog->getSecond();
         $lastThird = $blog->getThird();
 
+        
+
+        //Set No programado datetime
+        $programar = $blog->getProgramar();
         echo "<pre>";
-        \Doctrine\Common\Util\Debug::dump('Last background image ' + $lastBackground);
+        \Doctrine\Common\Util\Debug::dump('programar ' + $programar);
         echo '</pre>';
+        echo "<pre>";
+        \Doctrine\Common\Util\Debug::dump('Fecha Programada ' + $setFechaProgramada);
+        echo '</pre>';
+        if (!$programar) {
+            $fechaCreacion = $blog->getFechaCreacion();
+            $blog->setFechaProgramada($fechaCreacion);
+        }
 
         $blog->setFechaActualizacion(new \Datetime());
         //Set files
@@ -311,13 +322,6 @@ class DefaultController extends Controller
                     $blog->setThird($fileNameThird);
                     //
 
-                }
-
-                //Set No programado datetime
-                $programar = $blog->getProgramar();
-                if (!$programar) {
-                    $fechaCreacion = $blog->getFechaCreacion();
-                    $blog->setFechaProgramada($fechaCreacion);
                 }
 
                 $em->persist($blog);
