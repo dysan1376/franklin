@@ -175,6 +175,10 @@ class DefaultController extends Controller
         $lastSecond = $blog->getSecond();
         $lastThird = $blog->getThird();
 
+        echo "<pre>";
+        \Doctrine\Common\Util\Debug::dump('Last background image ' + $lastBackground);
+        echo '</pre>';
+
         $blog->setFechaActualizacion(new \Datetime());
         //Set files
         if ($lastCover) {
@@ -183,6 +187,9 @@ class DefaultController extends Controller
         if ($lastBackground) {
             $blog->setBackground(new File($this->get('kernel')->getRootDir().'/../web/uploads/posts/background'.'/'.$lastBackground));    
         }
+        echo "<pre>";
+        \Doctrine\Common\Util\Debug::dump('Blog->getBackground() ' + $blog->getBackground());
+        echo '</pre>';
         if ($lastFirst) {
             $blog->setFirst(new File($this->get('kernel')->getRootDir().'/../web/uploads/posts/first'.'/'.$lastFirst));    
         }
@@ -200,6 +207,10 @@ class DefaultController extends Controller
         if ($request->isMethod('POST')) {
             $form->bind($request);
             if ($form->isValid()) {
+
+                echo "<pre>";
+                \Doctrine\Common\Util\Debug::dump('is Valid ');
+                echo '</pre>';
 
                 $fileCover = $blog->getCover();
                 if (!$fileCover) {
@@ -235,6 +246,9 @@ class DefaultController extends Controller
                     );
                     $blog->setBackground($fileNameBackground);
                     //
+                    echo "<pre>";
+                    \Doctrine\Common\Util\Debug::dump('File name ' + $fileNameBackground);
+                    echo '</pre>';
                 }
 
                 $fileFirst = $blog->getFirst();
@@ -298,9 +312,12 @@ class DefaultController extends Controller
                     $fechaCreacion = $blog->getFechaCreacion();
                     $blog->setFechaProgramada($fechaCreacion);
                 }
-                
+
                 $em->persist($blog);
                 $em->flush();
+                echo "<pre>";
+                \Doctrine\Common\Util\Debug::dump('File flushed ');
+                echo '</pre>';
 
                 return $this->redirect($this->generateUrl('admin_blog'));
             }
