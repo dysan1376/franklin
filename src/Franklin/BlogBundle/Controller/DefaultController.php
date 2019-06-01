@@ -178,9 +178,6 @@ class DefaultController extends Controller
         echo "<pre>";
         \Doctrine\Common\Util\Debug::dump('Last background image ' + $lastBackground);
         echo '</pre>';
-        echo "<pre>";
-        \Doctrine\Common\Util\Debug::dump('Tracking 01');
-        echo '</pre>';
 
         $blog->setFechaActualizacion(new \Datetime());
         //Set files
@@ -190,9 +187,6 @@ class DefaultController extends Controller
         if ($lastBackground) {
             $blog->setBackground(new File($this->get('kernel')->getRootDir().'/../web/uploads/posts/background'.'/'.$lastBackground));    
         }
-        echo "<pre>";
-        \Doctrine\Common\Util\Debug::dump('Tracking 02');
-        echo '</pre>';
         if ($lastFirst) {
             $blog->setFirst(new File($this->get('kernel')->getRootDir().'/../web/uploads/posts/first'.'/'.$lastFirst));    
         }
@@ -205,9 +199,7 @@ class DefaultController extends Controller
         
 
         $form = $this->createForm(new BlogType(), $blog);
-        echo "<pre>";
-        \Doctrine\Common\Util\Debug::dump('Tracking 03');
-        echo '</pre>';
+        
 
 
         if ($request->isMethod('POST')) {
@@ -217,6 +209,9 @@ class DefaultController extends Controller
             $form->bind($request);
             echo "<pre>";
             \Doctrine\Common\Util\Debug::dump('bind request');
+            echo '</pre>';
+            echo "<pre>";
+            \Doctrine\Common\Util\Debug::dump($form->getErrorsAsString());
             echo '</pre>';
             if ($form->isValid()) {
 
