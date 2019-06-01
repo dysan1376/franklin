@@ -165,24 +165,21 @@ class DefaultController extends Controller
     public function editAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        echo "<pre>";
-        \Doctrine\Common\Util\Debug::dump('inside edit ');
-        echo '</pre>';
 
         //Setters
         $blog = $em->getRepository('BlogBundle:Blog')->find($id);
         //Last images
         $lastCover = $blog->getCover();
         $lastBackground = $blog->getBackground();
-        echo "<pre>";
-        \Doctrine\Common\Util\Debug::dump('Antes de background ');
-        echo '</pre>';
         $lastFirst = $blog->getFirst();
         $lastSecond = $blog->getSecond();
         $lastThird = $blog->getThird();
 
         echo "<pre>";
         \Doctrine\Common\Util\Debug::dump('Last background image ' + $lastBackground);
+        echo '</pre>';
+        echo "<pre>";
+        \Doctrine\Common\Util\Debug::dump('Tracking 01');
         echo '</pre>';
 
         $blog->setFechaActualizacion(new \Datetime());
@@ -194,7 +191,7 @@ class DefaultController extends Controller
             $blog->setBackground(new File($this->get('kernel')->getRootDir().'/../web/uploads/posts/background'.'/'.$lastBackground));    
         }
         echo "<pre>";
-        \Doctrine\Common\Util\Debug::dump('Blog->getBackground() ' + $blog->getBackground());
+        \Doctrine\Common\Util\Debug::dump('Tracking 02');
         echo '</pre>';
         if ($lastFirst) {
             $blog->setFirst(new File($this->get('kernel')->getRootDir().'/../web/uploads/posts/first'.'/'.$lastFirst));    
@@ -208,14 +205,23 @@ class DefaultController extends Controller
         
 
         $form = $this->createForm(new BlogType(), $blog);
+        echo "<pre>";
+        \Doctrine\Common\Util\Debug::dump('Tracking 03');
+        echo '</pre>';
 
 
         if ($request->isMethod('POST')) {
+            echo "<pre>";
+            \Doctrine\Common\Util\Debug::dump('is post method');
+            echo '</pre>';
             $form->bind($request);
+            echo "<pre>";
+            \Doctrine\Common\Util\Debug::dump('bind request');
+            echo '</pre>';
             if ($form->isValid()) {
 
                 echo "<pre>";
-                \Doctrine\Common\Util\Debug::dump('is Valid ');
+                \Doctrine\Common\Util\Debug::dump('is Valid');
                 echo '</pre>';
 
                 $fileCover = $blog->getCover();
@@ -328,6 +334,9 @@ class DefaultController extends Controller
                 return $this->redirect($this->generateUrl('admin_blog'));
             }
         }
+        echo "<pre>";
+        \Doctrine\Common\Util\Debug::dump('Antes de set file name');
+        echo '</pre>';
 
         //Set file name again
         $blog->setCover($lastCover);
@@ -335,6 +344,9 @@ class DefaultController extends Controller
         $blog->setFirst($lastFirst);
         $blog->setSecond($lastSecond);
         $blog->setThird($lastThird);
+        echo "<pre>";
+        \Doctrine\Common\Util\Debug::dump('Antes de render twig');
+        echo '</pre>';
     	return $this->render('BlogBundle:Default:blogedit.html.twig', array(
             'form' => $form->createView(),
             'id' => $id,
