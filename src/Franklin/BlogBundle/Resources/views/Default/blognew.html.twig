@@ -486,19 +486,18 @@ $("#blog_table_third").change(function(e) {
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
-        var programar = $('#blog_table_programar');
-        programar.val(0);
+        if ($('#blog_table_programar').is(":checked")) {
+            $('#programar-form').show();
+            $('#send').text('{{"blog.programar_publicacion"|trans}}');
+        }
+
         $('#blog_table_programar').click(function () { 
-            if ($(this).val() == true) {
-                $(this).attr('checked',false);
-                $(this).val(0);
-                $('#blog_table_fechaProgramada').val(moment().format('YYYY-MM-DD     HH:mm'));
-                $('#send').text('{{"blog.publicar_ahora"|trans}}').prop('type', 'submit');
-            } else {
-                $(this).attr('checked',true);
-                $(this).val(1);
+            if ($(this).is(":checked")) {
                 $('#blog_table_fechaProgramada').val('');
                 $('#send').text('{{"blog.programar_publicacion"|trans}}').prop('type', 'button');
+            } else {
+                $('#blog_table_fechaProgramada').val('');
+                $('#send').text('{{"blog.publicar_ahora"|trans}}').prop('type', 'submit');
             }
             $('#programar-form').toggle("slow"); 
         });
@@ -507,9 +506,10 @@ $("#blog_table_third").change(function(e) {
 <script type="text/javascript">
     $(document).ready(function(){
         $('#send').click(function(){
-            if (($('#blog_table_programar').val() == 1) && ($('#blog_table_fechaProgramada').val() != '')) {
+            
+            if (($('#blog_table_programar').is(":checked")) && ($('#blog_table_fechaProgramada').val() != '')) {
                 $(this).prop('type', 'submit');
-            } else if (($('#blog_table_programar').val() == 1) && ($('#blog_table_fechaProgramada').val() == '')) {
+            } else if (($('#blog_table_programar').is(":checked")) && ($('#blog_table_fechaProgramada').val() == '')) {
                 $(this).prop('type', 'button');
                 toastr.info('{{"blog.ingresa_fecha"|trans}}', { timeOut: 3500 });
             } else {

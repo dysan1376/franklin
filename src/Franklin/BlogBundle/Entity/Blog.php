@@ -217,7 +217,7 @@ class Blog
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_actualizacion", type="datetime", nullable=true, nullable=true)
+     * @ORM\Column(name="fecha_actualizacion", type="datetime", nullable=true)
      */
     private $fechaActualizacion;
 

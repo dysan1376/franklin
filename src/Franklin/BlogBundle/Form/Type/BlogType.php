@@ -65,7 +65,6 @@ class BlogType extends AbstractType
 			->add('fechaCreacion')
 			->add('fechaActualizacion')
 			->add('programar', 'checkbox', array(
-				    'data' => false,
 				    'required' => false
 				))
 			->add('fechaProgramada', 'datetime', array(

@@ -166,6 +166,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+        
         //Setters
         $blog = $em->getRepository('BlogBundle:Blog')->find($id);
         //Last images
@@ -175,23 +176,6 @@ class DefaultController extends Controller
         $lastSecond = $blog->getSecond();
         $lastThird = $blog->getThird();
 
-        
-
-        //Set No programado datetime
-        $programar = $blog->getProgramar();
-        echo "<pre>";
-        \Doctrine\Common\Util\Debug::dump('antes del 0');
-        echo '</pre>';
-        echo "<pre>";
-        \Doctrine\Common\Util\Debug::dump('programar ' + $programar);
-        echo '</pre>';
-        echo "<pre>";
-        \Doctrine\Common\Util\Debug::dump('Fecha Programada ' + $setFechaProgramada);
-        echo '</pre>';
-        if (!$programar) {
-            $fechaCreacion = $blog->getFechaCreacion();
-            $blog->setFechaProgramada($fechaCreacion);
-        }
 
         $blog->setFechaActualizacion(new \Datetime());
         //Set files
@@ -217,14 +201,8 @@ class DefaultController extends Controller
 
 
         if ($request->isMethod('POST')) {
-            echo "<pre>";
-            \Doctrine\Common\Util\Debug::dump($form->getErrorsAsString());
-            echo '</pre>';
+            $form->bind($request);
             if ($form->isValid()) {
-
-                echo "<pre>";
-                \Doctrine\Common\Util\Debug::dump('is Valid');
-                echo '</pre>';
 
                 $fileCover = $blog->getCover();
                 if (!$fileCover) {
@@ -260,9 +238,6 @@ class DefaultController extends Controller
                     );
                     $blog->setBackground($fileNameBackground);
                     //
-                    echo "<pre>";
-                    \Doctrine\Common\Util\Debug::dump('File name ' + $fileNameBackground);
-                    echo '</pre>';
                 }
 
                 $fileFirst = $blog->getFirst();
@@ -320,18 +295,18 @@ class DefaultController extends Controller
 
                 }
 
+                //Set No programado datetime to default creation datetime
+                $programar = $blog->getProgramar();
+                if (!$programar) {
+                    $fechaCreacion = $blog->getFechaCreacion();
+                    $blog->setFechaProgramada($fechaCreacion);
+                }
+
                 $em->persist($blog);
                 $em->flush();
-                echo "<pre>";
-                \Doctrine\Common\Util\Debug::dump('File flushed ');
-                echo '</pre>';
-
                 return $this->redirect($this->generateUrl('admin_blog'));
             }
         }
-        echo "<pre>";
-        \Doctrine\Common\Util\Debug::dump('Antes de set file name');
-        echo '</pre>';
 
         //Set file name again
         $blog->setCover($lastCover);
@@ -339,9 +314,6 @@ class DefaultController extends Controller
         $blog->setFirst($lastFirst);
         $blog->setSecond($lastSecond);
         $blog->setThird($lastThird);
-        echo "<pre>";
-        \Doctrine\Common\Util\Debug::dump('Antes de render twig');
-        echo '</pre>';
     	return $this->render('BlogBundle:Default:blogedit.html.twig', array(
             'form' => $form->createView(),
             'id' => $id,
