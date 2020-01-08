@@ -19,7 +19,7 @@ portada_send_message:
     defaults: { _controller: PortadaBundle:Default:sendMessage }
 
 portada_cert1:
-    path:    /.well-known/acme-challenge/SkV3mns02I4TzkdbN1brOiMESuMiZjQ_QTukT8jZRgs
+    path:    /.well-known/acme-challenge/AU6QeJTpUBg3jRvCVx4eKz4wXCpsUcv4gLUSSrXBuvg
     defaults: { _controller: PortadaBundle:Default:cert1 }
 
 portada_cert2:
