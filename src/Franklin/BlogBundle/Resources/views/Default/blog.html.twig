@@ -155,6 +155,7 @@
                 <p class="date text-muted">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</p>
                 {{blog.text|raw}}
                 <br><br>
+                <!-- Subscribe newsletter -->
                 <div class="post-add-comment post-module">
                     <h4 class="text-center mb-5">{{"blog.suscribete_a_la_revista"|trans}}</h4>
                     <div class="content">
@@ -170,6 +171,7 @@
                         </form>
                     </div>
                 </div>
+                <!-- /Subscribe newsletter -->
                 <br><br><br><br>
                 <div id="disqus_thread"></div>
             </div>
@@ -199,6 +201,7 @@ $(function(){
     $('p').addClass('lead');
 });
 </script>
+<!-- Newsletter flow -->
 <script type="text/javascript">
     $("#submit").attr('disabled', 'disabled');
     $("#email").keyup(function(){
@@ -235,5 +238,6 @@ $(function(){
       });
     });
 </script>
+<!-- /Newsletter flow -->
 {% endblock %}
 

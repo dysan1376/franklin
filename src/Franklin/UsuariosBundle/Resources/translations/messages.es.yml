@@ -5,3 +5,8 @@ usuarios:
     otracuenta: "Ingresa con otra cuenta"
     suscrito_exitoso: "Te has suscrito exitosamente."
     suscrito_error: "Ocurrió un error, intenta nuevamente."
+    cirugia: "Cirugía"
+    plastica: "Plástica"
+    email_unsubscribe: "Ingresa tu correo para eliminar la subscripción"
+    eliminar_subscripcion: "Eliminar subscripción"
+    unsubscribe_exitoso: "Se ha eliminado tu subscripción"

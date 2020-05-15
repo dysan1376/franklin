@@ -1,0 +1,152 @@
+{% extends '::main.html.twig' %}
+
+{% block title %}
+<!-- Title -->
+<title>Dr. Franklin Alvear | Newsletter</title>
+{% endblock %}
+
+{% block keywords %}
+    {#{servicio.keywords}#}
+{% endblock %}
+
+{% block description %}
+    {#{servicio.description}#}
+{% endblock %}
+
+{% block hreflang %}
+{% endblock %}
+
+{% block opengraph %}
+{% endblock %}
+
+{% block snippets %}
+{% endblock %}
+
+{% block bodyclass %}
+<body class="navigation-panel page-scrolling dark-scheme">
+{% endblock %}
+
+{% block navigation %}
+<!-- Navigation -->
+<nav id="navigation" class="navigation-panel dark">
+
+    <div class="navigation-inner">
+        <!-- Navigation Primary -->
+        <ul class="nav nav-primary-panel">
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#start" class="nav-link">{{"portada.inicio"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#resume" class="nav-link">{{"portada.extracto"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#services" class="nav-link">{{"portada.cirugias_procedimientos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#schedule" class="nav-link">{{"portada.agenda"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#case-studies" class="nav-link">{{"portada.casos"|trans}}</a></li>
+            <li class="nav-item"><a href="{{ path('blog_homepage') }}" class="nav-link">{{"blog.blogtitle"|trans}}</a></li>
+            <li class="nav-item"><a href="{{path('portada_homepage')}}#contact" class="nav-link">{{"portada.contacto"|trans}}</a></li>
+        </ul>
+    </div>
+    
+</nav>
+<!-- Navigation / End -->
+{% endblock %}
+
+{% block content %}
+	<!-- Content -->
+<div id="content">
+
+    <!-- Section - Start -->
+    <section id="start" class="section fullheight dark bg-primary-animated mouse-parallax" data-scheme="dark" data-local-scroll>
+        
+        <!-- BG Image -->
+        <div class="bg-image-container bg-multiply mouse-parallax-item" data-parallax-speed="155"><img src="{{ asset('bundles/portada/img/photos/doctor/quirofano.jpg') }}" alt=""></div>
+
+        <!-- Section Content -->
+        <div class="section-content pos-v-center">
+            <div class="container" data-local-scroll>
+                <div class="row">
+                    <div class="col-lg-8 push-lg-2 text-center">
+                        <button class="btn-play mb-5" data-toggle="video-modal" data-target="#modalVideo" data-video="https://www.youtube.com/embed/FK9DMJ_jOCU"></button>
+                        <h1 class="mb-0 display-4">{{"usuarios.cirugia"|trans}} <strong>{{"usuarios.plastica"|trans}}</strong></h1>
+                        <h2 class="mb-5 text-muted"><span class="typing">{{"blog.suscribete_a_la_revista"|trans}}</span></h2>
+                        <a id="stop" href="#" class="btn-go btn-go-down btn-go-lg"><i class="fa fa-angle-down"></i></a>
+                        <br><br><br> 
+                        <!-- Subscribe newsletter -->
+                        <div class="post-add-comment post-module">
+                            <div class="content">
+                                <form action="#" id="add-comment" class="validate-form">
+                                    <div class="form-group row">
+                                    	<div class="col-md-6 push-md-3">
+                                        	<input id="email" type="email" class="form-control" placeholder="{{"blog.email"|trans}}" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 push-md-3">
+                                            <button id="submit" type="button" class="btn btn-lg btn-dark btn-block">{{"blog.suscribirse"|trans}}</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /Subscribe newsletter -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Points -->
+        
+
+    </section>
+
+</div>
+<!-- Content / End -->
+{% endblock %}
+
+{% block message %}{% endblock %}
+
+{% block script %}
+{{ parent() }}
+<!-- Stop refreshing -->
+<script type="text/javascript">
+$("#stop").click(function(e){
+    e.preventDefault()
+});
+</script>
+<!-- /Stop refreshing -->
+
+<!-- Newsletter flow -->
+<script type="text/javascript">
+    $("#submit").attr('disabled', 'disabled');
+    $("#email").keyup(function(){
+        var email = $(this).val();
+        if (validateEmail(email)) {
+            $('#submit').removeAttr('disabled');
+            console.log('enabled')
+        } else {
+            $('#submit').attr('disabled','disabled');
+            console.log('disabled');
+        }
+    });
+    $("#submit").click(function(){
+    var email = $("#email").val();
+        //Server call
+      $.ajax({
+        url: "{{path('usuarios_newsletter_async')}}",
+        type: "POST",
+        data: ({
+          email: email
+        }),
+        success: function(data, textStatus) {
+          toastr.success('{{"usuarios.suscrito_exitoso"|trans}}', { timeOut: 1500 });
+          $("#email").val('');
+          $("#submit").attr('disabled', 'disabled');
+          console.log(data);
+        },
+        error: function(data, textStatus) {
+          toastr.info('{{"usuarios.suscrito_error"|trans}}', { timeOut: 2500 });
+          $("#email").val('');
+          $("#submit").attr('disabled', 'disabled');
+          console.log(data);
+        }
+      });
+    });
+</script>
+<!-- /Newsletter flow -->
+{% endblock %}

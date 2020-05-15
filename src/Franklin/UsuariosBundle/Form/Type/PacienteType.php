@@ -7,13 +7,13 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 
-class NewsletterlistType extends AbstractType
+class PacienteType extends AbstractType
 {
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder
 			->add('email')
-			->add('isActive')
+			->add('isSubscribed')
 			->add('fecha');
       }
 		
@@ -21,12 +21,12 @@ class NewsletterlistType extends AbstractType
 	public function setDefaultOptions(OptionsResolverInterface $resolver)
 	{
 		$resolver->setDefaults(array(
-			'data_class' => 'Franklin\UsuariosBundle\Entity\Newsletterlist',
+			'data_class' => 'Franklin\UsuariosBundle\Entity\Paciente',
 			));
 	}
 
 	public function getName()
 	{
-		return 'newsletterlist_table';
+		return 'paciente_table';
 	}
 }

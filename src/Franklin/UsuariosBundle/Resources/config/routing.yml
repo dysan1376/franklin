@@ -2,12 +2,22 @@ usuarios_homepage:
     path:     /hello/{name}
     defaults: { _controller: UsuariosBundle:Default:index }
 
-usuarios_newsletter_async:
-    path:     /new/user/async
-    defaults: { _controller: UsuariosBundle:Default:async }
-
 usuarios_newsletter:
     path:     /{_locale}/nuevo/usuario
     defaults: { _controller: UsuariosBundle:Default:nuevo, _locale: es  }
     requirements:
         _locale: es|pt|en|it
+
+unsubscribe_newsletter:
+    path:     /{_locale}/unsubscribe/usuario
+    defaults: { _controller: UsuariosBundle:Default:unsubscribe, _locale: es  }
+    requirements:
+        _locale: es|pt|en|it
+
+usuarios_newsletter_async:
+    path:     /new/user/async
+    defaults: { _controller: UsuariosBundle:Default:async }
+
+unsubscribe_newsletter_async:
+    path:     /unsubscribe/user/async
+    defaults: { _controller: UsuariosBundle:Default:asyncUnsubscribe }

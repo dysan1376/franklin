@@ -6,9 +6,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Franklin\UsuariosBundle\Entity\Newsletterlist;
+use Franklin\UsuariosBundle\Entity\Paciente;
 
-use Franklin\UsuariosBundle\Form\Type\NewsletterlistType;
+use Franklin\UsuariosBundle\Form\Type\PacienteType;
 
 class DefaultController extends Controller
 {
@@ -24,15 +24,39 @@ class DefaultController extends Controller
     	if ($request->isMethod('POST')) {
     		$email = $request->request->get('email');
 
-    		$notDuplicated = $em->getRepository('UsuariosBundle:Newsletterlist')->findOneBy( array(
+    		$notDuplicated = $em->getRepository('UsuariosBundle:Paciente')->findOneBy( array(
                 'email' => $email
             ));
 
     		if (($email) && (!$notDuplicated)) {
-				$newsletterlist = new Newsletterlist();
+				$newsletterlist = new Paciente();
 				$newsletterlist->setEmail($email);
 		    	$newsletterlist->setFecha(new \Datetime());
-		    	$newsletterlist->setIsActive(true);
+		    	$newsletterlist->setIsSubscribed(true);
+		    	$em->persist($newsletterlist);
+                $em->flush();
+    		}
+
+    		return new Response('success');
+
+    	} else {
+    		return $this->redirect($this->generateUrl('portada_homepage'));
+    	}
+    }
+
+    public function asyncUnsubscribeAction(request $request)
+    {
+    	$em = $this->getDoctrine()->getManager();
+
+    	if ($request->isMethod('POST')) {
+    		$email = $request->request->get('email');
+
+    		$newsletterlist = $em->getRepository('UsuariosBundle:Paciente')->findOneBy( array(
+                'email' => $email
+            ));
+
+    		if (($email) && ($newsletterlist)) {
+		    	$newsletterlist->setIsSubscribed(false);
 		    	$em->persist($newsletterlist);
                 $em->flush();
     		}
@@ -46,6 +70,11 @@ class DefaultController extends Controller
 
     public function nuevoAction()
     {
-    	return $this->render('UsuariosBundle:Default:nuevo.html.twig');
+    	return $this->render('UsuariosBundle:Default:newNewsletterUser.html.twig');
+    }
+
+    public function unsubscribeAction()
+    {
+    	return $this->render('UsuariosBundle:Default:unsubscribeNewsletter.html.twig');
     }
 }
