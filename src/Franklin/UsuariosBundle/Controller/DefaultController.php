@@ -20,11 +20,15 @@ class DefaultController extends Controller
     public function asyncAction(request $request)
     {
     	$em = $this->getDoctrine()->getManager();
-    	
+
     	if ($request->isMethod('POST')) {
     		$email = $request->request->get('email');
 
-    		if ($email) {
+    		$notDuplicated = $em->getRepository('UsuariosBundle:Newsletterlist')->findOneBy( array(
+                'email' => $email
+            ));
+
+    		if (($email) && (!$notDuplicated)) {
 				$newsletterlist = new Newsletterlist();
 				$newsletterlist->setEmail($email);
 		    	$newsletterlist->setFecha(new \Datetime());

@@ -222,10 +222,14 @@ $(function(){
         }),
         success: function(data, textStatus) {
           toastr.success('{{"usuarios.suscrito_exitoso"|trans}}', { timeOut: 1500 });
+          $("#email").val('');
+          $("#submit").attr('disabled', 'disabled');
           console.log(data);
         },
         error: function(data, textStatus) {
           toastr.info('{{"usuarios.suscrito_error"|trans}}', { timeOut: 2500 });
+          $("#email").val('');
+          $("#submit").attr('disabled', 'disabled');
           console.log(data);
         }
       });
