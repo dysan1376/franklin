@@ -24,16 +24,22 @@ class DefaultController extends Controller
     	if ($request->isMethod('POST')) {
     		$email = $request->request->get('email');
 
-    		$notDuplicated = $em->getRepository('UsuariosBundle:Paciente')->findOneBy( array(
+    		$paciente = $em->getRepository('UsuariosBundle:Paciente')->findOneBy( array(
                 'email' => $email
             ));
 
-    		if (($email) && (!$notDuplicated)) {
-				$newsletterlist = new Paciente();
-				$newsletterlist->setEmail($email);
-		    	$newsletterlist->setFecha(new \Datetime());
-		    	$newsletterlist->setIsSubscribed(true);
-		    	$em->persist($newsletterlist);
+            if ($paciente) {
+                $paciente->setIsSubscribed(true);
+                $em->persist($paciente);
+                $em->flush();
+            }
+
+    		if (($email) && (!$paciente)) {
+				$paciente = new Paciente();
+				$paciente->setEmail($email);
+		    	$paciente->setFecha(new \Datetime());
+		    	$paciente->setIsSubscribed(true);
+		    	$em->persist($paciente);
                 $em->flush();
     		}
 
@@ -51,13 +57,13 @@ class DefaultController extends Controller
     	if ($request->isMethod('POST')) {
     		$email = $request->request->get('email');
 
-    		$newsletterlist = $em->getRepository('UsuariosBundle:Paciente')->findOneBy( array(
+    		$paciente = $em->getRepository('UsuariosBundle:Paciente')->findOneBy( array(
                 'email' => $email
             ));
 
-    		if (($email) && ($newsletterlist)) {
-		    	$newsletterlist->setIsSubscribed(false);
-		    	$em->persist($newsletterlist);
+    		if (($email) && ($paciente)) {
+		    	$paciente->setIsSubscribed(false);
+		    	$em->persist($paciente);
                 $em->flush();
     		}
 
