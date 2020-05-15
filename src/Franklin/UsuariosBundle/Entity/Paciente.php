@@ -169,27 +169,27 @@ class Paciente
     }
 
     /**
-     * Set isActive
+     * Set isSubscribed
      *
-     * @param boolean $isActive
+     * @param boolean $isSubscribed
      *
      * @return Paciente
      */
-    public function setIsActive($isActive)
+    public function setIsSubscribed($isSubscribed)
     {
-        $this->isActive = $isActive;
+        $this->isSubscribed = $isSubscribed;
 
         return $this;
     }
 
     /**
-     * Get isActive
+     * Get isSubscribed
      *
      * @return boolean
      */
-    public function getIsActive()
+    public function getIsSubscribed()
     {
-        return $this->isActive;
+        return $this->isSubscribed;
     }
 
     /**
