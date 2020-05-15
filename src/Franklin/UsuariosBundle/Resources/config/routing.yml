@@ -1,3 +1,13 @@
 usuarios_homepage:
     path:     /hello/{name}
     defaults: { _controller: UsuariosBundle:Default:index }
+
+usuarios_newsletter_async:
+    path:     /new/user/async
+    defaults: { _controller: UsuariosBundle:Default:async }
+
+usuarios_newsletter:
+    path:     /{_locale}/nuevo/usuario
+    defaults: { _controller: UsuariosBundle:Default:nuevo, _locale: es  }
+    requirements:
+        _locale: es|pt|en|it

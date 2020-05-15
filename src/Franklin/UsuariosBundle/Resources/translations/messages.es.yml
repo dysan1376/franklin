@@ -3,3 +3,5 @@ usuarios:
     olvido: "¿Olvidaste la contraseña?"
     tucuenta: "Ingresa a tu cuenta, "
     otracuenta: "Ingresa con otra cuenta"
+    suscrito_exitoso: "Te has suscrito exitosamente."
+    suscrito_error: "Ocurrió un error, intenta nuevamente."
