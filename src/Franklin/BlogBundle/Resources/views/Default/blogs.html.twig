@@ -91,7 +91,7 @@
                             <div class="post-content">
                                 <h4 class="post-title"><a href="#">{{blog.title}}</a></h4>
                                 <ul class="post-meta">
-                                    <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
+                                    <li><a href="#">{{blog.fechaCreacion|date('F')|mes(app.request.locale)}}  {{blog.fechaCreacion|date(' d, \\ Y')}}</a></li>
                                     <li><a href="#">{{blog.tag|title}}</a></li>
                                 </ul>
                             </div>
@@ -108,7 +108,7 @@
                             <div class="post-content">
                                 <h4 class="post-title"><a href="{{ path('blog_view', {'slug': blog.slug}) }}">{{blog.title}}</a></h4>
                                 <ul class="post-meta">
-                                    <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
+                                    <li><a href="#">{{blog.fechaCreacion|date('F')|mes(app.request.locale)}}  {{blog.fechaCreacion|date(' d, \\ Y')}}</a></li>
                                     <li><a href="#">{{blog.tag|title}}</a></li>
                                 </ul>
                                 <p>{{blog.description}}</p>
@@ -126,7 +126,7 @@
                             <div class="post-content">
                                 <h4 class="post-title"><a href="{{ path('blog_view', {'slug': blog.slug}) }}">{{blog.title}}</a></h4>
                                 <ul class="post-meta">
-                                    <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
+                                    <li><a href="#">{{blog.fechaCreacion|date('F')|mes(app.request.locale)}}  {{blog.fechaCreacion|date(' d, \\ Y')}}</a></li>
                                     <li><a href="#">{{blog.tag|title}}</a></li>
                                 </ul>
                             </div>
@@ -150,7 +150,7 @@
                             <div class="post-content">
                                 <h4 class="post-title"><a href="{{ path('blog_view', {'slug': blog.slug}) }}">{{blog.title}}</a></h4>
                                 <ul class="post-meta">
-                                    <li><a href="#">{{blog.fechaCreacion|date('d\\ F \\ Y')}}</a></li>
+                                    <li><a href="#">{{blog.fechaCreacion|date('F')|mes(app.request.locale)}}  {{blog.fechaCreacion|date(' d, \\ Y')}}</a></li>
                                     <li><a href="#">{{blog.tag|title}}</a></li>
                                 </ul>
                                 <p>{{blog.description}}</p>

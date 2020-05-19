@@ -31,9 +31,9 @@ admin_review_paginated:
         _method:  GET
 
 review_new:
-    path:     /admin/new/review
+    path:     /new/review
     defaults: { _controller: AdminBundle:Default:new }
 
 review_edit:
-    path:     /admin/edit/review/{id}
+    path:     /edit/review/{id}
     defaults: { _controller: AdminBundle:Default:edit }
