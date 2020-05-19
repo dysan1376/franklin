@@ -48,7 +48,9 @@ class BlogType extends AbstractType
 			))
 			->add('title')
 			->add('subtitle')
-			->add('description')
+			->add('description', 'textarea', array(
+			    'attr' => array('style' => 'height:100px'),
+			))
 			->add('text')
 			->add('appendText')
 			->add('cover')

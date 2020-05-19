@@ -46,3 +46,13 @@ admin:
     tag: "Etiqueta"
     type: "Tipo de post"
     editar: "Editar"
+    ######
+    reviews: "Reviews"
+    listado_reviews: "Listado de reviews"
+    revisa_edita_crea_reviews: "Revisa, edita o crea reviews"
+    nuevo_review: "Nuevo Review"
+    reviews_user_view: "Reviews (Vista de usuario)"
+    reviews_locales_disponibles: "Locale disponibles: Español, Inglés, Portugués e Italiano"
+    fotografia: "Fotografía"
+    guardar: "Guardar"
+    nombre_formato: "Formato de escritura: Franklin. A"

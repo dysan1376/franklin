@@ -24,6 +24,13 @@ class DefaultController extends Controller
         // );
         $blogs = array_slice($blogsAll,0,6,false);
 
+        //Reviews
+        $reviewsAll = $em->getRepository('PortadaBundle:Review')->findBy(
+            array(),
+            array('id' => 'DESC')
+        );
+        $reviews = array_slice($reviewsAll,0,4,false);
+
         $session = $this->container->get('session')->start();
     	$message = new Message();
     	$form = $this->createForm(new MessageType(), $message);
@@ -73,7 +80,8 @@ class DefaultController extends Controller
 
         return $this->render('PortadaBundle:Default:index.html.twig', array(
         	'form'=>$form->createView(),
-            'blogs' => $blogs
+            'blogs' => $blogs,
+            'reviews' => $reviews
         ));
     }
 

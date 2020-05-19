@@ -11,8 +11,29 @@ admin_blog:
     defaults: { _controller: AdminBundle:Default:blog , page: 1 }
     requirements:
         _method:  GET
+
 admin_blog_paginated:
     pattern:  /blog/{page}
     defaults: { _controller: AdminBundle:Default:blog }
     requirements:
         _method:  GET
+
+admin_review:
+    pattern:  /review
+    defaults: { _controller: AdminBundle:Default:reviews, page: 1 }
+    requirements:
+        _method:  GET
+
+admin_review_paginated:
+    pattern:  /review/{page}
+    defaults: { _controller: AdminBundle:Default:reviews }
+    requirements:
+        _method:  GET
+
+review_new:
+    path:     /admin/new/review
+    defaults: { _controller: AdminBundle:Default:new }
+
+review_edit:
+    path:     /admin/edit/review/{id}
+    defaults: { _controller: AdminBundle:Default:edit }

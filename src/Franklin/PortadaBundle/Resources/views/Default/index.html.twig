@@ -723,6 +723,27 @@
             <div class="container">
                 <div class="row">
                     <!-- Will rotate every post 1,2,3,4-->
+                    {#% for review in reviews %}
+                    <div class="col-sm-6">
+                        <!-- Testimonial -->
+                        <div class="testimonial testimonial-primary">
+                            <p class="testimonial-content">
+                                {% for com in review.comentario %}
+                                    {% if (com.locale == app.request.locale) %}
+                                        {{com.comentario}}
+                                    {% endif %}
+                                {% endfor %}
+                            </p>
+                            <div class="testimonial-author">
+                                <img src="{{ asset('uploads/reviews/' ~ review.picture) }}" alt="testimonio02" class="testimonial-author-image">
+                                <div class="testimonial-author-content">
+                                    <h6 class="name">{{review.nombre}}</h6>
+                                    <span class="caption">{{review.fecha|date('F')|mes(app.request.locale)}}  {{review.fecha|date(' d, \\ Y')}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %#}
                     <div class="col-sm-6">
                         <!-- Testimonial -->
                         <div class="testimonial testimonial-primary">

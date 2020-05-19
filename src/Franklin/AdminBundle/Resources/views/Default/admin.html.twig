@@ -68,6 +68,12 @@
                             <p>{{"admin.perfil"|trans}}</p>
                         </a>
                     </li>
+                    <li class="reviews">
+                        <a class="nav-link" href="{{ path('admin_review') }}">
+                            <i class="nc-icon nc-chat-round"></i>
+                            <p>{{"admin.reviews"|trans}}</p>
+                        </a>
+                    </li>
                     <li class="blogs">
                         <a class="nav-link" href="{{ path('admin_blog') }}">
                             <i class="nc-icon nc-paper-2"></i>
@@ -132,7 +138,7 @@
                         <p class="copyright text-center">
                             Franklin Alvear ©
                             <script>
-                                document.write(new Date().getFullYear())
+                                document.write(new Date().getFullYear());
                             </script>
                         </p>
                     </nav>

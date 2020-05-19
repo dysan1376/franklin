@@ -1,4 +1,11 @@
+parameters:
+    franlkin.twig.class: Franklin\AdminBundle\Extension\FranklinTwigExtension
 services:
 #    admin.example:
 #        class: Franklin\AdminBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+    franklin.twig:
+        class: %franlkin.twig.class%
+        public: false
+        tags:
+            - { name: twig.extension }
