@@ -37,3 +37,15 @@ review_new:
 review_edit:
     path:     /edit/review/{id}
     defaults: { _controller: AdminBundle:Default:edit }
+
+admin_mails:
+    path:     /mails
+    defaults: { _controller: AdminBundle:Default:mails }
+
+admin_newsletter:
+    path:     /newsletter
+    defaults: { _controller: AdminBundle:Default:newsletter }
+
+admin_test_newsletter:
+    path:     /test/newsletter
+    defaults: { _controller: AdminBundle:Default:test }

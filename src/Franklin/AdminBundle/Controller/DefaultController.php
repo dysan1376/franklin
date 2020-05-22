@@ -238,6 +238,45 @@ class DefaultController extends Controller
         ));
     }
 
+    public function testAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $numberOfLastPosts = 6;
+        $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogs($numberOfLastPosts);
+
+        $subject = "Newsletter test";
+        $to = "dysan1376@gmail.com";
+
+        //Send test email
+        $this->get('franklin.mailer')->sendNewsletter($subject, $to, $numberOfLastPosts);
+        
+        return $this->render('AdminBundle:Default:mails.html.twig', array(
+            'blogs' => $blogs
+        ));
+    }
+
+    public function mailsAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $numberOfLastPosts = 6;
+        $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogs($numberOfLastPosts);
+
+        return $this->render('AdminBundle:Default:mails.html.twig', array(
+            'blogs' => $blogs
+        ));
+    }
+
+    public function newsletterAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $numberOfLastPosts = 6;
+        $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogs($numberOfLastPosts);
+
+        return $this->render('AdminBundle:Mailer:newsletter.html.twig', array(
+            'blogs' => $blogs
+        ));
+    }
+
     /**
      * @return string
      */

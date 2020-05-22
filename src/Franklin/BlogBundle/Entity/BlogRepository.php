@@ -48,4 +48,20 @@ class BlogRepository extends EntityRepository
         return $result;
 
 	}
+
+	public function findLastMonthBlogs($numberOfLastPosts)
+	{
+		$em = $this->getEntityManager();
+
+		$dql = 'SELECT o
+				FROM BlogBundle:Blog o
+				ORDER BY o.id DESC';
+
+		$consulta = $em->createQuery($dql);
+		$consulta->setMaxResults($numberOfLastPosts);
+
+		
+		$result = $consulta->getResult();
+        return $result;
+	}
 }

@@ -80,6 +80,12 @@
                             <p>{{"admin.blogs"|trans}}</p>
                         </a>
                     </li>
+                    <li class="mails">
+                        <a class="nav-link" href="{{ path('admin_mails') }}">
+                            <i class="nc-icon nc-email-85"></i>
+                            <p>{{"admin.mails"|trans}}</p>
+                        </a>
+                    </li>
                     <li class="nav-item active active-pro">
                         <a class="nav-link active" href="{{ path('fos_user_security_logout') }}">
                             <i class="nc-icon nc-button-power"></i>
@@ -137,6 +143,11 @@
                             <li>
                                 <a href="{{ path('admin_blog') }}">
                                     {{"admin.blogs"|trans}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_mails') }}">
+                                    {{"admin.mails"|trans}}
                                 </a>
                             </li>
                         </ul>
