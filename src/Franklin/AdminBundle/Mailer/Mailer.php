@@ -38,7 +38,7 @@ class Mailer
         if ($blogs) {
         	$message = \Swift_Message::newInstance()
             ->setSubject($subject)
-            ->setFrom('franklin@hospi.me')
+            ->setFrom('info@franklinalvear.com')
             ->setTo($to)
             ->setBody(
                 $this->templating->render(

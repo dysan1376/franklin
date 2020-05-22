@@ -109,9 +109,9 @@
 																			<!-- Socails -->
 																			<table class="center" border="0" cellspacing="0" cellpadding="0">
 																				<tr>
-																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="38"><a href="https://www.facebook.com/franklinalvear.cirujanoplastico" target="_blank"><img src="{{ asset('bundles/portada/img/email/ico3_facebook.jpg') }}" editable="true" border="0" width="13" height="13" alt="" /></a></td>
-																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="38"><a href="https://twitter.com/dr_franklear" target="_blank"><img src="{{ asset('bundles/portada/img/email/ico3_twitter.jpg') }}" editable="true" border="0" width="13" height="13" alt="" /></a></td>
-																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="13"><a href="https://www.instagram.com/dr_alvear" target="_blank"><img src="{{ asset('bundles/portada/img/email/ico3_instagram.jpg') }}" editable="true" border="0" width="13" height="13" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="38"><a href="https://www.facebook.com/franklinalvear.cirujanoplastico" target="_blank"><img src="{{ asset('bundles/portada/img/email/ico3_facebook.jpg', absolute=true) }}" editable="true" border="0" width="13" height="13" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="38"><a href="https://twitter.com/dr_franklear" target="_blank"><img src="{{ asset('bundles/portada/img/email/ico3_twitter.jpg', absolute=true) }}" editable="true" border="0" width="13" height="13" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="13"><a href="https://www.instagram.com/dr_alvear" target="_blank"><img src="{{ asset('bundles/portada/img/email/ico3_instagram.jpg', absolute=true) }}" editable="true" border="0" width="13" height="13" alt="" /></a></td>
 																				</tr>
 																			</table>
 																			<!-- END Socails -->
@@ -137,39 +137,6 @@
 
 													<div class="hide-for-mobile">
 														<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="10" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
-
-													</div>
-													<table width="100%" border="0" cellspacing="0" cellpadding="0">
-														<tr>
-															<!-- Column -->
-															<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="300">
-																<table width="100%" border="0" cellspacing="0" cellpadding="0">
-																	<tr>
-																		<td>
-																			<div class="img" style="font-size:0pt; line-height:0pt; text-align:left"><div class="img-m-center" style="font-size:0pt; line-height:0pt"><a href="{{ app.request.scheme ~ '://' ~ app.request.host ~ path('portada_homepage') }}" target="_blank"><img src="https://franklinalvear.com/bundles/portada/img/favicon_120x120.png" editable="true" border="0" width="80" height="80" alt="" /></a></div></div>
-																			<div style="font-size:0pt; line-height:0pt;" class="mobile-br-20"></div>
-
-																		</td>
-																	</tr>
-																</table>
-															</th>
-															<!-- END Column -->
-															<!-- Column -->
-															<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
-																<table width="100%" border="0" cellspacing="0" cellpadding="0">
-																	<tr>
-																		<td align="right" class="text-white-top-r" style="color:#ffffff; font-family:Arial,sans-serif; font-size:11px; line-height:15px; text-align:right; text-transform:uppercase">
-																			<multiline>
-																				<a href="{{ app.request.scheme ~ '://' ~ app.request.host ~ path('portada_homepage') }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">Inicio</span></a> &nbsp;  &nbsp; &nbsp; <a href="{{ app.request.scheme ~ '://' ~ app.request.host ~ path('portada_homepage') }}#schedule" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">Agenda</span></a> &nbsp; &nbsp; &nbsp;<a href="{{ app.request.scheme ~ '://' ~ app.request.host ~ path('blog_homepage') }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">Blog</span></a> &nbsp; &nbsp; &nbsp; <a href="{{ app.request.scheme ~ '://' ~ app.request.host ~ path('portada_homepage') }}#contact" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">Contacto</span></a>
-																			</multiline>
-																		</td>
-																	</tr>
-																</table>
-															</th>
-															<!-- END Column -->
-														</tr>
-													</table>
-													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="40" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
 												</td>
 												<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="1"></td>
@@ -278,7 +245,7 @@
 																		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																			<tr>
 																				<td>
-																					<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><img src="{{ asset('uploads/posts/cover/' ~ blog.cover) }}" editable="true" border="0" width="310" height="210" alt="{{blog.altCover}}" /></div>
+																					<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><img src="{{ asset('uploads/posts/cover/' ~ blog.cover, absolute=true) }}" editable="true" border="0" width="310" height="210" alt="{{blog.altCover}}" /></div>
 																					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="14" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
 																					<div class="h4" style="color:#666666; font-family:Arial,sans-serif; font-size:20px; line-height:26px; text-align:left; font-weight:bold"><multiline>{{blog.title}}</multiline></div>
@@ -332,7 +299,7 @@
 																		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																			<tr>
 																				<td>
-																					<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><img src="{{ asset('uploads/posts/first/' ~ blog.first) }}" editable="true" border="0" width="310" height="210" alt="{{blog.altCover}}" /></div>
+																					<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><img src="{{ asset('uploads/posts/first/' ~ blog.first, absolute=true) }}" editable="true" border="0" width="310" height="210" alt="{{blog.altCover}}" /></div>
 																					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="14" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
 																					<div class="h4" style="color:#666666; font-family:Arial,sans-serif; font-size:20px; line-height:26px; text-align:left; font-weight:bold"><multiline>{{blog.title}}</multiline></div>
@@ -597,7 +564,7 @@
 														<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="50"></td>
 														<td>
 											
-															<div class="img-center" style="font-size:0pt; line-height:0pt; text-align:center;"><a href="#" target="_blank"><img src="https://franklinalvear.com/bundles/portada/img/photos/doctor/avatar-sm.png" editable="true" border="0" width="80" height="80" style="border-radius: 50%;" alt="" /></a></div>
+															<div class="img-center" style="font-size:0pt; line-height:0pt; text-align:center;"><a href="#" target="_blank"><img src="{{ asset('bundles/portada/img/photos/doctor/avatar-sm.png', absolute=true) }}" editable="true" border="0" width="80" height="80" style="border-radius: 50%;" alt="" /></a></div>
 															<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
 															<div class="h6-white-center" style="color:#ffffff; font-family:Arial,sans-serif; font-size:16px; line-height:22px; text-align:center; font-weight:bold"><multiline>Dr. Franklin Alvear</multiline></div>
@@ -653,7 +620,7 @@
 																	<th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0" width="202">
 																		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																			<tr>
-																				<td><div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><img src="{{ asset('uploads/posts/cover/' ~ blog.cover) }}" editable="true" border="0" width="202" height="203" alt="{{blog.altCover}}" /></div></td>
+																				<td><div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><img src="{{ asset('uploads/posts/cover/' ~ blog.cover, absolute=true) }}" editable="true" border="0" width="202" height="203" alt="{{blog.altCover}}" /></div></td>
 																			</tr>
 																		</table>
 																	</th>
@@ -724,11 +691,11 @@
 																		<td align="right">
 																			<table class="center" border="0" cellspacing="0" cellpadding="0">
 																				<tr>
-																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="https://www.facebook.com/franklinalvear.cirujanoplastico" target="_blank"><img src="{{ asset('bundles/portada/img/email/footer_ico_facebook.jpg') }}" editable="true" border="0" width="18" height="21" alt="" /></a></td>
-																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="https://twitter.com/dr_franklear" target="_blank"><img src="{{ asset('bundles/portada/img/email/footer_ico_twitter.jpg') }}" editable="true" border="0" width="18" height="21" alt="" /></a></td>
-																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="https://www.youtube.com/channel/UCZbQRHcpUi5b6L-lhH3azLw" target="_blank"><img src="{{ asset('bundles/portada/img/email/footer_ico_youtube.jpg') }}" editable="true" border="0" width="18" height="21" alt="" /></a></td>
-																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="https://www.instagram.com/dr_alvear" target="_blank"><img src="{{ asset('bundles/portada/img/email/footer_ico_instagram.jpg') }}" editable="true" border="0" width="18" height="21" alt="" /></a></td>
-																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="https://www.linkedin.com/in/franklin-alvear/" target="_blank"><img src="{{ asset('bundles/portada/img/email/footer_ico_linkedin.jpg') }}" editable="true" border="0" width="18" height="21" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="https://www.facebook.com/franklinalvear.cirujanoplastico" target="_blank"><img src="{{ asset('bundles/portada/img/email/footer_ico_facebook.jpg', absolute=true) }}" editable="true" border="0" width="18" height="21" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="https://twitter.com/dr_franklear" target="_blank"><img src="{{ asset('bundles/portada/img/email/footer_ico_twitter.jpg', absolute=true) }}" editable="true" border="0" width="18" height="21" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="https://www.youtube.com/channel/UCZbQRHcpUi5b6L-lhH3azLw" target="_blank"><img src="{{ asset('bundles/portada/img/email/footer_ico_youtube.jpg', absolute=true) }}" editable="true" border="0" width="18" height="21" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="https://www.instagram.com/dr_alvear" target="_blank"><img src="{{ asset('bundles/portada/img/email/footer_ico_instagram.jpg', absolute=true) }}" editable="true" border="0" width="18" height="21" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="https://www.linkedin.com/in/franklin-alvear/" target="_blank"><img src="{{ asset('bundles/portada/img/email/footer_ico_linkedin.jpg', absolute=true) }}" editable="true" border="0" width="18" height="21" alt="" /></a></td>
 																				</tr>
 																			</table>
 																		</td>
@@ -764,7 +731,7 @@
 																				<multiline>
 																					<a href="https://franklinalvear.com" target="_blank" class="link-grey2-u" style="color:#666666; text-decoration:underline"><span class="link-grey2-u" style="color:#666666; text-decoration:underline">https://franklinalvear.com</span></a> &nbsp; <a href="mailto:" target="_blank" class="link-grey2-u" style="color:#666666; text-decoration:underline"><span class="link-grey2-u" style="color:#666666; text-decoration:underline">franklin@hospi.me</span></a>
 																					<br />
-																					Phone: <a href="tel:+593990459900" target="_blank" class="link-grey2" style="color:#666666; text-decoration:none"><span class="link-grey2" style="color:#666666; text-decoration:none">+593 (09) 9045-99-00</span></a>
+																					Celular: <a href="tel:+593990459900" target="_blank" class="link-grey2" style="color:#666666; text-decoration:none"><span class="link-grey2" style="color:#666666; text-decoration:none">+593 (09) 9045-99-00</span></a>
 																				</multiline>
 																			</div>
 																		</td>
