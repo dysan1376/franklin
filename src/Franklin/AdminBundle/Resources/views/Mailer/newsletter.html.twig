@@ -266,7 +266,7 @@
 
 																											<div class="text-button" style="color:#ffffff; font-family:Arial,sans-serif; font-size:14px; line-height:18px; text-align:center; text-transform:uppercase">
 																												<multiline>
-																													<a href="{{ path('blog_view', {'slug': blog.slug}) }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">{{"mailer.continua_leyendo"|trans}}</span></a>
+																													<a href="{{ app.request.scheme ~ '://' ~ app.request.host ~ path('blog_view', {'slug': blog.slug}) }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">{{"mailer.continua_leyendo"|trans}}</span></a>
 																												</multiline>
 																											</div>
 																											<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="10" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
@@ -320,7 +320,7 @@
 
 																											<div class="text-button" style="color:#ffffff; font-family:Arial,sans-serif; font-size:14px; line-height:18px; text-align:center; text-transform:uppercase">
 																												<multiline>
-																													<a href="{{ path('blog_view', {'slug': blog.slug}) }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">{{"mailer.continua_leyendo"|trans}}</span></a>
+																													<a href="{{ app.request.scheme ~ '://' ~ app.request.host ~ path('blog_view', {'slug': blog.slug}) }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">{{"mailer.continua_leyendo"|trans}}</span></a>
 																												</multiline>
 																											</div>
 																											<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="10" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
@@ -424,7 +424,7 @@
 
 																														<div class="text-button" style="color:#ffffff; font-family:Arial,sans-serif; font-size:14px; line-height:18px; text-align:center; text-transform:uppercase">
 																															<multiline>
-																																<a href="{{ path('blog_view', {'slug': blog.slug}) }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">{{"mailer.continua_leyendo"|trans}}</span></a>
+																																<a href="{{ app.request.scheme ~ '://' ~ app.request.host ~ path('blog_view', {'slug': blog.slug}) }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">{{"mailer.continua_leyendo"|trans}}</span></a>
 																															</multiline>
 																														</div>
 																														<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="10" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
@@ -453,6 +453,7 @@
 															</table>
 															<!-- END row 1 -->
 															<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
 															{% elseif (blog.type == "default") %}
 
 															<!-- row 2 -->
@@ -501,7 +502,7 @@
 
 																														<div class="text-button" style="color:#ffffff; font-family:Arial,sans-serif; font-size:14px; line-height:18px; text-align:center; text-transform:uppercase">
 																															<multiline>
-																																<a href="{{ path('blog_view', {'slug': blog.slug}) }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">{{"mailer.continua_leyendo"|trans}}</span></a>
+																																<a href="{{ app.request.scheme ~ '://' ~ app.request.host ~ path('blog_view', {'slug': blog.slug}) }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">{{"mailer.continua_leyendo"|trans}}</span></a>
 																															</multiline>
 																														</div>
 																														<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="10" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
@@ -673,7 +674,7 @@
 																	<tr>
 																		<td class="img" style="font-size:0pt; line-height:0pt; text-align:left">
 																			<div class="img-m-center" style="font-size:0pt; line-height:0pt">
-																				<a href="{{ app.request.scheme ~ '://' ~ app.request.host ~ path('portada_homepage') }}" target="_blank"><img src="https://franklinalvear.com/bundles/portada/img/favicon_120x120.png" editable="true" border="0" width="80" height="80" alt="" /></a>
+																				<a href="{{ app.request.scheme ~ '://' ~ app.request.host ~ path('portada_homepage') }}" target="_blank"><img src="{{ asset('bundles/portada/img/favicon_120x120.png', absolute=true) }}" editable="true" border="0" width="80" height="80" alt="" /></a>
 																			</div>
 																			<div style="font-size:0pt; line-height:0pt;" class="mobile-br-15"></div>
 
