@@ -71,6 +71,9 @@ class CasosController extends Controller
 
                 $em->persist($caso);
                 $em->flush();
+
+                $flashBag = $this->get('session')->getFlashBag();
+                $flashBag->add('primary', 'Se ha guardado exitosamente el caso de estudio');
                 return $this->redirect($this->generateUrl('admin_casos'));
             }
         }
@@ -181,6 +184,9 @@ class CasosController extends Controller
 
                 $em->persist($caso);
                 $em->flush();
+
+                $flashBag = $this->get('session')->getFlashBag();
+                $flashBag->add('primary', 'Se ha editado exitosamente el caso de estudio');
                 return $this->redirect($this->generateUrl('admin_casos'));
             }
         }
