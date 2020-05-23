@@ -42,10 +42,14 @@ admin_mails:
     path:     /mails
     defaults: { _controller: AdminBundle:Default:mails }
 
-admin_newsletter:
-    path:     /newsletter
-    defaults: { _controller: AdminBundle:Default:newsletter }
+newsletter_prepare:
+    path:     /prepare/newsletter/{numberOfLastPosts}
+    defaults: { _controller: AdminBundle:Newsletter:prepare, numberOfLastPosts: 6 }
 
-admin_test_newsletter:
-    path:     /test/newsletter
-    defaults: { _controller: AdminBundle:Default:test }
+newsletter_test:
+    path:     /test/newsletter/{numberOfLastPosts}/{email}/{subject}
+    defaults: { _controller: AdminBundle:Newsletter:test, numberOfLastPosts: 6, email: "", subject: "" }
+
+newsletter_send:
+    path:     /send/newsletter/{numberOfLastPosts}/{subject}
+    defaults: { _controller: AdminBundle:Newsletter:send, numberOfLastPosts: 6, subject: "" }

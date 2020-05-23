@@ -4,19 +4,53 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <div class="card strpied-tabled-with-hover">
+            <div class="col-md-4">
+                <div class="card ">
                     <div class="card-header ">
-                        <h4 class="card-title">Correos</h4>
-                        <p class="card-category">Subtitulo</p>
-                        <a href="{{ path ('admin_test_newsletter') }}"><button type="button" class="btn btn-warning btn-fill pull-right">Enviar prueba</button></a>
-                        <a href="{{ path ('admin_newsletter') }}"><button type="button" class="btn btn-info btn-fill pull-left">Ver email de prueba Newsletter</button></a>
+                        <h4 class="card-title">Preparar Newsletter</h4>
+                        <p class="card-category">Revisa y envía newsletter mensual</p>
                     </div>
-                    <div class="card-body table-full-width table-responsive">
-                        <div class="row">
-                            <div class="col-md-4">
-                                {% include 'AdminBundle:Mailer:newsletter.html.twig' with {'blogs': blogs} %}
-                            </div>
+                    <div class="card-body ">
+                        <a href="{{ path ('newsletter_prepare') }}"><button type="button" class="btn btn-info btn-fill pull-left">Entrar</button></a>
+                    </div>
+                    <div class="card-footer ">
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Preparar Correo Promocional</h4>
+                        <p class="card-category">Revisa y envía Correo promocional</p>
+                    </div>
+                    <div class="card-body ">
+                        <a href="#"><button type="button" class="btn btn-info btn-fill pull-left">Entrar</button></a>
+                    </div>
+                    <div class="card-footer ">
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Preparar Correo Personal</h4>
+                        <p class="card-category">Revisa y envía Correo personal</p>
+                    </div>
+                    <div class="card-body ">
+                        <a href="#"><button type="button" class="btn btn-info btn-fill pull-left">Entrar</button></a>
+                    </div>
+                    <div class="card-footer ">
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
                         </div>
                     </div>
                 </div>

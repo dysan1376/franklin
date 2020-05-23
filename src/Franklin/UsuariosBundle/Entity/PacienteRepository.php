@@ -10,4 +10,20 @@ namespace Franklin\UsuariosBundle\Entity;
  */
 class PacienteRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function findNewsletterActive() 
+	{
+
+		$em = $this->getEntityManager();
+
+		$dql = 'SELECT o
+				FROM UsuariosBundle:Paciente o
+				WHERE o.isSubscribed = true
+				ORDER BY o.id DESC';
+
+		$consulta = $em->createQuery($dql);
+		
+		$result = $consulta->getResult();
+        return $result;
+
+	}
 }

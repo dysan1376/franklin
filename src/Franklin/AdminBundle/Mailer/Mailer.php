@@ -30,7 +30,7 @@ class Mailer
 
     }
 
-    public function sendNewsletter($subject, $to, $numberOfLastPosts)
+    public function sendNewsletter($subject, $email, $numberOfLastPosts)
     {
 
         $blogs = $this->findLastMonthBlogs($numberOfLastPosts);
@@ -39,7 +39,7 @@ class Mailer
         	$message = \Swift_Message::newInstance()
             ->setSubject($subject)
             ->setFrom('info@franklinalvear.com')
-            ->setTo($to)
+            ->setTo($email)
             ->setBody(
                 $this->templating->render(
                     'AdminBundle:Mailer:newsletter.html.twig', array(

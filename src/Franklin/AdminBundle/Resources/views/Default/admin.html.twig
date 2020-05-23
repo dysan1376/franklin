@@ -190,6 +190,31 @@
 <script src="{{ asset('bundles/portada/js/demo.js') }}"></script>
 {% endblock %}
 
+{% block flash %}
+<script type="text/javascript">
+    $(function(){
+        //showNotification: function(from, align, message, color, icon)
+        //type = ['primary', 'info', 'success', 'warning', 'danger'];
+        //color = [0, 1, 2, 3, 4];
+        {% for flashMessage in app.session.flashbag.get('primary') %}
+            demo.showNotification('top','right', '{{ flashMessage }}', 0, "nc-icon nc-bell-55");
+        {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('info') %}
+            demo.showNotification('top','right', '{{ flashMessage }}', 1, "nc-icon nc-zoom-split");
+        {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            demo.showNotification('top','right', '{{ flashMessage }}', 2, "nc-icon nc-check-2");
+        {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('warning') %}
+            demo.showNotification('top','right', '{{ flashMessage }}', 3, "nc-icon nc-time-alarm");
+        {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('danger') %}
+            demo.showNotification('top','right', '{{ flashMessage }}', 4, "nc-icon nc-settings-tool-66");
+        {% endfor %}
+    });
+</script>
+{% endblock %}
+
 {% block script %}{% endblock %}
 
 </html>
