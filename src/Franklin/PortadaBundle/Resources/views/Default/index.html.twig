@@ -788,7 +788,7 @@
                         }
                     ]
                     }'>
-                    {#% for caso in casos %}
+                    {% for caso in casos %}
                     <div class="carousel-item">    
                         <!-- Image Box -->
                         <figure class="image-box">
@@ -826,84 +826,7 @@
                             </div>
                         </figure>
                     </div>
-                    {% endfor %#}
-                    {% block hide %}
-                    <div class="carousel-item">    
-                        <!-- Image Box -->
-                        <figure class="image-box">
-                            <div class="image">
-                                <a href="case-study-doctor.html" data-toggle="ajax-modal">
-                                    <img src="{{ asset('bundles/portada/img/projects/project01.jpg') }}" alt="Mastopexia">
-                                    <img src="{{ asset('bundles/portada/img/projects/project01-hover.jpg') }}" alt="Mastopexia">
-                                </a>
-                            </div>
-                            <div class="content text-center">
-                                <h5 class="title"><a href="case-study-doctor.html" data-toggle="ajax-modal">{{"portada.caso1"|trans}}</a></h5>
-                                <span class="caption text-muted">{{"portada.caso1_descripcion"|trans}}</span>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="carousel-item">    
-                        <!-- Image Box -->
-                        <figure class="image-box">
-                            <div class="image">
-                                <a href="case-study-doctor.html" data-toggle="ajax-modal">
-                                    <img src="{{ asset('bundles/portada/img/projects/project02.jpg') }}" alt="Abdominoplastia">
-                                    <img src="{{ asset('bundles/portada/img/projects/project02-hover.jpg') }}" alt="Abdominoplastia">
-                                </a>
-                            </div>
-                            <div class="content text-center">
-                                <h5 class="title"><a href="case-study-doctor.html" data-toggle="ajax-modal">{{"portada.caso2"|trans}}</a></h5>
-                                <span class="caption text-muted">{{"portada.caso2_descripcion"|trans}}</span>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="carousel-item">    
-                        <!-- Image Box -->
-                        <figure class="image-box">
-                            <div class="image">
-                                <a href="case-study-doctor.html" data-toggle="ajax-modal">
-                                    <img src="{{ asset('bundles/portada/img/projects/project03.jpg') }}" alt="Rinoplastia">
-                                    <img src="{{ asset('bundles/portada/img/projects/project03-hover.jpg') }}" alt="Rinoplastia">
-                                </a>
-                            </div>
-                            <div class="content text-center">
-                                <h5 class="title"><a href="case-study-doctor.html" data-toggle="ajax-modal">{{"portada.caso3"|trans}}</a></h5>
-                                <span class="caption text-muted">{{"portada.caso3_descripcion"|trans}}</span>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="carousel-item">    
-                        <!-- Image Box -->
-                        <figure class="image-box">
-                            <div class="image">
-                                <a href="case-study-doctor.html" data-toggle="ajax-modal">
-                                    <img src="{{ asset('bundles/portada/img/projects/project04.jpg') }}" alt="Liposuccion">
-                                    <img src="{{ asset('bundles/portada/img/projects/project04-hover.jpg') }}" alt="Liposuccion">
-                                </a>
-                            </div>
-                            <div class="content text-center">
-                                <h5 class="title"><a href="case-study-doctor.html" data-toggle="ajax-modal">{{"portada.caso4"|trans}}</a></h5>
-                                <span class="caption text-muted">{{"portada.caso4_descripcion"|trans}}</span>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="carousel-item">    
-                        <!-- Image Box -->
-                        <figure class="image-box">
-                            <div class="image">
-                                <a href="case-study-doctor.html" data-toggle="ajax-modal">
-                                    <img src="{{ asset('bundles/portada/img/projects/project05.jpg') }}" alt="Implantes mamarios">
-                                    <img src="{{ asset('bundles/portada/img/projects/project05-hover.jpg') }}" alt="Implantes mamarios">
-                                </a>
-                            </div>
-                            <div class="content text-center">
-                                <h5 class="title"><a href="case-study-doctor.html" data-toggle="ajax-modal">{{"portada.caso5"|trans}}</a></h5>
-                                <span class="caption text-muted">{{"portada.caso5_descripcion"|trans}}</span>
-                            </div>
-                        </figure>
-                    </div>
-                    {% endblock %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
