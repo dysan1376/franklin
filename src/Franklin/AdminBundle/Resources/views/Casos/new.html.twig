@@ -1,0 +1,238 @@
+{% extends 'AdminBundle:Default:admin.html.twig' %}
+
+{% block css %}
+{{parent()}}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/portada/css/bootstrap-datetimepicker.css') }}">
+<style type="text/css">
+    .posts {
+        white-space: nowrap;
+        width: 100%;
+        display: table;
+    }
+    .image {
+        vertical-align: middle;
+          padding: 13px;
+          display: table-cell;
+    }
+    .image img {
+        max-width: 100%;
+    }
+    .preview {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    .lower {
+        text-transform: none!important;
+    }
+    .table td {
+        border: 0 !important;
+    }
+    .table {
+        margin-bottom: 0 !important;
+    }
+</style>
+<!-- CSS Toastr -->
+<link rel="stylesheet" href="{{ asset('bundles/portada/css/toastr.min.css') }}">
+{% endblock %}
+
+{% macro custom(com) %}
+<div class="card-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>{{form_label(com.title)}} <span class="lower">Formato de escritura: Ginecomastia</span></label>
+                {{ form_widget(com.title, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>{{form_label(com.locale)}}</label>
+                {{ form_widget(com.locale, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 pr-1">
+            <div class="form-group">
+                <label>{{form_label(com.descripcion)}} <span class="lower">Formato de escritura: Paciente masculino 44 años</span></label>
+                {{ form_widget(com.descripcion, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="{{ path ('caso_new') }}" method="POST" {{ form_enctype(form) }} novalidate>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">{{"admin.reviews"|trans}}</h4>
+                            <p class="card-category">{{"admin.reviews_locales_disponibles"|trans}}</p>
+                        </div>
+                        <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 pr-1">
+                                        <div class="form-group">
+                                            <label>{{form_label(form.fecha)}}</label>
+                                            {{ form_widget(form.fecha, {'attr': {'class': 'form-control'}}) }}
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="caso card-body" data-prototype="{{ _self.custom(form.descripcion.vars.prototype)|e }}">
+                            {% for descripcion in form.descripcion %}
+                                {{ _self.custom(com) }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Blur photography</label><br>
+                                        <img id="caso_table_picture_img" class="preview" src=""><br>
+                                        {{ form_widget(form.picture, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Clear photography - Hover</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.hover, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div style="display:none;">
+                                {{ form_rest(form) }}
+                            </div>
+                            <button id="send" type="submit" class="btn btn-info btn-fill pull-right">{{"admin.guardar"|trans}}</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block java %}
+{{parent()}}
+<script src="{{ asset('bundles/portada/js/moment-with-langs.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/js/bootstrap-datetimepicker.min.js') }}"></script>
+<!-- JS Toastr -->
+<script src="{{ asset('bundles/portada/js/toastr.min.js') }}"></script>
+{% endblock %}
+
+{% block script %}
+<!-- Handle comentario -->
+<script type="text/javascript">
+$(document).ready(function(){
+    var $collectionHolder;
+
+    // setup an "add a tag" link
+    var $addReviewLink = $('<button type="button" class="add_medicamento_link btn btn-success btn-fill pull-left">Añadir Descripción</button>');
+    var $newLinkDiv = $('<div></div>').append($addReviewLink);
+
+
+    jQuery(document).ready(function() {
+        // Get the ul that holds the collection of tags
+        $collectionHolder = $('.caso');
+
+        // add the "add a tag" anchor and li to the tags ul
+        $collectionHolder.append($newLinkDiv);
+
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+        $addReviewLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // add a new tag form (see next code block)
+            addReviewForm($collectionHolder, $newLinkDiv);
+        });
+
+    });
+
+
+    function addReviewForm($collectionHolder, $newLinkDiv) {
+        // Get the data-prototype explained earlier
+        var prototype = $collectionHolder.data('prototype');
+
+        // get the new index
+        var index = $collectionHolder.data('index');
+
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+
+        // increase the index with one for the next item
+        $collectionHolder.data('index', index + 1);
+
+        // Display the form in the page in an li, before the "Add a tag" link li
+        var $newFormDiv = $('<div class="card" style="list-style-type: none;"></div>').append(newForm);
+        
+        // also add a remove button, just for this example
+        $newFormDiv.prepend('<div class="card-header">'+
+            '<h4 class="card-title">Descripcion '+(index)+'</h4>'+
+        '</div>');
+        $newFormDiv.append('<div class="card-body"><div class="row"><div class="col-md-12"><div class="form-group"><button type="button" class="remove-tag btn btn-warning btn-fill pull-left col-md-4">Eliminar descripción</button></div></div></div></div>');
+        
+        $newLinkDiv.before($newFormDiv);
+
+        // handle the removal, just for this example
+        $('.remove-tag').click(function(e) {
+            e.preventDefault();
+            $(this).closest('.card').fadeOut(500, function() { $(this).closest('.card').remove(); });
+            
+            return false;
+        });
+    }
+});
+</script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#caso_table_fecha').datetimepicker({
+            format: "YYYY-MM-DD     HH:mm"
+        });
+    });
+</script>
+<script type="text/javascript">
+$("#caso_table_picture").change(function(e) {
+    var file = e.originalEvent.srcElement.files[0];
+    var img = $('#caso_table_picture_img');
+    var reader = new FileReader();
+    reader.onloadend = function() {img.attr('src', reader.result)}
+    reader.readAsDataURL(file);
+});
+$("#caso_table_hover").change(function(e) {
+    var file = e.originalEvent.srcElement.files[0];
+    var img = $('#caso_table_hover_img');
+    var reader = new FileReader();
+    reader.onloadend = function() {img.attr('src', reader.result)}
+    reader.readAsDataURL(file);
+});
+</script>
+
+<script type="text/javascript">
+    $('.casos').addClass('nav-item active');
+    $('.navbar-brand').text('{{"admin.casos"|trans}}');
+</script>
+{% endblock %}

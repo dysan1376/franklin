@@ -788,6 +788,46 @@
                         }
                     ]
                     }'>
+                    {#% for caso in casos %}
+                    <div class="carousel-item">    
+                        <!-- Image Box -->
+                        <figure class="image-box">
+                            <div class="image">
+                                <a href="case-study-doctor.html" data-toggle="ajax-modal">
+                                    <img src=" {{ asset('uploads/casos/picture/' ~ caso.picture) }}" alt="
+                                    {% for com in caso.descripcion %}
+                                        {% if (com.locale == app.request.locale) %}
+                                            {{com.title}}
+                                        {% endif %}
+                                    {% endfor %}">
+                                    <img src="{{ asset('uploads/casos/hover/' ~ caso.hover) }}" alt="
+                                    {% for com in caso.descripcion %}
+                                        {% if (com.locale == app.request.locale) %}
+                                            {{com.title}}
+                                        {% endif %}
+                                    {% endfor %}">
+                                </a>
+                            </div>
+                            <div class="content text-center">
+                                <h5 class="title"><a href="#" data-toggle="ajax-modal">
+                                    {% for com in caso.descripcion %}
+                                        {% if (com.locale == app.request.locale) %}
+                                            {{com.title}}
+                                        {% endif %}
+                                    {% endfor %}
+                                </a></h5>
+                                <span class="caption text-muted">
+                                    {% for com in caso.descripcion %}
+                                        {% if (com.locale == app.request.locale) %}
+                                            {{com.descripcion}}
+                                        {% endif %}
+                                    {% endfor %}
+                                </span>
+                            </div>
+                        </figure>
+                    </div>
+                    {% endfor %#}
+                    {% block hide %}
                     <div class="carousel-item">    
                         <!-- Image Box -->
                         <figure class="image-box">
@@ -863,6 +903,7 @@
                             </div>
                         </figure>
                     </div>
+                    {% endblock %}
                 </div>
             </div>
         </div>

@@ -18,25 +18,29 @@ admin_blog_paginated:
     requirements:
         _method:  GET
 
+
+
 admin_review:
     pattern:  /review
-    defaults: { _controller: AdminBundle:Default:reviews, page: 1 }
+    defaults: { _controller: AdminBundle:Review:reviews, page: 1 }
     requirements:
         _method:  GET
 
 admin_review_paginated:
     pattern:  /review/{page}
-    defaults: { _controller: AdminBundle:Default:reviews }
+    defaults: { _controller: AdminBundle:Review:reviews }
     requirements:
         _method:  GET
 
 review_new:
     path:     /new/review
-    defaults: { _controller: AdminBundle:Default:new }
+    defaults: { _controller: AdminBundle:Review:new }
 
 review_edit:
     path:     /edit/review/{id}
-    defaults: { _controller: AdminBundle:Default:edit }
+    defaults: { _controller: AdminBundle:Review:edit }
+
+
 
 admin_mails:
     path:     /mails
@@ -53,3 +57,24 @@ newsletter_test:
 newsletter_send:
     path:     /send/newsletter/{numberOfLastPosts}/{subject}
     defaults: { _controller: AdminBundle:Newsletter:send, numberOfLastPosts: 6, subject: "" }
+
+
+admin_casos:
+    pattern:  /casos
+    defaults: { _controller: AdminBundle:Casos:casos, page: 1 }
+    requirements:
+        _method:  GET
+
+admin_casos_paginated:
+    pattern:  /casos/{page}
+    defaults: { _controller: AdminBundle:Casos:casos }
+    requirements:
+        _method:  GET
+
+caso_new:
+    path:     /new/caso
+    defaults: { _controller: AdminBundle:Casos:new }
+
+caso_edit:
+    path:     /edit/caso/{id}
+    defaults: { _controller: AdminBundle:Casos:edit }

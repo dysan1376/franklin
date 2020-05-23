@@ -31,6 +31,13 @@ class DefaultController extends Controller
         );
         $reviews = array_slice($reviewsAll,0,4,false);
 
+        //Casos
+        $casosAll = $em->getRepository('PortadaBundle:Caso')->findBy(
+            array(),
+            array('id' => 'DESC')
+        );
+        $casos = array_slice($casosAll,0,4,false);
+
         $session = $this->container->get('session')->start();
     	$message = new Message();
     	$form = $this->createForm(new MessageType(), $message);
@@ -81,7 +88,8 @@ class DefaultController extends Controller
         return $this->render('PortadaBundle:Default:index.html.twig', array(
         	'form'=>$form->createView(),
             'blogs' => $blogs,
-            'reviews' => $reviews
+            'reviews' => $reviews,
+            'casos' => $casos
         ));
     }
 
