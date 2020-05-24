@@ -54,7 +54,7 @@ class DefaultController extends Controller
         		//Send email
     			$message = \Swift_Message::newInstance()
     		        ->setSubject($translator->trans('portada.nuevo_message'))
-    		        ->setFrom($email)
+    		        ->setFrom('info@franklinalvear.com')
     		        ->setTo('franklin@hospi.me')
     		        ->setBody(
     		            $this->renderView(
