@@ -44,7 +44,15 @@ review_edit:
 
 admin_mails:
     path:     /mails
+    defaults: { _controller: AdminBundle:Default:mails, page: 1 }
+    requirements:
+        _method:  GET
+
+admin_mails_paginated:
+    pattern:  /mails/{page}
     defaults: { _controller: AdminBundle:Default:mails }
+    requirements:
+        _method:  GET
 
 newsletter_prepare:
     path:     /prepare/newsletter/{numberOfLastPosts}

@@ -26,4 +26,42 @@ class PacienteRepository extends \Doctrine\ORM\EntityRepository
         return $result;
 
 	}
+
+	public function pacientesPeriodoIsSubscribed($desde, $hasta, $isSubscribed)
+	{
+		$em = $this->getEntityManager();
+
+		$dql = 'SELECT p
+				FROM UsuariosBundle:Paciente p
+				WHERE p.isSubscribed = :isSubscribed
+				AND p.fecha
+				BETWEEN :desde
+				AND :hasta';
+
+
+		$consulta = $em->createQuery($dql);
+		$consulta->setParameter('desde', $desde);
+		$consulta->setParameter('hasta', $hasta);
+		$consulta->setParameter('isSubscribed', $isSubscribed);
+
+        $result = $consulta->getResult();
+        return $result;
+    }
+
+    public function findAllDesc() 
+	{
+
+		$em = $this->getEntityManager();
+
+		$dql = 'SELECT o
+				FROM UsuariosBundle:Paciente o
+				ORDER BY o.id DESC';
+
+		$consulta = $em->createQuery($dql);
+		
+		$result = $consulta->getResult();
+        return $result;
+
+	}
+
 }

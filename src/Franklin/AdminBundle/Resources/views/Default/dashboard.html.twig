@@ -53,6 +53,29 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Pacientes</h4>
+                        <p class="card-category">Pacientes nuevos</p>
+                    </div>
+                    <div class="card-body ">
+                        <div id="pacientes" class="ct-chart"></div>
+                    </div>
+                    <div class="card-footer ">
+                        <div class="legend">
+                            <i class="fa fa-circle text-info"></i> Suscritos
+                            <i class="fa fa-circle text-danger"></i> Cancela Suscripción
+                        </div>
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-history"></i> Actualización diaria
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-6">
                 <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffranklinalvear.cirujanoplastico%2F&tabs=timeline&width=400&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1522670851135903" width="500" height="800" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
             </div>
@@ -254,5 +277,42 @@
 
     }
     demo.initDashboardPageCharts();
+
+    //Pacientes chart
+    var dataSales = {
+      labels: [{% for paciente in pacientes %}{% if loop.last %}'{{paciente[3]}}'{% else %}'{{paciente[3]}}', {% endif %}{% endfor %}],
+      series: [
+         [{% for paciente in pacientes %}{% if loop.last %}{{paciente[1]}}{% else %}{{paciente[1]}}, {% endif %}{% endfor %}],
+        [{% for paciente in pacientes %}{% if loop.last %}{{paciente[2]}}{% else %}{{paciente[2]}}, {% endif %}{% endfor %}]
+      ]
+    };
+
+    var optionsSales = {
+      lineSmooth: false,
+      low: 0,
+      high: 5,
+      showArea: true,
+      height: "245px",
+      axisX: {
+        showGrid: false,
+      },
+      lineSmooth: Chartist.Interpolation.simple({
+        divisor: 3
+      }),
+      showLine: false,
+      showPoint: false,
+    };
+
+    var responsiveSales = [
+      ['screen and (max-width: 640px)', {
+        axisX: {
+          labelInterpolationFnc: function (value) {
+            return value[0];
+          }
+        }
+      }]
+    ];
+
+    Chartist.Line('#pacientes', dataSales, optionsSales, responsiveSales);
 </script>
 {% endblock %}

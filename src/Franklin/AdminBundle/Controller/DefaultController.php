@@ -23,8 +23,9 @@ class DefaultController extends Controller
     public function dashboardAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $blogs = $em->getRepository('BlogBundle:Blog')->findAll();
 
+        //Blog stats
+        $blogs = $em->getRepository('BlogBundle:Blog')->findAll();
         $plasticaArray = $em->getRepository('BlogBundle:Blog')->findBy(
             array('tag' => 'plástica')
         );
@@ -37,7 +38,6 @@ class DefaultController extends Controller
         $otrosArray = $em->getRepository('BlogBundle:Blog')->findBy(
             array('tag' => 'otros')
         );
-
         //Last post date
         $lastPost = $em->getRepository('BlogBundle:Blog')->findBy(
             array(),
@@ -61,6 +61,28 @@ class DefaultController extends Controller
         $otros = ((count($otrosArray) * 100) / count($blogs));
         $otros = round($otros);
 
+        //Pacientes stats
+        $desde = new \DateTime('2020-05-14');
+        $desde->format('Y-m-d');
+        $hasta = new \DateTime('tomorrow');
+        $hasta->format('Y-m-d');
+        $interval = new \DateInterval('P1D');
+        $period = new \DatePeriod($desde, $interval, $hasta);
+
+        $pacientes = [];
+        foreach ($period as $key => $value) {
+            $ini = $value->format('Y-m-d');
+            $iniFormat = new \DateTime($value->format('Y-m-d'));
+            $end = $iniFormat->add(new \DateInterval("P1D"));
+            $subscribed = $em->getRepository('UsuariosBundle:Paciente')->pacientesPeriodoIsSubscribed($ini, $end, 1);
+            $unSubscribed = $em->getRepository('UsuariosBundle:Paciente')->pacientesPeriodoIsSubscribed($ini, $end, 0);
+            $label = new \DateTime($ini);
+            $pacientes[] = [$key, count($subscribed), count($unSubscribed), $label->format('D')];//$end->format('Y-m-d');
+        }
+
+        // echo "<pre>";
+        // \Doctrine\Common\Util\Debug::dump($pacientes);
+        // echo '</pre>';
 
 
     	return $this->render('AdminBundle:Default:dashboard.html.twig', array(
@@ -69,7 +91,8 @@ class DefaultController extends Controller
             'informacion' => $informacion,
             'tendencias' => $tendencias,
             'otros' => $otros,
-            'days' => $days
+            'days' => $days,
+            'pacientes' => $pacientes
         ));
     }
 
@@ -100,9 +123,21 @@ class DefaultController extends Controller
 
     
 
-    public function mailsAction(Request $request)
+    public function mailsAction(Request $request, $page)
     {
-        return $this->render('AdminBundle:Default:mails.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        //TODO
+        $pacientes = $em->getRepository('UsuariosBundle:Paciente')->findAllDesc();
+
+        $adapter = new ArrayAdapter($pacientes);
+        $pager = new Pagerfanta($adapter);
+        $pager->setMaxPerPage(5);
+        $pager->setCurrentPage($page);
+
+        return $this->render('AdminBundle:Default:mails.html.twig', array(
+            'pacientes' => $pager->getCurrentPageResults(),
+            'pager' => $pager,
+        ));
     }
 
     /**
