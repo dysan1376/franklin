@@ -239,7 +239,7 @@ class DefaultController extends Controller
 
     public function cert1Action()
     {
-        return $this->render('PortadaBundle:Default:cert1.html.twig');
+        return $this->render('PortadaBundle:Default:cert1.txt');
     }
 
     public function cert2Action()

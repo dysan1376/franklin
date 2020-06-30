@@ -19,7 +19,7 @@ portada_send_message:
     defaults: { _controller: PortadaBundle:Default:sendMessage }
 
 portada_cert1:
-    path:    /.well-known/acme-challenge/zwzzu0PvyqQkv9qAlk34jaN0X3tYOQylfLKBYtQz7YE
+    path:    /.well-known/pki-validation/0F47883358EDFDA5DD2672F825114A11.txt
     defaults: { _controller: PortadaBundle:Default:cert1 }
 
 portada_cert2:
