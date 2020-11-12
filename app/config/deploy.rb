@@ -22,6 +22,9 @@ set  :shared_childres,   [app_path + "/logs", web_path + "/uploads", "vendor"]
 
 
 set  :use_composer,    true
+#set  :composer_options, '--no-interaction --quiet --optimize-autoloader --no-progress'
+#Workaround reciente para evitar que se quede estancado en install composer dependencies
+#También es necesario comentar #set use_composer, true
 #set  :update_vendors,  true
 set  :copy_vendors,   true
 #set :dump_assetic_assets, true
