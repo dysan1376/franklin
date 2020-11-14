@@ -111,20 +111,22 @@ Author:         Suelo
                     });
                 }
 
-                // Video 
-                
+                // Video
+                var $bgVideo = $('.bg-video');
+                var $bgVideoMobile = $('.bg-video-mobile');
 
                 if(trueMobile) {
-                    var $bgVideoMobile = $('.bg-video-mobile');
                     if($bgVideoMobile.length) {
                         $bgVideoMobile.YTPlayer();
+                        $bgVideo.remove();
                     }
                 } else {
-                    var $bgVideo = $('.bg-video');
                     if($bgVideo.length) {
                         $bgVideo.YTPlayer();
+                        $bgVideoMobile.remove();
                     }
                 }
+
 
                 // var $bgVideo = $('.bg-video');
                 // if($bgVideo.length) {
@@ -134,7 +136,6 @@ Author:         Suelo
                 //         $bgVideo.next('.bg-video-placeholder').show();
                 //         $bgVideo.remove();
                 //     }
-
                 // }
 
             },
