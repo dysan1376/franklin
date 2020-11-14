@@ -21,8 +21,8 @@ set  :shared_files,      ["app/config/parameters.yml"]
 set  :shared_childres,   [app_path + "/logs", web_path + "/uploads", "vendor"]
 
 
-set  :use_composer,    true
-#set  :composer_options, '--no-interaction --quiet --optimize-autoloader --no-progress'
+#set  :use_composer,    true
+set  :composer_options, '--no-interaction --quiet --optimize-autoloader --no-progress'
 #Workaround reciente para evitar que se quede estancado en install composer dependencies
 #También es necesario comentar #set use_composer, true
 #set  :update_vendors,  true
