@@ -1,88 +1,7 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "jquery.mb.ytplayer",
-        "scope": null,
-        "escapedName": "jquery.mb.ytplayer",
-        "name": "jquery.mb.ytplayer",
-        "rawSpec": "",
-        "spec": "latest",
-        "type": "tag"
-      },
-      "/Users/piotrosmola/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/Templates/Ja/assets/plugins"
-    ]
-  ],
-  "_from": "jquery.mb.ytplayer@latest",
-  "_id": "jquery.mb.ytplayer@3.0.20",
-  "_inCache": true,
-  "_location": "/jquery.mb.ytplayer",
-  "_nodeVersion": "5.8.0",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/jquery.mb.ytplayer-3.0.20.tgz_1496253674189_0.4012237684801221"
-  },
-  "_npmUser": {
-    "name": "pupunzi",
-    "email": "matbicoc@gmail.com"
-  },
-  "_npmVersion": "3.9.2",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "jquery.mb.ytplayer",
-    "scope": null,
-    "escapedName": "jquery.mb.ytplayer",
-    "name": "jquery.mb.ytplayer",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/jquery.mb.ytplayer/-/jquery.mb.ytplayer-3.0.20.tgz",
-  "_shasum": "0b9e10083c5112b0197ca2fe6d6f6cef570153ee",
-  "_shrinkwrap": null,
-  "_spec": "jquery.mb.ytplayer",
-  "_where": "/Users/piotrosmola/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/Templates/Ja/assets/plugins",
-  "author": {
-    "name": "Pupunzi",
-    "email": "matteo@open-lab.com",
-    "url": "Matteo Bicocchi"
-  },
-  "bugs": {
-    "url": "https://github.com/pupunzi/jquery.mb.YTPlayer/issues"
-  },
-  "buildnum": "6252",
-  "demo": "http://pupunzi.com/#mb.components/mb.YTPlayer/YTPlayer.html",
-  "dependencies": {
-    "jquery": ">=1.8"
-  },
+  "name": "jquery.mb.ytplayer",
+  "title": "jquery.mb.YTPlayer",
   "description": "This plugin let you play any public YouTube video as background of your page. It can also be used as a customized player in page.",
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-build-number": "^1.0.0",
-    "grunt-bump": "^0.3.1",
-    "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-copy": "^0.8.0",
-    "grunt-contrib-cssmin": "^0.12.3",
-    "grunt-contrib-uglify": "^0.9.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-include-replace": "^3.0.0",
-    "grunt-jsbeautifier": "^0.2.10"
-  },
-  "directories": {
-    "example": "examples"
-  },
-  "dist": {
-    "shasum": "0b9e10083c5112b0197ca2fe6d6f6cef570153ee",
-    "tarball": "https://registry.npmjs.org/jquery.mb.ytplayer/-/jquery.mb.ytplayer-3.0.20.tgz"
-  },
-  "docs": "https://github.com/pupunzi/jquery.mb.YTPlayer/wiki",
-  "download": "http://pupunzi.open-lab.com/mb-jquery-components/jquery-mb-ytplayer/",
-  "gitHead": "20bdd248fef9b93ddf6bc8ed8892ef79b79c24a0",
-  "homepage": "http://pupunzi.open-lab.com/mb-jquery-components/jquery-mb-ytplayer/",
   "keywords": [
     "jquery-plugin",
     "video",
@@ -92,24 +11,49 @@
     "player",
     "custom"
   ],
-  "license": "MIT",
-  "main": "dist/jquery.mb.YTPlayer.js",
+  "version": "3.3.5",
+  "author": "Pupunzi <matbicoc@gmail.com> (Matteo Bicocchi)",
   "maintainers": [
-    {
-      "name": "pupunzi",
-      "email": "matbicoc@gmail.com"
-    }
+    "Pupunzi <matbicoc@gmail.com> (Matteo Bicocchi)"
   ],
-  "name": "jquery.mb.ytplayer",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pupunzi/jquery.mb.YTPlayer/issues"
+  },
+  "homepage": "http://pupunzi.open-lab.com/mb-jquery-components/jquery-mb-ytplayer/",
+  "demo": "http://pupunzi.com/#mb.components/mb.YTPlayer/YTPlayer.html",
+  "docs": "https://github.com/pupunzi/jquery.mb.YTPlayer/wiki",
+  "download": "http://pupunzi.open-lab.com/mb-jquery-components/jquery-mb-ytplayer/",
+  "dependencies": {
+    "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony",
+    "jquery": "^3.4.1",
+    "uglify-es": "github:mishoo/UglifyJS2#harmony",
+    "uglify-js": "^3.6.0",
+    "uglify-js-es6": "^2.8.9"
+  },
+  "main": "dist/jquery.mb.YTPlayer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pupunzi/jquery.mb.YTPlayer.git"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-build-number": "^1.0.0",
+    "grunt-bump": "^0.3.4",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-cssmin": "^0.12.3",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-include-replace": "^3.2.0",
+    "grunt-jsbeautifier": "^0.2.13",
+    "grunt-strip-code": "^1.0.6"
   },
-  "title": "jquery.mb.YTPlayer",
-  "version": "3.0.20"
+  "directories": {
+    "example": "examples"
+  },
+  "buildnum": "7541"
 }
