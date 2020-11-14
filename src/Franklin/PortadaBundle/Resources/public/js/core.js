@@ -117,9 +117,16 @@ Author:         Suelo
                     $bgVideo.YTPlayer();
 
                     if(trueMobile) {
-                        $bgVideo.next('.bg-video-placeholder').show();
-                        $bgVideo.remove();
+                        var $bgVideoMobile = $('.bg-video-mobile');
+                        if($bgVideoMobile.length) {
+                            $bgVideoMobile.YTPlayer();
+                        }
                     }
+
+                    // if(trueMobile) {
+                    //     $bgVideo.next('.bg-video-placeholder').show();
+                    //     $bgVideo.remove();
+                    // }
                 }
 
             },
