@@ -112,26 +112,15 @@ Author:         Suelo
                 }
 
                 // Video
-                var $bgVideo = $('#desktop');
-                var $bgVideoMobile = $('#mobile');
-                if(trueMobile) {
-                    $bgVideoMobile.YTPlayer();
-                    $bgVideo.remove();
-                } else {
+                var $bgVideo = $('.bg-video');
+                if($bgVideo.length) {
                     $bgVideo.YTPlayer();
-                    $bgVideoMobile.remove();
+
+                    if(trueMobile) {
+                        $bgVideo.next('.bg-video-placeholder').show();
+                        $bgVideo.remove();
+                    }
                 }
-
-
-                // var $bgVideo = $('.bg-video');
-                // if($bgVideo.length) {
-                //     $bgVideo.YTPlayer();
-
-                //     if(trueMobile) {
-                //         $bgVideo.next('.bg-video-placeholder').show();
-                //         $bgVideo.remove();
-                //     }
-                // }
 
             },
             filter: function() {
