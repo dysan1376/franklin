@@ -131,7 +131,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        //Get servicio
+        //Get servicio, cada servicio es una descripción detallada con el precio
         $servicio = $em->getRepository('PortadaBundle:Servicio')->findOneBy(array(
             'slug' => $slug,
             'locale' => $_locale
