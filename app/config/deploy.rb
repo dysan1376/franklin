@@ -31,6 +31,10 @@ set  :copy_vendors,   true
 
 set  :keep_releases,  3
 
+#set :ssh_options, {
+# verbose: :debug
+#}
+
 after "deploy:update", "deploy:mkdirs", "deploy:cleanup"
 
 namespace :deploy  do
@@ -49,4 +53,4 @@ end
 
 
 # Be more verbose by uncommenting the following line
-# logger.level = Logger::MAX_LEVEL
+#logger.level = Logger::MAX_LEVEL
