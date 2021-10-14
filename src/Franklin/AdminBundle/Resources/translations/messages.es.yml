@@ -62,6 +62,7 @@ admin:
     revisa_edita_crea_casos: "Revisa, edita o crea casos"
     nuevo_caso: "Nuevo caso"
     casos_user_view: "Casos (Vista de usuario)"
+    comentarios: "Comentarios"
 mailer:
     franklin_newsletter: "Dr. Franklin Alvear - Newsletter"
     continua_leyendo: "Continua leyendo"
