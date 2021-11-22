@@ -3,6 +3,7 @@
 namespace Franklin\UsuariosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+//use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Paciente
@@ -38,7 +39,7 @@ class Paciente
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=100)
+     * @ORM\Column(name="email", type="string", length=100, unique=true)
      */
     private $email;
 
@@ -62,6 +63,16 @@ class Paciente
      * @ORM\Column(name="fecha", type="datetime")
      */
     private $fecha;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Franklin\AdminBundle\Entity\Feedback", mappedBy="paciente")
+     */
+    protected $feedback;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Franklin\AdminBundle\Entity\Invitacion", mappedBy="paciente")
+     */
+    protected $invitacion;
 
 
     /**
@@ -214,6 +225,54 @@ class Paciente
     public function getFecha()
     {
         return $this->fecha;
+    }
+
+    /**
+     * Set feedback
+     *
+     * 
+     *
+     * 
+     */
+    public function setFeedback($feedback)
+    {
+        $this->feedback = $feedback;
+
+        return $this;
+    }
+
+    /**
+     * Get feedback
+     *
+     * 
+     */
+    public function getFeedback()
+    {
+        return $this->feedback;
+    }
+
+    /**
+     * Set invitacion
+     *
+     * 
+     *
+     * 
+     */
+    public function setInvitacion($invitacion)
+    {
+        $this->invitacion = $invitacion;
+
+        return $this;
+    }
+
+    /**
+     * Get invitacion
+     *
+     * 
+     */
+    public function getInvitacion()
+    {
+        return $this->invitacion;
     }
 }
 

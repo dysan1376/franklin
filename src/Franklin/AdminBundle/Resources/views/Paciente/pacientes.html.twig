@@ -1,0 +1,69 @@
+{% extends 'AdminBundle:Default:admin.html.twig' %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card strpied-tabled-with-hover">
+                    <div class="card-header ">
+                        <h4 class="card-title">{{"admin.listado_pacientes"|trans}}</h4>
+                        <p class="card-category">{{"admin.revisa_edita_crea_paciente"|trans}}</p>
+                        <a href="{{ path ('paciente_new') }}"><button type="button" class="btn btn-warning btn-fill pull-left">{{"admin.nuevo_paciente"|trans}}</button></a>
+                    </div>
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <th>{{"admin.id"|trans}}</th>
+                                <th>{{"admin.nombre"|trans}}</th>
+                                <th>{{"admin.apellido"|trans}}</th>
+                                <th>{{"admin.email"|trans}}</th>
+                                <th>{{"admin.suscripcion_activa"|trans}}</th>
+                                <th>{{"admin.fecha"|trans}}</th>
+                                <th>{{"admin.editar"|trans}}</th>
+                            </thead>
+                            <tbody>
+                                {% for paciente in pacientes %}
+                                <tr>
+                                    <td>{{paciente.id}}</td>
+                                    <td>{{paciente.nombre}}</td>
+                                    <td>{{paciente.apellido}}</td>
+                                    <td>{{paciente.email}}</td>
+                                    {% if paciente.isSubscribed == 1 %}
+                                        <td>Subscribed</td>
+                                    {% else %}
+                                        <td>Unsubscribed</td>
+                                    {% endif %}
+                                    <td>{{paciente.fecha|date('d-m-Y')}}</td>
+                                    <td><a href="{{ path('paciente_edit', {'id': paciente.id}) }}">{{"admin.editar"|trans}} <i class="fa fa-edit"></i></a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Pagerfanta -->
+                {% if pager is not null and pager.haveToPaginate %}
+                    <ul class="pagination justify-content-center">
+                        {{ pagerfanta(pager, 'twitter_bootstrap4', {
+                            'proximity': 2,
+                            'routeName': 'admin_pacientes_paginated',
+                            'routeParams': app.request.query.all,
+                            'prev_message': '<i class="fa fa-angle-left"></i>',
+                            'next_message': '<i class="fa fa-angle-right"></i>'
+                        }) }}
+                    </ul>
+                {% endif %}
+                <!-- /Pagerfanta -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    $('.pacientes').addClass('nav-item active');
+    $('.navbar-brand').text('{{"admin.pacientes"|trans}}');
+</script>
+{% endblock %}

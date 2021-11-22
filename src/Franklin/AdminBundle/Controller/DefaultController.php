@@ -126,18 +126,8 @@ class DefaultController extends Controller
     public function mailsAction(Request $request, $page)
     {
         $em = $this->getDoctrine()->getManager();
-        //TODO
-        $pacientes = $em->getRepository('UsuariosBundle:Paciente')->findAllDesc();
 
-        $adapter = new ArrayAdapter($pacientes);
-        $pager = new Pagerfanta($adapter);
-        $pager->setMaxPerPage(5);
-        $pager->setCurrentPage($page);
-
-        return $this->render('AdminBundle:Default:mails.html.twig', array(
-            'pacientes' => $pager->getCurrentPageResults(),
-            'pager' => $pager,
-        ));
+        return $this->render('AdminBundle:Default:mails.html.twig');
     }
 
     /**

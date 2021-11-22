@@ -86,3 +86,70 @@ caso_new:
 caso_edit:
     path:     /edit/caso/{id}
     defaults: { _controller: AdminBundle:Casos:edit }
+
+
+admin_feedback:
+    pattern:  /feedback
+    defaults: { _controller: AdminBundle:Feedback:feedback, page: 1 }
+    requirements:
+        _method:  GET
+
+admin_feedback_paginated:
+    pattern:  /feedback/{page}
+    defaults: { _controller: AdminBundle:Feedback:feedback }
+    requirements:
+        _method:  GET
+
+feedback_new:
+    path:     /new/feedback
+    defaults: { _controller: AdminBundle:Feedback:new }
+
+feedback_edit:
+    path:     /edit/feedback/{id}
+    defaults: { _controller: AdminBundle:Feedback:edit }
+
+
+admin_pacientes:
+    pattern:  /pacientes
+    defaults: { _controller: AdminBundle:Paciente:pacientes, page: 1 }
+    requirements:
+        _method:  GET
+
+admin_pacientes_paginated:
+    pattern:  /pacientes/{page}
+    defaults: { _controller: AdminBundle:Paciente:pacientes }
+    requirements:
+        _method:  GET
+
+paciente_new:
+    path:     /new/paciente
+    defaults: { _controller: AdminBundle:Paciente:new }
+
+paciente_edit:
+    path:     /edit/paciente/{id}
+    defaults: { _controller: AdminBundle:Paciente:edit }
+
+
+admin_invitaciones:
+    pattern:  /invitaciones
+    defaults: { _controller: AdminBundle:Invitacion:invitaciones, page: 1 }
+    requirements:
+        _method:  GET
+
+admin_invitaciones_paginated:
+    pattern:  /invitaciones/{page}
+    defaults: { _controller: AdminBundle:Invitacion:invitaciones }
+    requirements:
+        _method:  GET
+
+invitacion_new:
+    path:     /new/invitacion
+    defaults: { _controller: AdminBundle:Invitacion:new }
+
+invitacion_new_paciente:
+    path:     /new/invitacion/paciente/{id}
+    defaults: { _controller: AdminBundle:Invitacion:new }
+
+invitacion_edit:
+    path:     /edit/invitacion/{id}
+    defaults: { _controller: AdminBundle:Invitacion:edit }

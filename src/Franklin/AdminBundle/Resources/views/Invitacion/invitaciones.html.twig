@@ -1,0 +1,63 @@
+{% extends 'AdminBundle:Default:admin.html.twig' %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card strpied-tabled-with-hover">
+                    <div class="card-header ">
+                        <h4 class="card-title">{{"admin.listado_invitaciones"|trans}}</h4>
+                        <p class="card-category">{{"admin.revisa_edita_crea_invitacion"|trans}}</p>
+                        <a href="{{ path ('invitacion_new') }}"><button type="button" class="btn btn-warning btn-fill pull-left">{{"admin.nueva_invitacion"|trans}}</button></a>
+                    </div>
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <th>{{"admin.id"|trans}}</th>
+                                <th>{{"admin.nombre"|trans}}</th>
+                                <th>{{"admin.fecha"|trans}}</th>
+                                <th>{{"admin.fecha_expiracion"|trans}}</th>
+                                <th>{{"admin.enlace_activo"|trans}}</th>
+                            </thead>
+                            <tbody>
+                            	{% for invitacion in invitaciones %}
+                            	<tr>
+                                    <td>{{invitacion.id}}</td>
+                                    <td>{{invitacion.paciente.nombre}} {{invitacion.paciente.apellido}}</td>
+                                    <td>{{invitacion.fecha|date('d-m-Y')}}</td>
+                                    <td>{{invitacion.expira|date('d-m-Y')}}</td>
+                                    <td>{{invitacion.is_active}}</td>
+                                    
+                                    <td><a href="{{ path('feedback_edit', {'id': feedback.id}) }}">{{"admin.editar"|trans}} <i class="fa fa-edit"></i></a></td>
+                                </tr>
+                            	{% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Pagerfanta -->
+                {% if pager is not null and pager.haveToPaginate %}
+                    <ul class="pagination justify-content-center">
+                        {{ pagerfanta(pager, 'twitter_bootstrap4', {
+                            'proximity': 2,
+                            'routeName': 'admin_invitaciones_paginated',
+                            'routeParams': app.request.query.all,
+                            'prev_message': '<i class="fa fa-angle-left"></i>',
+                            'next_message': '<i class="fa fa-angle-right"></i>'
+                        }) }}
+                    </ul>
+                {% endif %}
+                <!-- /Pagerfanta -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    $('.feedback').addClass('nav-item active');
+    $('.navbar-brand').text('{{"admin.feedback"|trans}}');
+</script>
+{% endblock %}

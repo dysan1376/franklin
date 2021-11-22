@@ -1,0 +1,115 @@
+{% extends 'AdminBundle:Default:admin.html.twig' %}
+
+{% block css %}
+{{parent()}}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/portada/css/bootstrap-datetimepicker.css') }}">
+<style type="text/css">
+    .posts {
+        white-space: nowrap;
+        width: 100%;
+        display: table;
+    }
+    .image {
+        vertical-align: middle;
+          padding: 13px;
+          display: table-cell;
+    }
+    .image img {
+        max-width: 100%;
+    }
+    .preview {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    .lower {
+        text-transform: none!important;
+    }
+    .table td {
+        border: 0 !important;
+    }
+    .table {
+        margin-bottom: 0 !important;
+    }
+
+</style>
+<!-- CSS Toastr -->
+<link rel="stylesheet" href="{{ asset('bundles/portada/css/toastr.min.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="{{ path ('feedback_edit', {'id': id}) }}" method="POST" {{ form_enctype(form) }} novalidate>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">{{"admin.editar_feedback"|trans}}</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>{{"admin.calificacion"|trans}} <span class="lower">{{"admin.calificar_del"|trans}}</span></label>
+                                        {{ form_widget(form.rate) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>{{"admin.dias_posquirurgicos"|trans}}</label>
+                                        {{ form_widget(form.posquirurgico, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{"admin.opinion"|trans}}</label>
+                                        {{ form_widget(form.feedback, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>{{"admin.paciente"|trans}}</label>
+                                        {{ form_widget(form.paciente, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div style="display:none;">
+                                {{ form_rest(form) }}
+                            </div>
+                            <button id="send" type="submit" class="btn btn-info btn-fill pull-right">Enviar</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block java %}
+{{parent()}}
+<script src="{{ asset('bundles/portada/js/moment-with-langs.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/js/bootstrap-datetimepicker.min.js') }}"></script>
+<!-- JS Toastr -->
+<script src="{{ asset('bundles/portada/js/toastr.min.js') }}"></script>
+{% endblock %}
+
+{% block script %}
+<!-- Active class - Menu Bar -->
+<script type="text/javascript">
+    $('.feedback').addClass('nav-item active');
+    $('.navbar-brand').text('{{"admin.feedback"|trans}}');
+</script>
+<!-- /Active class - Menu Bar -->
+
+{% endblock %}

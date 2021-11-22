@@ -1,0 +1,82 @@
+{% extends 'AdminBundle:Default:admin.html.twig' %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card strpied-tabled-with-hover">
+                    <div class="card-header ">
+                        <h4 class="card-title">{{"admin.listado_feedback"|trans}}</h4>
+                        <p class="card-category">{{"admin.revisa_edita_crea_feedback"|trans}}</p>
+                        <a href="{{ path ('feedback_new') }}"><button type="button" class="btn btn-warning btn-fill pull-left">{{"admin.nuevo_feedback"|trans}}</button></a>
+                    </div>
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <th>{{"admin.id"|trans}}</th>
+                                <th>Nombre</th>
+                                <th>{{"admin.calificacion"|trans}}</th>
+                                <th>{{"admin.opinion"|trans}}</th>
+                                <th>{{"admin.fecha_creacion"|trans}}</th>
+                                <th>{{"admin.editar"|trans}}</th>
+                            </thead>
+                            <tbody>
+                            	{% for feedback in feedbacks %}
+                            	<tr>
+                                    <td>{{feedback.id}}</td>
+                                    <td>{{feedback.paciente.nombre}} {{feedback.paciente.apellido}}</td>
+                                    <td>{{feedback.rate}}</td>
+                                    <td>{{feedback.feedback}}</td>
+                                    <td>{{feedback.fecha|date('d-m-Y')}}</td>
+                                    <td><a href="{{ path('feedback_edit', {'id': feedback.id}) }}">{{"admin.editar"|trans}} <i class="fa fa-edit"></i></a></td>
+                                </tr>
+                            	{% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Pagerfanta -->
+                {% if pager is not null and pager.haveToPaginate %}
+                    <ul class="pagination justify-content-center">
+                        {{ pagerfanta(pager, 'twitter_bootstrap4', {
+                            'proximity': 2,
+                            'routeName': 'admin_feedback_paginated',
+                            'routeParams': app.request.query.all,
+                            'prev_message': '<i class="fa fa-angle-left"></i>',
+                            'next_message': '<i class="fa fa-angle-right"></i>'
+                        }) }}
+                    </ul>
+                {% endif %}
+                <!-- /Pagerfanta -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Invitaciones</h4>
+                        <p class="card-category">Crea invitaciones para emitir un feedback</p>
+                    </div>
+                    <div class="card-body ">
+                        <a href="{{ path ('admin_invitaciones') }}"><button type="button" class="btn btn-info btn-fill pull-left">Crear invitación</button></a>
+                    </div>
+                    <div class="card-footer ">
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-clock-o"></i> Los enlaces de las invitaciones expiran en 24 horas
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    $('.feedback').addClass('nav-item active');
+    $('.navbar-brand').text('{{"admin.feedback"|trans}}');
+</script>
+{% endblock %}

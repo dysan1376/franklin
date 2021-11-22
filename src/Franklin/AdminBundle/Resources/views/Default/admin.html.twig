@@ -68,12 +68,6 @@
                             <p>{{"admin.perfil"|trans}}</p>
                         </a>
                     </li>
-                    <li class="comentarios">
-                        <a class="nav-link" href="{#{ path('admin_comentarios') }#}">
-                            <i class="nc-icon nc-satisfied"></i>
-                            <p>{{"admin.comentarios"|trans}}</p>
-                        </a>
-                    </li>
                     <li class="casos">
                         <a class="nav-link" href="{{ path('admin_casos') }}">
                             <i class="nc-icon nc-notes"></i>
@@ -96,6 +90,18 @@
                         <a class="nav-link" href="{{ path('admin_mails') }}">
                             <i class="nc-icon nc-email-85"></i>
                             <p>{{"admin.mails"|trans}}</p>
+                        </a>
+                    </li>
+                    <li class="feedback">
+                        <a class="nav-link" href="{{ path('admin_feedback') }}">
+                            <i class="nc-icon nc-satisfied"></i>
+                            <p>{{"admin.feedback"|trans}}</p>
+                        </a>
+                    </li>
+                    <li class="pacientes">
+                        <a class="nav-link" href="{{ path('admin_pacientes') }}">
+                            <i class="nc-icon nc-single-02"></i>
+                            <p>{{"admin.pacientes"|trans}}</p>
                         </a>
                     </li>
                     <li class="nav-item active active-pro">
@@ -165,6 +171,16 @@
                             <li>
                                 <a href="{{ path('admin_mails') }}">
                                     {{"admin.mails"|trans}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_feedback') }}">
+                                    {{"admin.feedback"|trans}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_pacientes') }}">
+                                    {{"admin.pacientes"|trans}}
                                 </a>
                             </li>
                         </ul>

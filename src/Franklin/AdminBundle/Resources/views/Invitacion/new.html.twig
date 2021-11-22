@@ -1,0 +1,113 @@
+{% extends 'AdminBundle:Default:admin.html.twig' %}
+
+{% block css %}
+{{parent()}}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/portada/css/bootstrap-datetimepicker.css') }}">
+<style type="text/css">
+    .posts {
+        white-space: nowrap;
+        width: 100%;
+        display: table;
+    }
+    .image {
+        vertical-align: middle;
+          padding: 13px;
+          display: table-cell;
+    }
+    .image img {
+        max-width: 100%;
+    }
+    .preview {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    .lower {
+        text-transform: none!important;
+    }
+    .table td {
+        border: 0 !important;
+    }
+    .table {
+        margin-bottom: 0 !important;
+    }
+</style>
+<!-- CSS Toastr -->
+<link rel="stylesheet" href="{{ asset('bundles/portada/css/toastr.min.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="{{ path ('invitacion_new') }}" method="POST" {{ form_enctype(form) }} novalidate>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">{{"admin.nueva_invitacion"|trans}}</h4>
+                            <p class="card-category">Algo que aclarar en este formulario</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Fecha de invitación</label>
+                                        {{ form_widget(form.fecha, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Fecha que expira la invitación</label>
+                                        {{ form_widget(form.expira, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Enlace activo</label>
+
+                                        {{ form_widget(form.isActive, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>{{"admin.paciente"|trans}}</label>
+                                        {{ form_widget(form.paciente, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div style="display:none;">
+                                {{ form_rest(form) }}
+                            </div>
+                            <button id="send" type="submit" class="btn btn-info btn-fill pull-right">{{"admin.guardar"|trans}}</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block java %}
+{{parent()}}
+<script src="{{ asset('bundles/portada/js/moment-with-langs.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/js/bootstrap-datetimepicker.min.js') }}"></script>
+<!-- JS Toastr -->
+<script src="{{ asset('bundles/portada/js/toastr.min.js') }}"></script>
+{% endblock %}
+
+{% block script %}
+
+
+<script type="text/javascript">
+    $('.feedback').addClass('nav-item active');
+    $('.navbar-brand').text('{{"admin.feedback"|trans}}');
+</script>
+{% endblock %}

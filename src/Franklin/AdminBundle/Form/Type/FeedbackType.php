@@ -1,35 +1,36 @@
 <?php
 
-namespace Franklin\UsuariosBundle\Form\Type;
+namespace Franklin\AdminBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 
-class PacienteType extends AbstractType
+class FeedbackType extends AbstractType
 {
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder
-		    ->add('nombre')
-		    ->add('apellido')
-		    ->add('celular')
-			->add('email')
-			->add('isSubscribed')
-			->add('fecha');
+			->add('rate')
+			->add('feedback', 'textarea')
+			->add('posquirurgico')
+			->add('paciente', 'entity', array(
+				'class' => 'UsuariosBundle:Paciente',
+				'property' => 'email',
+			));
       }
 		
 
 	public function setDefaultOptions(OptionsResolverInterface $resolver)
 	{
 		$resolver->setDefaults(array(
-			'data_class' => 'Franklin\UsuariosBundle\Entity\Paciente',
+			'data_class' => 'Franklin\AdminBundle\Entity\Feedback',
 			));
 	}
 
 	public function getName()
 	{
-		return 'paciente_table';
+		return 'feedback_table';
 	}
 }
