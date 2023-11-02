@@ -39,8 +39,8 @@ class InvitacionController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $invitacion = new Invitacion();
-        $invitacion->setFecha(new \Datetime());
-        $invitacion->setExpira(new \Datetime());
+        $invitacion->setFecha(new \DateTime());
+        $invitacion->setExpira(new \DateTime());
 
         $expira = $invitacion->getExpira();
         $expira->add(new \DateInterval('PT24H'));
@@ -50,18 +50,9 @@ class InvitacionController extends Controller
         if ($request->isMethod('POST')) {
             $form->bind($request);
             if ($form->isValid()) {
-                echo "<div>";
-                \Doctrine\Common\Util\Debug::dump($invitacion);
-                echo '</div>';
 
                 $em->persist($invitacion);
-                echo "<div>";
-                \Doctrine\Common\Util\Debug::dump('Paso persist');
-                echo '</div>';
                 $em->flush();
-                echo "<div>";
-                \Doctrine\Common\Util\Debug::dump('Paso flush');
-                echo '</div>';
 
                 $flashBag = $this->get('session')->getFlashBag();
                 $flashBag->add('primary', 'Se ha creado exitosamente el enlace de la invitacion');

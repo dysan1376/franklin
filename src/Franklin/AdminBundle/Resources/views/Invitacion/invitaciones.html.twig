@@ -19,6 +19,7 @@
                                 <th>{{"admin.fecha"|trans}}</th>
                                 <th>{{"admin.fecha_expiracion"|trans}}</th>
                                 <th>{{"admin.enlace_activo"|trans}}</th>
+                                <th>Editar</th>
                             </thead>
                             <tbody>
                             	{% for invitacion in invitaciones %}
@@ -27,9 +28,9 @@
                                     <td>{{invitacion.paciente.nombre}} {{invitacion.paciente.apellido}}</td>
                                     <td>{{invitacion.fecha|date('d-m-Y')}}</td>
                                     <td>{{invitacion.expira|date('d-m-Y')}}</td>
-                                    <td>{{invitacion.is_active}}</td>
+                                    <td>{{invitacion.isActive}}</td>
                                     
-                                    <td><a href="{{ path('feedback_edit', {'id': feedback.id}) }}">{{"admin.editar"|trans}} <i class="fa fa-edit"></i></a></td>
+                                    <td><a href="{{ path('invitacion_edit', {'id': invitacion.id}) }}">{{"admin.editar"|trans}} <i class="fa fa-edit"></i></a></td>
                                 </tr>
                             	{% endfor %}
                             </tbody>

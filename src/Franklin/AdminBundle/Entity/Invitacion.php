@@ -24,14 +24,14 @@ class Invitacion
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha", type="datetime")
+     * @ORM\Column(name="fecha", type="datetime", nullable=true)
      */
     private $fecha;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="expira", type="integer")
+     * @ORM\Column(name="expira", type="datetime", nullable=true)
      */
     private $expira;
 
