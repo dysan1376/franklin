@@ -87,4 +87,22 @@ class BlogRepository extends EntityRepository
 		$result = $consulta->getResult();
         return $result;
 	}
+
+	public function findLastMonthBlogsPorLocale($numberOfLastPosts, $locale)
+	{
+		$em = $this->getEntityManager();
+
+		$dql = 'SELECT o
+				FROM BlogBundle:Blog o
+				WHERE o.locale = :locale
+				ORDER BY o.id DESC';
+
+		$consulta = $em->createQuery($dql);
+		$consulta->setParameter('locale', $locale);
+		$consulta->setMaxResults($numberOfLastPosts);
+
+		
+		$result = $consulta->getResult();
+        return $result;
+	}
 }

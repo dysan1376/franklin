@@ -11,7 +11,8 @@ class NewsletterController extends Controller
 	public function prepareAction(Request $request, $numberOfLastPosts)
     {
         $em = $this->getDoctrine()->getManager();
-        $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogs($numberOfLastPosts);
+        $locale = $request->getLocale();
+        $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogsPorLocale($numberOfLastPosts, $locale);
 
         return $this->render('AdminBundle:Mailer:prepareNewsletter.html.twig', array(
             'blogs' => $blogs
@@ -20,8 +21,17 @@ class NewsletterController extends Controller
 
     public function testAction(Request $request, $numberOfLastPosts, $email, $subject)
     {
+        //Get locale
+        $locale = $request->getLocale();
+        // echo "<div>";
+        // \Doctrine\Common\Util\Debug::dump($locale);
+        // echo '</div>';
+
         $em = $this->getDoctrine()->getManager();
-        $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogs($numberOfLastPosts);
+        $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogsPorLocale($numberOfLastPosts, $locale);
+        // $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogs($numberOfLastPosts);
+
+        
 
         //Send test email
         if ($email) {
@@ -42,7 +52,8 @@ class NewsletterController extends Controller
     public function sendAction(Request $request, $numberOfLastPosts, $subject)
     {
         $em = $this->getDoctrine()->getManager();
-        $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogs($numberOfLastPosts);
+        $locale = $request->getLocale();
+        $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogsPorLocale($numberOfLastPosts, $locale);
 
         $pacientes = $em->getRepository('UsuariosBundle:Paciente')->findNewsletterActive();
 
