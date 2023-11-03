@@ -49,6 +49,29 @@ class BlogRepository extends EntityRepository
 
 	}
 
+	public function findBlogsPublicadosPorLocale($locale) 
+	{
+
+		$fechaAtencion = new \DateTime();
+		$fechaAtencion->format('Y-m-d H:i:s');
+
+		$em = $this->getEntityManager();
+
+		$dql = 'SELECT o
+				FROM BlogBundle:Blog o
+				WHERE o.fechaProgramada <= :fecha
+				AND o.locale = :locale
+				ORDER BY o.id DESC';
+
+		$consulta = $em->createQuery($dql);
+		$consulta->setParameter('fecha', $fechaAtencion);
+		$consulta->setParameter('locale', $locale);
+		
+		$result = $consulta->getResult();
+        return $result;
+
+	}
+
 	public function findLastMonthBlogs($numberOfLastPosts)
 	{
 		$em = $this->getEntityManager();

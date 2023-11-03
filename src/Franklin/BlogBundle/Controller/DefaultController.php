@@ -20,7 +20,9 @@ class DefaultController extends Controller
     public function indexAction($page, $_locale)
     {
         $em = $this->getDoctrine()->getManager();
-        $blogs = $em->getRepository('BlogBundle:Blog')->findBlogsPublicados();
+        //Con el siguiente codigo salian todos los blogs de todos los idiomas, por eso fue cambiado por el locale
+        //$blogs = $em->getRepository('BlogBundle:Blog')->findBlogsPublicados();
+        $blogs = $em->getRepository('BlogBundle:Blog')->findBlogsPublicadosPorLocale($_locale);
         // $blogs = $em->getRepository('BlogBundle:Blog')->findBy(
         //     array(),
         //     array('id' => 'DESC')
