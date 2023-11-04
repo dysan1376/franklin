@@ -32,7 +32,7 @@ class NewsletterController extends Controller
         $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogsPorLocale($numberOfLastPosts, $locale);
         // $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogs($numberOfLastPosts);
         echo "<div>";
-        \Doctrine\Common\Util\Debug::dump(count($blogs));
+        \Doctrine\Common\Util\Debug::dump($locale);
         echo '</div>';
         
 
