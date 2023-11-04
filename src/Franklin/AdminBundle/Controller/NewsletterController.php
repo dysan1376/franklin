@@ -23,22 +23,14 @@ class NewsletterController extends Controller
     {
         //Get locale
         $locale = $request->getLocale();
-        //$locale = "es";
-        // echo "<div>";
-        // \Doctrine\Common\Util\Debug::dump($locale);
-        // echo '</div>';
-
+        //Get em
         $em = $this->getDoctrine()->getManager();
         $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogsPorLocale($numberOfLastPosts, $locale);
-        // $blogs = $em->getRepository('BlogBundle:Blog')->findLastMonthBlogs($numberOfLastPosts);
-        // echo "<div>";
-        // \Doctrine\Common\Util\Debug::dump($locale);
-        // echo '</div>';
         
 
         //Send test email
         if ($email) {
-        	$this->get('franklin.mailer')->sendNewsletter($subject, $email, $numberOfLastPosts);
+        	$this->get('franklin.mailer')->sendNewsletter($subject, $email, $numberOfLastPosts, $locale);
         	$flashBag = $this->get('session')->getFlashBag();
         	$flashBag->add('primary', 'Se ha enviado el correo al destinatario: '.$email);	
         } else {
