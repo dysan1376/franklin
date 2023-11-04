@@ -21,19 +21,19 @@ class Mailer
         $this->em = $em;
     }
 
-    public function findLastMonthBlogs($numberOfLastPosts)
+    public function findLastMonthBlogsPorLocale($numberOfLastPosts, $locale)
     {
 
-    	$results = $this->em->getRepository('BlogBundle:Blog')->findLastMonthBlogs($numberOfLastPosts);
+    	$results = $this->em->getRepository('BlogBundle:Blog')->findLastMonthBlogsPorLocale($numberOfLastPosts, $locale);
 
     	return $results;
 
     }
 
-    public function sendNewsletter($subject, $email, $numberOfLastPosts)
+    public function sendNewsletter($subject, $email, $numberOfLastPosts, $locale)
     {
 
-        $blogs = $this->findLastMonthBlogs($numberOfLastPosts);
+        $blogs = $this->findLastMonthBlogsPorLocale($numberOfLastPosts, $locale);
 	    
         if ($blogs) {
         	$message = \Swift_Message::newInstance()
