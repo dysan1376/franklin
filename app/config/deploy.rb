@@ -31,6 +31,10 @@ set  :copy_vendors,   true
 
 set  :keep_releases,  3
 
+#set :ssh_options, {
+# verbose: :debug
+#}
+
 after "deploy:update", "deploy:mkdirs", "deploy:cleanup"
 
 namespace :deploy  do

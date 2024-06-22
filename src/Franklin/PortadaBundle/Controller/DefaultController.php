@@ -17,7 +17,9 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         //$blogsAll = $em->getRepository('BlogBundle:Blog')->findAll();
-        $blogsAll = $em->getRepository('BlogBundle:Blog')->findBlogsPublicados();
+        // Antes de publicar cada post por locale
+        //$blogsAll = $em->getRepository('BlogBundle:Blog')->findBlogsPublicados();
+        $blogsAll = $em->getRepository('BlogBundle:Blog')->findBlogsPublicadosPorLocale($_locale);
         // $blogsAll = $em->getRepository('BlogBundle:Blog')->findBy(
         //     array(),
         //     array('id' => 'DESC')
