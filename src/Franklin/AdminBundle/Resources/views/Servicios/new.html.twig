@@ -1,0 +1,316 @@
+{% extends 'AdminBundle:Default:admin.html.twig' %}
+
+{% block css %}
+{{parent()}}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/portada/css/bootstrap-datetimepicker.css') }}">
+<style type="text/css">
+    .posts {
+        white-space: nowrap;
+        width: 100%;
+        display: table;
+    }
+    .image {
+        vertical-align: middle;
+          padding: 13px;
+          display: table-cell;
+    }
+    .image img {
+        max-width: 100%;
+    }
+    .preview {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    .lower {
+        text-transform: none!important;
+    }
+    .table td {
+        border: 0 !important;
+    }
+    .table {
+        margin-bottom: 0 !important;
+    }
+</style>
+<!-- CSS Toastr -->
+<link rel="stylesheet" href="{{ asset('bundles/portada/css/toastr.min.css') }}">
+{% endblock %}
+
+{#% macro custom(com) %}
+<div class="card-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>{{form_label(com.title)}} <span class="lower">Formato de escritura: Ginecomastia</span></label>
+                {{ form_widget(com.title, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>{{form_label(com.locale)}}</label>
+                {{ form_widget(com.locale, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 pr-1">
+            <div class="form-group">
+                <label>{{form_label(com.descripcion)}} <span class="lower">Formato de escritura: Paciente masculino 44 años</span></label>
+                {{ form_widget(com.descripcion, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %#}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="{{ path ('servicio_new') }}" method="POST" {{ form_enctype(form) }} novalidate>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">{{"admin.reviews"|trans}}</h4>
+                            <p class="card-category">{{"admin.reviews_locales_disponibles"|trans}}</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 pr-1">
+                                    <div class="form-group">
+                                        <label>{{form_label(form.slug)}}</label>
+                                        {{ form_widget(form.slug, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Slug Es</label><br>
+                                        <img id="caso_table_picture_img" class="preview" src=""><br>
+                                        {{ form_widget(form.slugEs, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Slug En</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.slugEn, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Slug Pt</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.slugPt, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Slug It</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.slugIt, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Locale</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.locale, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Title</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Subtitle</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.subtitle, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Keywords</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.keywords, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Description</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Paragraph One</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.paragraphOne, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Paragraph Two</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.paragraphTwo, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Paragraph Three</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.paragraphThree, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Paragraph Four</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.paragraphFour, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">    
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Image Url Main</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.imageUrlMain, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Image Alt Main</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.imageAltMain, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">    
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Image Url Secondary</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.imageUrlSecondary, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Image Alt Secondary</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.imageAltSecondary, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Rating Value</label><br>
+                                        <img id="caso_table_picture_img" class="preview" src=""><br>
+                                        {{ form_widget(form.ratingValue, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Review Count</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.reviewCount, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Price Min</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.priceMin, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Price Max</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.priceMax, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">    
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Honorarios</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.honorarios, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Currency</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.currency, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>MPN</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.mpn, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">    
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Append Text</label><br>
+                                        <img id="caso_table_hover_img" class="preview" src=""><br>
+                                        {{ form_widget(form.appendText, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div style="display:none;">
+                                {{ form_rest(form) }}
+                            </div>
+                            <button id="send" type="submit" class="btn btn-info btn-fill pull-right">{{"admin.guardar"|trans}}</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block java %}
+{{parent()}}
+<script src="{{ asset('bundles/portada/js/moment-with-langs.min.js') }}"></script>
+<script src="{{ asset('bundles/portada/js/bootstrap-datetimepicker.min.js') }}"></script>
+<!-- JS Toastr -->
+<script src="{{ asset('bundles/portada/js/toastr.min.js') }}"></script>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    $('.servicios').addClass('nav-item active');
+    $('.navbar-brand').text('{{"admin.servicios"|trans}}');
+</script>
+{% endblock %}

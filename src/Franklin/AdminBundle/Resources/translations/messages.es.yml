@@ -90,6 +90,13 @@ admin:
     enlace_activo: "Enlace activo"
     ingrese_una_calificacion: "Ingrese una calificacion de estrellas del 1 al 5"
     editar_feedback: "Editar opinión"
+    #######
+    servicios: "Servicios"
+    listado_servicios: "Listado de servicios"
+    revisa_edita_crea_servicios: "Revisa, edita o crea servicios"
+    nuevo_servicio: "Nuevo servicio"
+    servicios_user_view: "Servicios (Vista de usuario)"
+    honorarios: "Honorarios"
 
 
 mailer:

@@ -153,3 +153,24 @@ invitacion_new_paciente:
 invitacion_edit:
     path:     /edit/invitacion/{id}
     defaults: { _controller: AdminBundle:Invitacion:edit }
+
+
+admin_servicios:
+    pattern:  /servicios
+    defaults: { _controller: AdminBundle:Servicios:servicios, page: 1 }
+    requirements:
+        _method:  GET
+
+admin_servicios_paginated:
+    pattern:  /servicios/{page}
+    defaults: { _controller: AdminBundle:Servicios:servicios }
+    requirements:
+        _method:  GET
+
+servicio_new:
+    path:     /new/servicio
+    defaults: { _controller: AdminBundle:Servicios:new }
+
+servicio_edit:
+    path:     /edit/servicio/{id}
+    defaults: { _controller: AdminBundle:Servicios:edit }

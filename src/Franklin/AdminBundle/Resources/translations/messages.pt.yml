@@ -62,3 +62,10 @@ admin:
     suscribir_revista: "¿Suscribir a la revista?"
     celular: "Celular"
     editar_paciente: "Editar paciente"
+    #######
+    servicios: "Serviços"
+    listado_servicios: "Listado de servicios"
+    revisa_edita_crea_servicios: "Revisa, edita o crea servicios"
+    nuevo_servicio: "Nuevo servicio"
+    servicios_user_view: "Servicios (Vista de usuario)"
+    honorarios: "Honorarios"
